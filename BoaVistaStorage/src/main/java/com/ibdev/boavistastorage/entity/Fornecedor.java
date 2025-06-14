@@ -5,6 +5,12 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Builder(toBuilder = true)
+@Getter
+@AllArgsConstructor
+
+@NoArgsConstructor
+@ToString
 public class Fornecedor {
     private Long idFornecedor;
     private String nome;
