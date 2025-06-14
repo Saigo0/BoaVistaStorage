@@ -14,5 +14,5 @@ public class Fornecedor {
     private String endereco;
     private String cidade;
     private List<String> produtos = new ArrayList<>();
-    
+
 }
