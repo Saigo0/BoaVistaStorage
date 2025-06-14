@@ -9,6 +9,7 @@ module com.ibdev.boavistastorage {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires static lombok;
 
     opens com.ibdev.boavistastorage to javafx.fxml;
     exports com.ibdev.boavistastorage;
