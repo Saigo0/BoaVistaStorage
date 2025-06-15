@@ -9,8 +9,18 @@ module com.ibdev.boavistastorage {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
-    requires static lombok;
+    requires java.persistence;
+    requires jakarta.persistence;
+    requires com.sun.istack.runtime;
+    requires org.hibernate.orm.core;
+    requires java.sql;
+    requires net.bytebuddy;
 
-    opens com.ibdev.boavistastorage to javafx.fxml;
-    exports com.ibdev.boavistastorage;
+    opens com.ibdev.boavistastorage.entity to org.hibernate.orm.core;
+//    opens com.ibdev.boavistastorage to javafx.fxml;
+    opens com.ibdev.view to javafx.fxml;
+//    opens com.ibdev.boavistastorage.entity;
+
+    exports com.ibdev.boavistastorage.entity;
+
 }

@@ -5,15 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d14bb90-2084-43c2-8f61-8472d412129f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/entity/Pessoa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/entity/Fornecedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/entity/Fornecedor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/boavistastorage/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/hello-view.fxml" afterDir="false" />
+    </list>
+    <list id="6d815c8d-e831-4bde-bf80-a47dfb46b934" name="Changes by jonat" comment="">
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/HelloApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/entity/Fornecedor.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/entity/Fornecedor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -24,25 +44,56 @@
     &quot;assignee&quot;: &quot;DevSanttos&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/DevSanttos/BoaVistaStorages.git",
-    "accountId": "65d91634-34ea-406a-a83c-d43a15174100"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/DevSanttos/BoaVistaStorages.git&quot;,
+    &quot;accountId&quot;: &quot;65d91634-34ea-406a-a83c-d43a15174100&quot;
   }
-}]]></component>
+}</component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/entity/Fornecedor.java">
+      <ranges>
+        <range start1="1" end1="3" start2="1" end2="1" changelist="6d815c8d-e831-4bde-bf80-a47dfb46b934" />
+        <range start1="4" end1="4" start2="2" end2="7" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
+        <range start1="5" end1="5" start2="8" end2="9" changelist="6d815c8d-e831-4bde-bf80-a47dfb46b934" />
+        <range start1="6" end1="6" start2="10" end2="11" changelist="6d815c8d-e831-4bde-bf80-a47dfb46b934" />
+        <range start1="7" end1="13" start2="12" end2="14" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
+        <range start1="14" end1="14" start2="15" end2="17" changelist="6d815c8d-e831-4bde-bf80-a47dfb46b934" />
+        <range start1="15" end1="15" start2="18" end2="20" changelist="6d815c8d-e831-4bde-bf80-a47dfb46b934" />
+        <range start1="16" end1="17" start2="21" end2="26" changelist="6d815c8d-e831-4bde-bf80-a47dfb46b934" />
+        <range start1="18" end1="18" start2="27" end2="29" changelist="6d815c8d-e831-4bde-bf80-a47dfb46b934" />
+        <range start1="19" end1="19" start2="30" end2="32" changelist="6d815c8d-e831-4bde-bf80-a47dfb46b934" />
+        <range start1="20" end1="20" start2="33" end2="35" changelist="6d815c8d-e831-4bde-bf80-a47dfb46b934" />
+        <range start1="21" end1="22" start2="36" end2="44" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
+        <range start1="23" end1="23" start2="45" end2="154" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/main/Main.java">
+      <ranges>
+        <range start1="3" end1="5" start2="3" end2="7" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
+        <range start1="8" end1="8" start2="10" end2="18" changelist="6d815c8d-e831-4bde-bf80-a47dfb46b934" />
+        <range start1="9" end1="9" start2="19" end2="24" changelist="6d815c8d-e831-4bde-bf80-a47dfb46b934" />
+      </ranges>
+    </file>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2yVkyzuRImFexhhihM4ntrOyYA5" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.HelloApplication.executor": "Run",
     "Application.Main.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
@@ -58,6 +109,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.ibdev.boavistastorage" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -76,6 +132,10 @@
       <updated>1749927387642</updated>
       <workItem from="1749927390297" duration="55000" />
       <workItem from="1749927511488" duration="1813000" />
+      <workItem from="1749932008823" duration="374000" />
+      <workItem from="1749932393141" duration="16000" />
+      <workItem from="1749932415427" duration="32000" />
+      <workItem from="1749932498824" duration="25490000" />
     </task>
     <servers />
   </component>
