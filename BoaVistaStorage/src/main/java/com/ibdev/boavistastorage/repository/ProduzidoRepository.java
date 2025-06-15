@@ -38,6 +38,13 @@ public class ProduzidoRepository {
                 .getSingleResult();
     }
 
+    public Produzido findById(Long id) {
+        Produzido produzido = em.find(Produzido.class, id);
+        if (produzido == null) {
+            throw new RuntimeException("Produzido não encontrado com o ID: " + id);
+        }
+        return produzido;
+    }
 
 
     public void update(Long idProduto, Produzido produzido) {
@@ -51,6 +58,7 @@ public class ProduzidoRepository {
                 produzidoDB.setTipo(produzido.getTipo());
                 produzidoDB.setPrecoVenda(produzido.getPrecoVenda());
                 produzidoDB.setNome(produzido.getNome());
+                produzidoDB.setCardapio(produzido.getCardapio());
             } else {
                 System.out.println("Produto produzido não encontrado!");
                 throw new RuntimeException("Erro ao realizar a consulta por ID.");

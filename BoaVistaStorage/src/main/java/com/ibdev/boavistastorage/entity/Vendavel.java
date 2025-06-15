@@ -1,8 +1,9 @@
 package com.ibdev.boavistastorage.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "vendavel")
@@ -11,26 +12,36 @@ public class Vendavel extends Produto {
     private double precoVenda;
     private double quantEstoque;
 
-    @OneToOne
-    private Fornecimento fornecimento;
+    @OneToMany(mappedBy = "vendavel")
+    private List<Fornecimento> fornecimentos;
+
+    private StatusEstoque statusEstoque;
 
     public Vendavel(){
 
     }
 
-    public Vendavel(String nome, double precoCusto, Fornecimento fornecimento, double precoVenda, double quantEstoque) {
+    public Vendavel(String nome, double precoCusto, double precoVenda, double quantEstoque) {
         super(nome, precoCusto);
-        this.setFornecimento(fornecimento);
         this.setPrecoVenda(precoVenda);
         this.setQuantEstoque(quantEstoque);
+        this.fornecimentos = new ArrayList<Fornecimento>();
     }
 
-    public Fornecimento getFornecimento() {
-        return fornecimento;
+    public List<Fornecimento> getFornecimentos() {
+        return this.fornecimentos;
     }
 
-    public void setFornecimento(Fornecimento fornecimento) {
-        this.fornecimento = fornecimento;
+    public void addFornecimento(Fornecimento fornecimento) {
+        if (this.fornecimentos != null) {
+            this.fornecimentos.add(fornecimento);
+        }
+    }
+
+    public void removeFornecimento(Fornecimento fornecimento) {
+        if (this.fornecimentos != null) {
+            this.fornecimentos.remove(fornecimento);
+        }
     }
 
     public double getPrecoVenda() {
@@ -49,10 +60,18 @@ public class Vendavel extends Produto {
         this.quantEstoque = quantEstoque;
     }
 
+    public StatusEstoque getStatusEstoque() {
+        return statusEstoque;
+    }
+
+    public void setStatusEstoque(StatusEstoque statusEstoque) {
+        this.statusEstoque = statusEstoque;
+    }
+
     @Override
     public String toString() {
         return "Vendavel{" +
-                "fornecimento=" + this.fornecimento +
+                "fornecimentos=" + this.fornecimentos +
                 ", precoVenda=" + this.precoVenda +
                 ", quantEstoque=" + quantEstoque +
                 '}';

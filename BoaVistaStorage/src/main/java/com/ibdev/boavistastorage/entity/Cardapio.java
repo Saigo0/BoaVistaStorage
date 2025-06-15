@@ -25,11 +25,11 @@ public class Cardapio {
     }
 
     public void addProdutosDisponiveis(Produto produto) {
-        produtosDisponiveis.add(produto);
+        this.produtosDisponiveis.add(produto);
     }
 
     public void removeProdutosDisponiveis(Produto produto) {
-        produtosDisponiveis.remove(produto);
+        this.produtosDisponiveis.remove(produto);
     }
 
     public List<Produto> getProdutosDisponiveis() {

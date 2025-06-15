@@ -20,7 +20,7 @@ public class Compra {
     @JoinColumn(name = "fornecedor_id")
     private Fornecedor fornecedor;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "compra_id")
     private Gerente gerente;
 

@@ -2,7 +2,8 @@ package com.ibdev.boavistastorage.entity;
 
 import jakarta.persistence.*;
 
-@MappedSuperclass
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Pessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -11,10 +12,10 @@ public abstract class Pessoa {
     @Column(nullable = false)
     protected String nome;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     protected String telefone;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     protected String CPF;
 
     @Column(nullable = false)
@@ -74,7 +75,7 @@ public abstract class Pessoa {
     }
 
     public boolean setEndereco(String endereco) {
-        if(endereco.isEmpty()){
+        if(!endereco.isEmpty()){
             this.endereco = endereco;
             return true;
         } else

@@ -2,14 +2,15 @@ package com.ibdev.boavistastorage.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "insumo")
 public class Insumo extends Produto {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Compra compra;
+
+    @OneToMany(mappedBy = "insumo")
+    private List<Fornecimento> fornecimentos;
 
     @Column(nullable = false)
     private String unidadeDeMedida;
@@ -24,24 +25,21 @@ public class Insumo extends Produto {
     @Column(nullable = false)
     private List<InsumoProduzido> insumosProduzidos;
 
-    public Insumo(String nome, double precoCusto, String unidadeDeMedida, double quantidadeEstoque, StatusEstoque status){
+    public Insumo(String nome, double precoCusto, String unidadeDeMedida, double quantidadeEstoque){
         super(nome, precoCusto);
         this.setUnidadeDeMedida(unidadeDeMedida);
         this.setQuantidadeEstoque(quantidadeEstoque);
-        this.setStatusEstoque(status);
+        this.insumosProduzidos = new ArrayList<InsumoProduzido>();
+        this.fornecimentos = new ArrayList<Fornecimento>();
     }
 
     public Insumo(){
 
     }
 
-    public Compra getCompra() {
-        return compra;
-    }
 
-    public void setCompra(Compra compra) {
-        this.compra = compra;
-    }
+
+
 
     public String getUnidadeDeMedida() {
         return unidadeDeMedida;
@@ -68,7 +66,7 @@ public class Insumo extends Produto {
     }
 
     public List<InsumoProduzido> getInsumosProduzidos() {
-        return insumosProduzidos;
+        return this.insumosProduzidos;
     }
 
     public void addInsumosProduzidos(InsumoProduzido insumoProduzido) {
@@ -82,7 +80,7 @@ public class Insumo extends Produto {
     @Override
     public String toString() {
         return "Insumo{" +
-                "compra=" + this.compra +
+                "fornecimentos=" + this.fornecimentos +
                 ", unidadeDeMedida='" + this.unidadeDeMedida + '\'' +
                 ", quantidadeEstoque=" + this.quantidadeEstoque +
                 ", statusEstoque=" + this.statusEstoque +

@@ -1,7 +1,5 @@
 package com.ibdev.boavistastorage.entity;
 
-
-
 import com.sun.istack.NotNull;
 import jakarta.persistence.*;
 
@@ -17,19 +15,19 @@ public class Fornecedor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idFornecedor;
     
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String nome;
     
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String CNPJ;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String telefone;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String endereco;
 
     @Column(nullable = false)
@@ -111,11 +109,11 @@ public class Fornecedor {
     }
 
     public void addFornecimento(Fornecimento umFornecimento) {
-        this.addFornecimento(umFornecimento);
+        this.fornecimentos.add(umFornecimento);
     }
 
     public void removeFornecimento(Fornecimento umFornecimento) {
-        this.removeFornecimento(umFornecimento);
+        this.fornecimentos.remove(umFornecimento);
     }
 
     public void setFornecimentos(List<Fornecimento> fornecimentos) {
@@ -127,11 +125,11 @@ public class Fornecedor {
     }
 
     public void addCompra(Compra umCompra) {
-        this.addCompra(umCompra);
+        this.compras.add(umCompra);
     }
 
     public void removeCompra(Compra umCompra) {
-        this.removeCompra(umCompra);
+        this.compras.remove(umCompra);
     }
 
     public void setCompras(List<Compra> compras) {

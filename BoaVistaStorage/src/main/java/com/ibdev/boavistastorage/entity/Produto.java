@@ -75,7 +75,6 @@ public abstract class Produto {
                 "id=" + this.id +
                 ", nome='" + this.nome + '\'' +
                 ", precoCusto=" + this.precoCusto +
-                ", cardapio=" + this.cardapio +
                 ", itemPedido=" + this.itemPedido +
                 '}';
     }

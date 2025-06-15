@@ -71,6 +71,7 @@ public class InsumoRepository {
                 insumoDB.setUnidadeDeMedida(insumoDB.getUnidadeDeMedida());
                 insumoDB.setQuantidadeEstoque(insumoDB.getQuantidadeEstoque());
                 insumoDB.setStatusEstoque(insumoDB.getStatusEstoque());
+                insumoDB.setCardapio(insumoDB.getCardapio());
             } else {
                 System.out.println("Insumo não encontrado!");
                 throw new RuntimeException("Erro ao realizar a consulta por ID.");

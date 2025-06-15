@@ -1,13 +1,12 @@
 package com.ibdev.boavistastorage.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 
-@MappedSuperclass
-public class Funcionario extends Pessoa {
-    @Column(unique = true, nullable = false)
+@Entity
+public abstract class Funcionario extends Pessoa {
+    @Column(nullable = false, unique = true)
     private String login;
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false, unique = true)
     private String senha;
 
     public Funcionario() {
