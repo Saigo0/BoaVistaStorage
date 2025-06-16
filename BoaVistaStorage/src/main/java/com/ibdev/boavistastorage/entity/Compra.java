@@ -110,7 +110,7 @@ public class Compra {
                 "idCompra=" + this.idCompra +
                 ", dataCompra=" + this.dataCompra +
                 ", fornecedor=" + this.fornecedor +
-                ", gerente=" + this.gerente +
+                ", id do gerente=" + this.gerente.getId() +
                 ", produtosCompra=" + this.itensCompra +
                 ", valorTotalCompra=" + this.valorTotalCompra +
                 ", financeiro=" + this.financeiro +

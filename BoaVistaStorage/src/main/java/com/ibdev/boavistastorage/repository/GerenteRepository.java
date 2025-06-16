@@ -2,6 +2,7 @@ package com.ibdev.boavistastorage.repository;
 
 import com.ibdev.boavistastorage.entity.Gerente;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceException;
 
 public class GerenteRepository {
     private EntityManager em;
@@ -15,6 +16,13 @@ public class GerenteRepository {
             em.getTransaction().begin();
             em.persist(gerente);
             em.getTransaction().commit();
+        } catch (PersistenceException ex) {
+            if (ex.getCause() instanceof org.hibernate.exception.ConstraintViolationException) {
+                if (em.getTransaction().isActive()) {
+                    em.getTransaction().rollback();
+                }
+                throw new RuntimeException("Fornecedor já cadastrado com os mesmos dados.");
+            }
         } catch (Exception e) {
             if (em.getTransaction().isActive()) {
                 em.getTransaction().rollback();
@@ -39,9 +47,9 @@ public class GerenteRepository {
                 .getSingleResult();
     }
 
-    public Gerente findByEmail(String endereco) {
-        return em.createQuery("select g from Gerente g where g.endereco = :endereco", Gerente.class)
-                .setParameter("endereco", endereco)
+    public Gerente findByTelefone(String telefone) {
+        return em.createQuery("select g from Gerente g where g.telefone = :telefone", Gerente.class)
+                .setParameter("telefone", telefone)
                 .getSingleResult();
     }
 
@@ -51,21 +59,33 @@ public class GerenteRepository {
                 .getSingleResult();
     }
 
-    public void update(Long idGerente, Gerente atendente) {
+    public Gerente findByEndereco(String endereco) {
+        return em.createQuery("select g from Gerente g where g.endereco = :endereco", Gerente.class)
+                .setParameter("endereco", endereco)
+                .getSingleResult();
+    }
+
+    public Gerente findByLogin(String login) {
+        return em.createQuery("select g from Gerente g where g.login = :login", Gerente.class)
+                .setParameter("login", login)
+                .getSingleResult();
+    }
+
+    public void update(Long idGerente, Gerente gerente) {
         try {
             em.getTransaction().begin();
 
             Gerente gerenteDB = em.find(Gerente.class, idGerente);
 
             if (gerenteDB != null) {
-                gerenteDB.setNome(atendente.getNome());
-                gerenteDB.setTelefone(atendente.getTelefone());
-                gerenteDB.setCPF(atendente.getCPF());
-                gerenteDB.setEndereco(atendente.getEndereco());
-                gerenteDB.setLogin(atendente.getLogin());
-                gerenteDB.setSenha(atendente.getSenha());
+                gerenteDB.setNome(gerente.getNome());
+                gerenteDB.setTelefone(gerente.getTelefone());
+                gerenteDB.setCPF(gerente.getCPF());
+                gerenteDB.setEndereco(gerente.getEndereco());
+                gerenteDB.setLogin(gerente.getLogin());
+                gerenteDB.setSenha(gerente.getSenha());
+                em.merge(gerenteDB);
             } else {
-                System.out.println("Gerente não encontrado!");
                 throw new RuntimeException("Erro ao realizar a consulta por ID.");
             }
             em.getTransaction().commit();
@@ -86,7 +106,8 @@ public class GerenteRepository {
         } catch (Exception e) {
             if (em.getTransaction().isActive()) {
                 em.getTransaction().rollback();
-            } throw new RuntimeException("Erro ao deletar o Gerente: " + e.getMessage());
+            }
+            throw new RuntimeException("Erro ao deletar o Gerente: " + e.getMessage());
         }
     }
 }

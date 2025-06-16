@@ -32,6 +32,6 @@ public class Cliente extends Pessoa{
     @Override
     public String toString() {
         return super.toString() +
-                "Venda: " + this.venda;
+                " Venda: " + this.venda;
     }
 }
