@@ -11,7 +11,7 @@ public class Venda {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idVenda;
 
-    @OneToOne
+    @OneToOne(mappedBy = "venda")
     private Pedido pedido;
 
     @Column(nullable = false)
@@ -30,7 +30,7 @@ public class Venda {
 
     public Venda(){}
 
-    public Venda(Pedido pedido, LocalDateTime dataVenda, double valorTotal){
+    public Venda(Pedido pedido, double valorTotal){
         this.setPedido(pedido);
         this.dataVenda = LocalDateTime.now();
         this.setValorTotal(valorTotal);
@@ -84,11 +84,10 @@ public class Venda {
     public String toString() {
         return "Venda{" +
                 "idVenda=" + this.idVenda +
-                ", pedido=" + this.pedido +
                 ", dataVenda=" + this.dataVenda +
                 ", valorTotal=" + this.valorTotal +
-                ", cliente=" + this.cliente +
-                ", financeiro=" + this.financeiro +
+                ", cliente=" + this.cliente.getId() +
+                ", financeiro=" + this.financeiro.getIdFinanceiro() +
                 '}';
     }
 }

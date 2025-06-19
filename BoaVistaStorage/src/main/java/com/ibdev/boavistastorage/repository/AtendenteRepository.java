@@ -5,7 +5,7 @@ import com.ibdev.boavistastorage.entity.Atendente;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceException;
 
-public class AtendenteRepository {
+public class    AtendenteRepository {
     private EntityManager em;
 
     public AtendenteRepository(EntityManager em) {

@@ -79,12 +79,11 @@ public class Insumo extends Produto {
 
     @Override
     public String toString() {
-        return "Insumo{" +
+        return super.toString() + "Insumo{" +
                 "fornecimentos=" + this.fornecimentos +
                 ", unidadeDeMedida='" + this.unidadeDeMedida + '\'' +
                 ", quantidadeEstoque=" + this.quantidadeEstoque +
                 ", statusEstoque=" + this.statusEstoque +
-                ", insumosProduzidos=" + this.insumosProduzidos +
                 '}';
     }
 }

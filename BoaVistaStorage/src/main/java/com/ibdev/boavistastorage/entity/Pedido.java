@@ -20,12 +20,10 @@ public class Pedido {
     private List<ItemPedido> itensList;
 
     @OneToOne
+    @JoinColumn(name = "venda_id")
     private Venda venda;
 
-    public Pedido(){
-    }
-
-    public Pedido(LocalDateTime dataPedido) {
+    public Pedido() {
         this.dataPedido = LocalDateTime.now();
         this.itensList = new ArrayList<>();
     }

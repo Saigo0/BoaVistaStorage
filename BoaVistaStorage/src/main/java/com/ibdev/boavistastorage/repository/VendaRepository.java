@@ -1,6 +1,7 @@
 package com.ibdev.boavistastorage.repository;
 
-import com.ibdev.boavistastorage.entity.Fornecedor;
+import com.ibdev.boavistastorage.entity.Cliente;
+import com.ibdev.boavistastorage.entity.Pedido;
 import com.ibdev.boavistastorage.entity.Venda;
 import jakarta.persistence.EntityManager;
 
@@ -36,12 +37,29 @@ public class VendaRepository {
         return em.find(Venda.class, id);
     }
 
+    public Venda findByPedido(Pedido pedido) {
+        return em.createQuery("select v from Venda v where v.pedido = :pedido", Venda.class)
+                .setParameter("pedido", pedido)
+                .getSingleResult();
+    }
+
     public Venda findByDataVenda(LocalDateTime dataVenda) {
         return em.createQuery("select v from Venda v where v.dataVenda = :dataVenda", Venda.class)
                 .setParameter("dataVenda", dataVenda)
                 .getSingleResult();
     }
 
+    public Venda findByValorTotal(double valorTotal) {
+        return em.createQuery("select v from Venda v where v.valorTotal = :valorTotal", Venda.class)
+                .setParameter("valorTotal", valorTotal)
+                .getSingleResult();
+    }
+
+    public Venda findByCliente(Cliente cliente) {
+        return em.createQuery("select v from Venda v where v.cliente = :cliente", Venda.class)
+                .setParameter("cliente", cliente)
+                .getSingleResult();
+    }
 
     public void update(Long idVenda, Venda venda) {
         try {

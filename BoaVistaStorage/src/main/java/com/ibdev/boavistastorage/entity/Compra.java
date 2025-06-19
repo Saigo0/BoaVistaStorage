@@ -109,11 +109,11 @@ public class Compra {
         return "Compra{" +
                 "idCompra=" + this.idCompra +
                 ", dataCompra=" + this.dataCompra +
-                ", fornecedor=" + this.fornecedor +
+                ", fornecedor=" + this.fornecedor.getIdFornecedor() +
                 ", id do gerente=" + this.gerente.getId() +
                 ", produtosCompra=" + this.itensCompra +
                 ", valorTotalCompra=" + this.valorTotalCompra +
-                ", financeiro=" + this.financeiro +
+                ", financeiro=" + this.financeiro.getIdFinanceiro() +
                 '}';
     }
 }

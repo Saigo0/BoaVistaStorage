@@ -59,6 +59,14 @@ public class Produzido extends Produto {
         this.precoVenda = precoVenda;
     }
 
+    public void addInsumoProduzido(InsumoProduzido insumoProduzido) {
+        this.insumosProduzidos.add(insumoProduzido);
+    }
+
+    public void removeInsumoProduzido(InsumoProduzido insumoProduzido) {
+        this.insumosProduzidos.remove(insumoProduzido);
+    }
+
     public List<InsumoProduzido> getInsumosProduzidos() {
         return insumosProduzidos;
     }
@@ -73,7 +81,6 @@ public class Produzido extends Produto {
                 " descricao='" + this.descricao + '\'' +
                 ", tipo='" + tipo + '\'' +
                 ", precoVenda=" + precoVenda +
-                ", insumosProduzidos=" + insumosProduzidos +
                 '}';
     }
 }

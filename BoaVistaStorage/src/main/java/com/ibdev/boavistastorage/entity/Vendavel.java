@@ -8,9 +8,11 @@ import java.util.List;
 @Entity
 @Table(name = "vendavel")
 public class Vendavel extends Produto {
-
-    private double precoVenda;
+    @Column(nullable = false)
     private double quantEstoque;
+
+    @Column(nullable = false)
+    private double precoVenda;
 
     @OneToMany(mappedBy = "vendavel")
     private List<Fornecimento> fornecimentos;

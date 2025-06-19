@@ -41,8 +41,7 @@ public class PedidoRepository {
                 .setParameter("dataPedido", dataPedido)
                 .getSingleResult();
     }
-
-
+    
     public void update(Long idPedido, Pedido pedido) {
         try {
             em.getTransaction().begin();
@@ -53,7 +52,7 @@ public class PedidoRepository {
                 pedidoDB.setDataPedido(pedido.getDataPedido());
                 pedidoDB.setVenda(pedido.getVenda());
             } else {
-                System.out.println("Pedido não encontrada!");
+                System.out.println("Pedido não encontrado!");
                 throw new RuntimeException("Erro ao realizar a consulta por ID.");
             }
             em.getTransaction().commit();
