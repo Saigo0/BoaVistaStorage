@@ -63,12 +63,18 @@ public class TelaLogin implements Initializable {
         });
 
         campoUser.setOnKeyPressed(event -> {
-            txtLoginInvalido.setVisible(false);
+            txtLoginInvalido.setText("");
         });
 
         campoSenha.setOnKeyPressed(event -> {
-            txtSenhaInvalida.setVisible(false);
+            txtSenhaInvalida.setText("");
         });
+
+        txtLoginInvalido.setText("");
+        txtLoginInvalido.setVisible(false);
+        txtSenhaInvalida.setText("");
+        txtSenhaInvalida.setVisible(false);
+
     }
 
     private void realizarLogin() {
@@ -78,27 +84,42 @@ public class TelaLogin implements Initializable {
         if (usuario.trim().isEmpty() || usuario == null) {
             txtLoginInvalido.setText("Informe um login válido");
             txtLoginInvalido.setVisible(true);
+            txtSenhaInvalida.setText("");
             return;
         }
+        txtLoginInvalido.setText("");
+        txtSenhaInvalida.setText("");
 
         if (senha.trim().isEmpty() || senha == null) {
             txtSenhaInvalida.setText("Informe uma senha válida");
             txtSenhaInvalida.setVisible(true);
             return;
         }
+        txtSenhaInvalida.setText("");
+        txtLoginInvalido.setText("");
 
-        if (atendenteService.findByLoginAndSenha(usuario, senha) != null) {
-            Stage stage = (Stage) btnLogin.getScene().getWindow();
-            SceneManager.mudarCena(stage, "/com/ibdev/view/tela-principal-atendente.fxml", "Tela Principal Atendente");
-        } else if (gerenteService.findByLoginAndSenha(usuario, senha) != null) {
-            Stage stage = (Stage) btnLogin.getScene().getWindow();
-            SceneManager.mudarCena(stage, "/com/ibdev/view/tela-principal-gerente.fxml", "Tela Principal Gerente");
-        } else {
-            txtLoginInvalido.setText("Não foi possível realizar o login");
-            txtLoginInvalido.setVisible(true);
-            txtSenhaInvalida.setText("Não foi possível realizar o login");
-            txtSenhaInvalida.setVisible(true);
+        try {
+            if (atendenteService.findByLoginAndSenha(usuario, senha) != null) {
+                Stage stage = (Stage) btnLogin.getScene().getWindow();
+                SceneManager.mudarCena(stage, "/com/ibdev/view/tela-principal-atendente.fxml", "Tela Principal Atendente");
+                return;
+            }
+        } catch (Exception e) {
         }
+
+        try {
+            if (gerenteService.findByLoginAndSenha(usuario, senha) != null) {
+                Stage stage = (Stage) btnLogin.getScene().getWindow();
+                SceneManager.mudarCena(stage, "/com/ibdev/view/tela-principal-gerente.fxml", "Tela Principal Gerente");
+                return;
+            }
+        } catch (Exception e) {
+        }
+
+        txtLoginInvalido.setText("Não foi possível realizar o login");
+        txtLoginInvalido.setVisible(true);
+        txtSenhaInvalida.setText("Não foi possível realizar o login");
+        txtSenhaInvalida.setVisible(true);
     }
 }
 

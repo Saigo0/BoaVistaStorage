@@ -1,6 +1,10 @@
 package com.ibdev.boavistastorage.main;
 
 import com.ibdev.boavistastorage.controller.TelaLogin;
+import com.ibdev.boavistastorage.entity.Atendente;
+import com.ibdev.boavistastorage.entity.Gerente;
+import com.ibdev.boavistastorage.repository.AtendenteRepository;
+import com.ibdev.boavistastorage.repository.GerenteRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -14,6 +18,8 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     public static void main(String[] args) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa_basic");
+        EntityManager em = emf.createEntityManager();
         launch(args);
     }
 

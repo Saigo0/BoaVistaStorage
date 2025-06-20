@@ -12,7 +12,7 @@ public class AtendenteService {
 
     public Atendente findByLoginAndSenha(String login, String senha) {
         try {
-            Atendente atendente = atendenteRepository.findByName(login);
+            Atendente atendente = atendenteRepository.findByLogin(login);
             if (atendente != null && atendente.getSenha().equals(senha)) {
                 return atendente;
             } else {
