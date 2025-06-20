@@ -35,6 +35,10 @@ public class CardapioRepository {
         }
     }
 
+    public Cardapio findById(Long id) {
+        return em.find(Cardapio.class, id);
+    }
+
     public void update(Cardapio cardapio) {
         if (cardapio.getProdutosDisponiveis().size() <= 0) {
             throw new RuntimeException("O cardápio deve ter pelo menos um produto disponível.");
@@ -55,10 +59,6 @@ public class CardapioRepository {
         em.createQuery("select c from Cardapio c", Cardapio.class)
                 .getResultList()
                 .forEach(System.out::println);
-    }
-
-    public Cardapio findById(Long id) {
-        return em.find(Cardapio.class, id);
     }
 
     public void delete(Long id) {

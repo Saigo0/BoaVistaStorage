@@ -17,10 +17,9 @@ module com.ibdev.boavistastorage {
     requires net.bytebuddy;
 
     opens com.ibdev.boavistastorage.entity to org.hibernate.orm.core;
-//    opens com.ibdev.boavistastorage to javafx.fxml;
     opens com.ibdev.view to javafx.fxml;
-//    opens com.ibdev.boavistastorage.entity;
-
+    opens com.ibdev.boavistastorage.controller to javafx.fxml;
     exports com.ibdev.boavistastorage.entity;
+    exports com.ibdev.boavistastorage.main;
 
 }

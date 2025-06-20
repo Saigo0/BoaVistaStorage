@@ -77,6 +77,14 @@ public class Insumo extends Produto {
         this.insumosProduzidos.remove(insumoProduzido);
     }
 
+    public boolean setInsumosProduzidos(List<InsumoProduzido> insumosProduzidos) {
+        if (insumosProduzidos == null || insumosProduzidos.isEmpty()) {
+            return false;
+        }
+        this.insumosProduzidos = insumosProduzidos;
+        return true;
+    }
+
     @Override
     public String toString() {
         return super.toString() + "Insumo{" +

@@ -59,7 +59,7 @@ public class InsumoRepository {
                 .getSingleResult();
     }
 
-    public void update(Long idInsumo, Insumo insumo) {
+    public boolean update(Long idInsumo, Insumo insumo) {
         try {
             em.getTransaction().begin();
 
@@ -73,6 +73,7 @@ public class InsumoRepository {
                 insumoDB.setQuantidadeEstoque(insumoDB.getQuantidadeEstoque());
                 insumoDB.setStatusEstoque(insumoDB.getStatusEstoque());
                 insumoDB.setCardapio(insumoDB.getCardapio());
+                insumoDB.setInsumosProduzidos(insumoDB.getInsumosProduzidos());
             } else {
                 System.out.println("Insumo não encontrado!");
                 throw new RuntimeException("Erro ao realizar a consulta por ID.");
@@ -85,9 +86,10 @@ public class InsumoRepository {
             }
             throw new RuntimeException("Erro ao realizar a consulta por ID." + e.getMessage());
         }
+        return true;
     }
 
-    public void delete(Long id) {
+    public boolean delete(Long id) {
         try {
             em.getTransaction().begin();
             em.remove(em.find(Insumo.class, id));
@@ -97,5 +99,6 @@ public class InsumoRepository {
                 em.getTransaction().rollback();
             } throw new RuntimeException("Erro ao deletar o Insumo: " + e.getMessage());
         }
+        return true;
     }
 }

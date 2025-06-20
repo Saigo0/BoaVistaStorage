@@ -81,7 +81,7 @@ public class FornecedorRepository {
                 .getResultList();
     }
 
-    public void update(Long idFornecedor, Fornecedor fornecedor) {
+    public boolean update(Long idFornecedor, Fornecedor fornecedor) {
         try {
             em.getTransaction().begin();
 
@@ -106,9 +106,10 @@ public class FornecedorRepository {
             }
             throw new RuntimeException("Erro ao realizar a consulta por ID." + e.getMessage());
         }
+        return true;
     }
 
-    public void delete(Long id) {
+    public boolean delete(Long id) {
         try {
             em.getTransaction().begin();
             em.remove(em.find(Fornecedor.class, id));
@@ -119,5 +120,6 @@ public class FornecedorRepository {
             }
             throw new RuntimeException("Erro ao deletar o fornecedor: " + e.getMessage());
         }
+        return true;
     }
 }

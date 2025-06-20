@@ -15,7 +15,7 @@ public class VendavelRepository {
         this.em = em;
     }
 
-    public void create(Vendavel vendavel) {
+    public boolean create(Vendavel vendavel) {
         try {
             em.getTransaction().begin();
             em.persist(vendavel);
@@ -33,6 +33,7 @@ public class VendavelRepository {
             }
             throw new RuntimeException("Erro ao salvar vendavel: " + ex.getMessage());
         }
+        return true;
     }
 
     public void readAll() {
@@ -69,7 +70,7 @@ public class VendavelRepository {
                 .getSingleResult();
     }
 
-    public void update(Long idVendavel, Vendavel vendavel) {
+    public boolean update(Long idVendavel, Vendavel vendavel) {
         try {
             em.getTransaction().begin();
 
@@ -95,6 +96,7 @@ public class VendavelRepository {
             }
             throw new RuntimeException("Erro ao realizar a consulta por ID." + e.getMessage());
         }
+        return true;
     }
 
     public void delete(Long id) {
