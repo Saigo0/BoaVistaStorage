@@ -26,14 +26,16 @@ public class TelaLogin implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Tela de Login inicializada.");
         btnEntrar.setOnAction(event -> {
         System.out.println("Sucesosooo");
             String usuario = campoUser.getText();
             String senha = campoSenha.getText();
 
-            Stage stage = (Stage) btnEntrar.getScene().getWindow();
-            SceneManager.mudarCena(stage, "/com/ibdev/view/tela-principal-atendente.fxml", "Tela Principal Atendente");
+
+
+                Stage stage = (Stage) btnEntrar.getScene().getWindow();
+                SceneManager.mudarCena(stage, "/com/ibdev/view/tela-principal-atendente.fxml", "Tela Principal Atendente");
+
         });
     }
 }
