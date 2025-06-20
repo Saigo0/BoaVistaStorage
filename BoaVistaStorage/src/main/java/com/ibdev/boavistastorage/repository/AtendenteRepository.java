@@ -3,9 +3,10 @@ package com.ibdev.boavistastorage.repository;
 import com.ibdev.boavistastorage.entity.Atendente;
 import com.ibdev.boavistastorage.entity.Atendente;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceException;
 
-public class    AtendenteRepository {
+public class AtendenteRepository {
     private EntityManager em;
 
     public AtendenteRepository(EntityManager em) {
@@ -43,16 +44,19 @@ public class    AtendenteRepository {
     }
 
     public Atendente findByName(String nome) {
-        return em.createQuery("select a from Atendente a where a.nome = :nome", Atendente.class)
-                .setParameter("nome", nome)
-                .getSingleResult();
+        try {
+            return em.createQuery("select a from Atendente a where a.nome = :nome", Atendente.class)
+                    .setParameter("nome", nome)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
-    public void findByTelefone(String telefone) {
-        em.createQuery("select a from Atendente a where a.telefone = :telefone", Atendente.class)
+    public Atendente findByTelefone(String telefone) {
+        return em.createQuery("select a from Atendente a where a.telefone = :telefone", Atendente.class)
                 .setParameter("telefone", telefone)
-                .getResultList()
-                .forEach(System.out::println);
+                .getSingleResult();
     }
 
 
@@ -62,17 +66,35 @@ public class    AtendenteRepository {
                 .getSingleResult();
     }
 
-    public void findByEndereco(String endereco) {
-        em.createQuery("select a from Atendente a where a.endereco = :endereco", Atendente.class)
+    public Atendente findByEndereco(String endereco) {
+        return em.createQuery("select a from Atendente a where a.endereco = :endereco", Atendente.class)
                 .setParameter("endereco", endereco)
-                .getResultList()
-                .forEach(System.out::println);
+                .getSingleResult();
     }
 
     public Atendente findByLogin(String login) {
         return em.createQuery("select a from Atendente a where a.login = :login", Atendente.class)
                 .setParameter("login", login)
                 .getSingleResult();
+    }
+
+    public Atendente findBySenha(String senha) {
+        return em.createQuery("select a from Atendente a where a.senha = :senha", Atendente.class)
+                .setParameter("senha", senha)
+                .getSingleResult();
+    }
+
+    public Atendente findByLoginAndSenha(String login, String senha) {
+        try {
+            return em.createQuery("select a from Atendente a where a.login = :login and a.senha = :senha", Atendente.class)
+                    .setParameter("login", login)
+                    .setParameter("senha", senha)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null; // Ou lance uma exceção customizada, se preferir
+        } catch (Exception e) {
+            throw new RuntimeException("Erro ao realizar a consulta por login e senha: " + e.getMessage());
+        }
     }
 
     public void update(Long idAtendente, Atendente atendente) {
@@ -110,7 +132,8 @@ public class    AtendenteRepository {
         } catch (Exception e) {
             if (em.getTransaction().isActive()) {
                 em.getTransaction().rollback();
-            } throw new RuntimeException("Erro ao deletar o Atendente: " + e.getMessage());
+            }
+            throw new RuntimeException("Erro ao deletar o Atendente: " + e.getMessage());
         }
     }
 }

@@ -2,6 +2,7 @@ package com.ibdev.boavistastorage.repository;
 
 import com.ibdev.boavistastorage.entity.Gerente;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceException;
 
 public class GerenteRepository {
@@ -69,6 +70,29 @@ public class GerenteRepository {
         return em.createQuery("select g from Gerente g where g.login = :login", Gerente.class)
                 .setParameter("login", login)
                 .getSingleResult();
+    }
+
+    public Gerente findBySenha(String senha) {
+        return em.createQuery("select g from Gerente g where g.senha = :senha", Gerente.class)
+                .setParameter("senha", senha)
+                .getSingleResult();
+    }
+
+    public Gerente findByLoginAndSenha(String login, String senha) {
+        try {
+            return em.createQuery("select g from Gerente g where g.login = :login and g.senha = :senha", Gerente.class)
+                    .setParameter("login", login)
+                    .setParameter("senha", senha)
+                    .getSingleResult();
+        } catch (PersistenceException ex) {
+            if (ex.getCause() instanceof jakarta.persistence.NoResultException) {
+                throw new RuntimeException("Login ou senha inválidos.");
+            } else {
+                throw new RuntimeException("Erro ao realizar a consulta por login e senha: " + ex.getMessage());
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Erro ao realizar a consulta por login e senha: " + e.getMessage());
+        }
     }
 
     public void update(Long idGerente, Gerente gerente) {

@@ -1,5 +1,6 @@
 package com.ibdev.boavistastorage.main;
 
+import com.ibdev.boavistastorage.controller.TelaLogin;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -14,13 +15,18 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa_basic");
-        EntityManager em = emf.createEntityManager();
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/com/ibdev/view/tela-login.fxml"));
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa_basic");
+        EntityManager em = emf.createEntityManager();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ibdev/view/tela-login.fxml"));
+        Parent root = loader.load();
+        TelaLogin controller = loader.getController();
+        controller.setEntityManager(em);
+
         Scene scene = new Scene(root);
         primaryStage.setTitle("Login - Boa Vista Storage");
         primaryStage.setScene(scene);
