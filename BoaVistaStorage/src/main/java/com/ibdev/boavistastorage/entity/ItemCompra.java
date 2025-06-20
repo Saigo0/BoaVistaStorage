@@ -25,6 +25,14 @@ public class ItemCompra {
         this.setPrecoCusto(precoCusto);
     }
 
+    public void setCompra(Compra compra) {
+        this.compra = compra;
+    }
+
+    public Compra getCompra(){
+        return this.compra;
+    }
+
     public ItemCompra() {}
 
     public Long getId() {

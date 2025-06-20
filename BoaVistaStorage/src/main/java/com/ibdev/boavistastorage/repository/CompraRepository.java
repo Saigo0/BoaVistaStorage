@@ -112,7 +112,13 @@ public class CompraRepository {
                 compraDB.setDataCompra(compra.getDataCompra());
                 compraDB.setFornecedor(compra.getFornecedor());
                 compraDB.setGerente(compra.getGerente());
-                compraDB.setItensCompra(compra.getItensCompra());
+                if(compra.getItensCompra() != null && !compra.getItensCompra().isEmpty()) {
+                    for (ItemCompra itemCompra : compra.getItensCompra()) {
+                        if (itemCompra.getFornecimento().getVendavel() == null) {
+                            itemCompra.getFornecimento().getInsumo();
+                        }
+                    }
+                }
                 compraDB.setValorTotalCompra(compra.getValorTotalCompra());
                 compraDB.setFinanceiro(compra.getFinanceiro());
             } else {

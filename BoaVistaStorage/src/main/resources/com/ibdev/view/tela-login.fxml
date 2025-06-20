@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaLogin" />
+<HBox fx:controller="com.ibdev.boavistastorage.controller.TelaLogin"
+      maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="400.0" prefWidth="600.0"
+      xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <VBox prefHeight="400.0" prefWidth="427.0">
+            <children>
+                <ImageView fitHeight="160.0" fitWidth="213.0" pickOnBounds="true" preserveRatio="true"/>
+            </children>
+        </VBox>
+        <VBox prefHeight="400.0" prefWidth="245.0" style="-fx-background-color: grey;">
+            <children>
+                <Label prefHeight="17.0" prefWidth="177.0" text="Bem vindo!"/>
+                <Label prefHeight="17.0" prefWidth="223.0" text="Preencha os campos e realize o Login"/>
+                <Label prefHeight="17.0" prefWidth="177.0" text="Usuário"/>
+                <TextField fx:id="campoUser"/>
+                <Label prefHeight="17.0" prefWidth="177.0" text="Senha"/>
+                <TextField fx:id="campoSenha"/>
+                <Button fx:id="btnEntrar" mnemonicParsing="false" text="Entrar"/>
+            </children>
+        </VBox>
+    </children>
+</HBox>
