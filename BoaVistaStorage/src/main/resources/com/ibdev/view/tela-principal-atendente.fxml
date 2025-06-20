@@ -1,85 +1,230 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<!-- Tela Principal do Atendente (1440 × 1024) -->
+<!-- Tela Inicial Atendente 1920×1080 -->
 
-<HBox prefHeight="1024" prefWidth="1440" style="-fx-font-family: 'Inter';" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaPrincipalAtendente">
+<HBox prefHeight="1024" prefWidth="1440" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaPrincipalAtendente">
 
-    <!-- 1) SIDEBAR - -->
-    <VBox fx:id="sidebar" prefHeight="1024" prefWidth="260" spacing="26" style="-fx-background-color:white;                  -fx-border-color:#d9d9d9;                  -fx-border-width:1;                  -fx-padding:8;">
+    <VBox prefHeight="1024.0" prefWidth="244.0" spacing="26" styleClass="sidebar">
+        <children>
+            <ImageView fx:id="logoView" fitHeight="100" fitWidth="263.0" preserveRatio="true" styleClass="logo-icon">
+            <image>
+               <Image url="@../../../../../../../../../../Downloads/Logo.png" />
+            </image></ImageView>
 
-        <!-- Logo -->
-        <ImageView fx:id="logoView" fitHeight="100" fitWidth="1.0" preserveRatio="true" />
+            <VBox spacing="20" styleClass="cima">
+                <children>
+                    <HBox fx:id="btnInicio" styleClass="incio">
+                        <children>
+                            <ImageView fitHeight="40.0" fitWidth="40.0" styleClass="icons-gridfour">
+                        <HBox.margin>
+                           <Insets left="20.0" />
+                        </HBox.margin>
+                        <image>
+                           <Image url="@../../../../../../../../../../Downloads/icons8-microsoft-40%20(1).png" />
+                        </image></ImageView>
+                            <Label prefHeight="40.0" styleClass="incio1" text="Início" textFill="#c74921">
+                        <HBox.margin>
+                           <Insets left="8.0" />
+                        </HBox.margin>
+                        <font>
+                           <Font size="18.0" />
+                        </font></Label>
+                        </children>
+                    </HBox>
 
-        <!-- Menu superior -->
-        <VBox spacing="20">
-            <!-- Início (selecionado) -->
-            <HBox alignment="CENTER_LEFT" prefHeight="48" spacing="8" style="-fx-background-color:#fff8f7;                          -fx-background-radius:12;                          -fx-padding:0 24 0 24;">
-                <Label style="-fx-text-fill:#c74921; -fx-font-weight:500;" text="Início" />
-            </HBox>
+                    <HBox fx:id="btnPedidos" styleClass="pedidos">
+                        <children>
+                            <HBox styleClass="pedidos1">
+                                <children>
+                           <ImageView fitHeight="40.0" fitWidth="40.0" styleClass="icons-gridfour">
+                              <image>
+                                 <Image url="@../../../../../../../../../../Downloads/icons8-dollar-40.png" />
+                              </image>
+                              <HBox.margin>
+                                 <Insets left="20.0" />
+                              </HBox.margin>
+                           </ImageView>
+                                    <Label prefHeight="40.0" text="Pedidos">
+                              <HBox.margin>
+                                 <Insets left="8.0" />
+                              </HBox.margin>
+                              <font>
+                                 <Font size="18.0" />
+                              </font></Label>
+                                </children>
+                            </HBox>
+                        </children>
+                    </HBox>
 
-            <!-- Pedidos e Vendas -->
-            <HBox alignment="CENTER_LEFT" prefHeight="48" spacing="8" style="-fx-background-radius:12;                          -fx-padding:0 24 0 24;">
-                <Label style="-fx-font-weight:500;" text="Pedidos" />
-            </HBox>
+                    <HBox fx:id="btnVenda" styleClass="venda">
+                        <children>
+                            <HBox styleClass="venda1">
+                                <children>
+                                    <HBox styleClass="venda3">
+                                        <children>
+                                 <ImageView fitHeight="40.0" fitWidth="40.0" styleClass="icons-gridfour">
+                                    <image>
+                                       <Image url="@../../../../../../../../../../Downloads/icons8-profit-analysis-40.png" />
+                                    </image>
+                                    <HBox.margin>
+                                       <Insets left="20.0" />
+                                    </HBox.margin>
+                                 </ImageView>
+                                            <Label prefHeight="40.0" text="Venda">
+                                    <HBox.margin>
+                                       <Insets left="8.0" />
+                                    </HBox.margin>
+                                    <font>
+                                       <Font size="18.0" />
+                                    </font></Label>
+                                        </children>
+                                    </HBox>
+                                </children>
+                            </HBox>
+                        </children>
+                    </HBox>
 
-            <!-- Financeiro -->
-            <HBox alignment="CENTER_LEFT" prefHeight="48" spacing="8" style="-fx-background-radius:12;                          -fx-padding:0 24 0 24;">
-                <Label style="-fx-font-weight:500;" text="Venda" />
-            </HBox>
-         <HBox fx:id="btnCardapio" alignment="CENTER_LEFT" prefHeight="48" spacing="8" style="-fx-background-radius:12;                          -fx-padding:0 24 0 24;">
-            <children>
-               <Label style="-fx-font-weight:500;" text="Cardápio" />
-            </children>
-         </HBox>
-         <HBox alignment="CENTER_LEFT" prefHeight="48" spacing="8" style="-fx-background-radius:12;                          -fx-padding:0 24 0 24;">
-            <children>
-               <Label style="-fx-font-weight:500;" text="Cliente" />
-            </children>
-         </HBox>
-        </VBox>
+                    <HBox fx:id="btnCardapio" styleClass="cardpio">
+                        <children>
+                     <ImageView fitHeight="40.0" fitWidth="40.0" styleClass="icons-gridfour">
+                        <image>
+                           <Image url="@../../../../../../../../../../Downloads/icons8-menu-40.png" />
+                        </image>
+                        <HBox.margin>
+                           <Insets left="20.0" />
+                        </HBox.margin>
+                     </ImageView>
+                            <Label prefHeight="40.0" text="Cardápio">
+                        <HBox.margin>
+                           <Insets left="8.0" />
+                        </HBox.margin>
+                        <font>
+                           <Font size="18.0" />
+                        </font></Label>
+                        </children>
+                    </HBox>
 
-        <!-- Espaço elástico -->
-        <Region VBox.vgrow="ALWAYS" />
+                    <HBox fx:id="btnCliente" styleClass="cliente">
+                        <children>
+                            <HBox styleClass="cliente1">
+                                <children>
+                           <ImageView fitHeight="40.0" fitWidth="40.0" styleClass="icons-gridfour">
+                              <image>
+                                 <Image url="@../../../../../../../../../../Downloads/icons8-user-40.png" />
+                              </image>
+                              <HBox.margin>
+                                 <Insets left="20.0" />
+                              </HBox.margin>
+                           </ImageView>
+                                    <Label prefHeight="40.0" text="Cliente">
+                              <HBox.margin>
+                                 <Insets left="8.0" />
+                              </HBox.margin>
+                              <font>
+                                 <Font size="18.0" />
+                              </font></Label>
+                                </children>
+                            </HBox>
+                        </children>
+                    </HBox>
+                </children>
+            </VBox>
 
-        <!-- Menu inferior -->
-        <VBox spacing="12" style="-fx-border-color:#d9d9d9; -fx-border-width:1 0 0 0; -fx-padding:0 0 12 0;">
-            <HBox alignment="CENTER_LEFT" prefHeight="48" spacing="8" style="-fx-background-radius:12; -fx-padding:0 24 0 24;">
-                <ImageView fx:id="iconConfig" fitHeight="20" fitWidth="20" />
-                <Label style="-fx-font-size:14px;" text="Configurações" />
-            </HBox>
+            <Region prefHeight="485.0" prefWidth="260.0" VBox.vgrow="ALWAYS" />
 
-            <HBox alignment="CENTER_LEFT" prefHeight="48" spacing="8" style="-fx-background-radius:12; -fx-padding:0 24 0 24;">
-                <ImageView fx:id="iconSair" fitHeight="20" fitWidth="20" />
-                <Label style="-fx-font-size:14px;" text="Sair" />
-            </HBox>
-        </VBox>
+            <VBox prefHeight="178.0" prefWidth="260.0" spacing="12" styleClass="baixo">
+                <children>
+                    <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="260.0" spacing="8" styleClass="financeiro1">
+                        <children>
+                            <ImageView fitHeight="40.0" fitWidth="40.0">
+                        <HBox.margin>
+                           <Insets left="20.0" />
+                        </HBox.margin>
+                        <image>
+                           <Image url="@../../../../../../../../../../Downloads/icons8-config-40.png" />
+                        </image></ImageView>
+                            <Label prefHeight="40.0" text="Configurações">
+                        <font>
+                           <Font size="18.0" />
+                        </font></Label>
+                        </children>
+                    </HBox>
+                    <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="260.0" spacing="8" styleClass="financeiro1">
+                        <children>
+                            <ImageView fitHeight="40.0" fitWidth="40.0">
+                        <HBox.margin>
+                           <Insets left="20.0" />
+                        </HBox.margin>
+                        <image>
+                           <Image url="@../../../../../../../../../../Downloads/icons8-logout-40.png" />
+                        </image></ImageView>
+                            <Label prefHeight="40.0" text="Logout">
+                        <font>
+                           <Font size="18.0" />
+                        </font></Label>
+                        </children>
+                    </HBox>
+                </children>
+            <opaqueInsets>
+               <Insets bottom="20.0" />
+            </opaqueInsets>
+            </VBox>
+        </children>
     </VBox>
 
-    <!-- 2) LISTA DE PRODUTOS - -->
-    <VBox prefHeight="1024.0" prefWidth="1188.0" spacing="24" style="-fx-background-color:#e7e7e7; -fx-padding:30;">
-        <Label style="-fx-font-size:28px; -fx-font-weight:bold;" text="Principal" />
-      <Pane prefHeight="144.0" prefWidth="790.0" style="-fx-background-color: grey;" />
-      <Pane prefHeight="704.0" prefWidth="790.0">
-         <children>
-            <TableView layoutX="-2.0" prefHeight="706.0" prefWidth="1128.0">
-              <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
-              </columns>
-               <columnResizePolicy>
-                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-               </columnResizePolicy>
-            </TableView>
-         </children>
-      </Pane>
+    <VBox prefHeight="1024.0" prefWidth="1180.0" spacing="32" style="-fx-background-color:#e7e7e7; -fx-padding:40;">
+        <children>
+            <Label style="-fx-font-size:36px; -fx-font-family:'Poppins'; -fx-font-weight:700;" text="Página Inicial" />
+
+            <HBox spacing="60">
+                <children>
+                    <Button fx:id="btnNovoPedido" prefHeight="56" prefWidth="340.0" style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-size:18px; -fx-font-weight:600; -fx-background-radius:12;" text="Novo pedido  " />
+                    <Button fx:id="btnNovaVenda" prefHeight="56" prefWidth="340.0" style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-size:18px; -fx-font-weight:600; -fx-background-radius:12;" text="Nova venda  " />
+                    <Button fx:id="btnNovoCliente" prefHeight="56" prefWidth="340.0" style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-size:18px; -fx-font-weight:600; -fx-background-radius:12;" text="Novo cliente  " />
+                </children>
+            </HBox>
+
+            <HBox spacing="40" VBox.vgrow="ALWAYS">
+                <children>
+                    <VBox prefHeight="800.0" prefWidth="760.0" spacing="16.0" style="-fx-background-color:white; -fx-background-radius:8; -fx-padding:24;">
+                        <children>
+                            <Label style="-fx-font-size:20px; -fx-font-weight:bold;" text="Últimos pedidos" />
+                     <TableView prefHeight="736.0" prefWidth="482.0">
+                       <columns>
+                         <TableColumn prefWidth="176.99996948242188" text="Número pedido" />
+                         <TableColumn prefWidth="147.33331298828125" text="Cliente" />
+                           <TableColumn prefWidth="156.66668701171875" text="Data" />
+                       </columns>
+                     </TableView>
+                        </children>
+                    </VBox>
+
+                    <VBox prefHeight="800" prefWidth="760" spacing="16" style="-fx-background-color:white; -fx-background-radius:8; -fx-padding:24;">
+                        <children>
+                            <Label style="-fx-font-size:20px; -fx-font-weight:bold;" text="Últimas Vendas" />
+                     <TableView prefHeight="736.0" prefWidth="482.0">
+                        <columns>
+                           <TableColumn prefWidth="176.99996948242188" text="Número venda" />
+                           <TableColumn prefWidth="147.33331298828125" text="Cliente" />
+                           <TableColumn prefWidth="156.66668701171875" text="Data" />
+                        </columns>
+                     </TableView>
+                        </children>
+                    </VBox>
+                </children>
+            </HBox>
+        </children>
     </VBox>
 </HBox>

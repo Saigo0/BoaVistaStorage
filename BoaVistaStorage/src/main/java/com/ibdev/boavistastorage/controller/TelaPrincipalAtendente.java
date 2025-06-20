@@ -10,6 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -35,16 +36,28 @@ public class TelaPrincipalAtendente implements Initializable {
     private HBox btnCardapio;
 
     @FXML
-    private ImageView iconConfig;
+    private HBox btnCliente;
 
     @FXML
-    private ImageView iconSair;
+    private HBox btnInicio;
+
+    @FXML
+    private Button btnNovaVenda;
+
+    @FXML
+    private Button btnNovoCliente;
+
+    @FXML
+    private Button btnNovoPedido;
+
+    @FXML
+    private HBox btnPedidos;
+
+    @FXML
+    private HBox btnVenda;
 
     @FXML
     private ImageView logoView;
-
-    @FXML
-    private VBox sidebar;
 
     private void configurarEventos() {
         btnCardapio.setOnMouseClicked(event -> {

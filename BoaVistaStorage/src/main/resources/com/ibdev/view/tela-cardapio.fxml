@@ -13,7 +13,7 @@
 
 <!-- Tela Cardápio Atendente (1440 × 1024) -->
 
-<HBox prefHeight="1024" prefWidth="1440" style="-fx-font-family: 'Inter';" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaPrincipalAtendente">
+<HBox prefHeight="1024" prefWidth="1440" style="-fx-font-family: 'Inter';" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaCardapio">
 
     <!-- =============== SIDEBAR (= mesma do pedido) ========================= -->
     <VBox prefHeight="1024" prefWidth="260" spacing="26" styleClass="sidebar">

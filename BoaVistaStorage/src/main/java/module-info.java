@@ -15,6 +15,7 @@ module com.ibdev.boavistastorage {
     requires org.hibernate.orm.core;
     requires java.sql;
     requires net.bytebuddy;
+    requires java.desktop;
 
     opens com.ibdev.boavistastorage.entity to org.hibernate.orm.core;
     opens com.ibdev.view to javafx.fxml;

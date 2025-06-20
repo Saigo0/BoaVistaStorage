@@ -34,7 +34,6 @@ public class TelaLogin implements Initializable {
         this.atendenteService = new AtendenteService(atendenteRepository);
     }
 
-
     @FXML
     private Button btnLogin;
 
