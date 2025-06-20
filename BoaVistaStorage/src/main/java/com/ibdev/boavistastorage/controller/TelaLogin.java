@@ -24,7 +24,6 @@ public class TelaLogin implements Initializable {
     private AtendenteService atendenteService;
 
     public TelaLogin() {
-        // Construtor padrão vazio
     }
 
     public void setEntityManager(EntityManager entityManager) {
