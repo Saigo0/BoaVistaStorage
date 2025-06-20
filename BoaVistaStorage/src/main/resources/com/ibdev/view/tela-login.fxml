@@ -1,32 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
 
-<HBox fx:controller="com.ibdev.boavistastorage.controller.TelaLogin"
-      maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-      prefHeight="400.0" prefWidth="600.0"
-      xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <children>
-        <VBox prefHeight="400.0" prefWidth="427.0">
-            <children>
-                <ImageView fitHeight="160.0" fitWidth="213.0" pickOnBounds="true" preserveRatio="true"/>
-            </children>
+<!-- Tela Principal do Atendente (1440 × 1024) -->
+<HBox fx:controller="com.ibdev.boavistastorage.controller.TelaPrincipalAtendente"
+      xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      prefWidth="1440" prefHeight="1024"
+      style="-fx-font-family: 'Inter';">
+
+
+    <!-- 1) SIDEBAR  -->
+    <VBox fx:id="sidebar" prefWidth="260" prefHeight="1024" spacing="26" styleClass="sidebar">
+
+        <!-- Logo -->
+        <ImageView fx:id="logoView" fitHeight="100" preserveRatio="true" styleClass="logo-icon"/>
+
+        <!-- Menu superior -->
+        <VBox spacing="20" styleClass="cima">
+
+            <!-- Início -->
+            <HBox fx:id="inicioBox" styleClass="incio">
+                <ImageView fx:id="iconInicio" fitHeight="20" fitWidth="20" styleClass="icons-gridfour"/>
+                <Label text="Início" styleClass="incio1"/>
+            </HBox>
+
+            <!-- Pedidos -->
+            <HBox fx:id="pedidosBox" styleClass="pedidos">
+                <HBox styleClass="pedidos1">
+                    <ImageView fx:id="iconPedidos" fitHeight="20" fitWidth="20" styleClass="pedidos-child"/>
+                    <Label text="Pedidos"/>
+                </HBox>
+                <ImageView fx:id="iconFlechaPedidos" fitHeight="20" fitWidth="20" styleClass="flecha-icon"/>
+            </HBox>
+
+            <!-- Venda -->
+            <HBox fx:id="vendaBox" styleClass="venda">
+                <HBox styleClass="venda1">
+                    <HBox styleClass="venda3">
+                        <ImageView fx:id="iconVenda" fitHeight="20" fitWidth="20" styleClass="f7money-dollar-circle-icon"/>
+                        <Label text="Venda"/>
+                    </HBox>
+                    <ImageView fx:id="iconFlechaVenda" fitHeight="20" fitWidth="20" styleClass="flecha-icon"/>
+                </HBox>
+            </HBox>
+
+            <!-- Cliente -->
+            <HBox fx:id="clienteBox" styleClass="cliente">
+                <HBox styleClass="cliente1">
+                    <ImageView fx:id="iconCliente" fitHeight="20" fitWidth="20"/>
+                    <Label text="Clientes" styleClass="cliente2"/>
+                </HBox>
+            </HBox>
         </VBox>
-        <VBox prefHeight="400.0" prefWidth="245.0" style="-fx-background-color: grey;">
-            <children>
-                <Label prefHeight="17.0" prefWidth="177.0" text="Bem vindo!"/>
-                <Label prefHeight="17.0" prefWidth="223.0" text="Preencha os campos e realize o Login"/>
-                <Label prefHeight="17.0" prefWidth="177.0" text="Usuário"/>
-                <TextField fx:id="campoUser"/>
-                <Label prefHeight="17.0" prefWidth="177.0" text="Senha"/>
-                <TextField fx:id="campoSenha"/>
-                <Button fx:id="btnEntrar" mnemonicParsing="false" text="Entrar"/>
-            </children>
+
+        <!-- Espaço elástico -->
+        <Region VBox.vgrow="ALWAYS"/>
+
+        <!-- Menu inferior -->
+        <VBox spacing="12" style="-fx-border-color:#d9d9d9; -fx-border-width:1 0 0 0; -fx-padding:0 0 12 0;">
+            <HBox prefHeight="48" spacing="8" alignment="CENTER_LEFT" styleClass="financeiro1">
+                <ImageView fx:id="iconConfig" fitHeight="20" fitWidth="20"/>
+                <Label text="Configurações" style="-fx-font-size:14px;"/>
+            </HBox>
+            <HBox prefHeight="48" spacing="8" alignment="CENTER_LEFT" styleClass="financeiro1">
+                <ImageView fx:id="iconSair" fitHeight="20" fitWidth="20"/>
+                <Label text="Sair" style="-fx-font-size:14px;"/>
+            </HBox>
         </VBox>
-    </children>
+    </VBox>
+
+    <!-- 2) LISTA DE PRODUTOS-->
+    <VBox prefWidth="850" spacing="24" style="-fx-background-color:#e7e7e7; -fx-padding:30;">
+        <Label text="Pedido" style="-fx-font-size:28px; -fx-font-weight:bold;"/>
+        <ScrollPane fitToWidth="true" fitToHeight="true" VBox.vgrow="ALWAYS" style="-fx-background-color:transparent;">
+            <content>
+                <GridPane fx:id="gridProdutos" hgap="30" vgap="30" alignment="TOP_CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="33"/>
+                        <ColumnConstraints percentWidth="33"/>
+                        <ColumnConstraints percentWidth="33"/>
+                    </columnConstraints>
+                </GridPane>
+            </content>
+        </ScrollPane>
+    </VBox>
+
+    <!-- 3) RESUMO DO PEDIDO -->
+    <VBox prefWidth="330" spacing="18" style="-fx-background-color:white; -fx-padding:30;">
+        <Label fx:id="tituloPedido" text="Pedido #1324" style="-fx-font-size:22px; -fx-font-weight:bold;"/>
+        <VBox fx:id="orderItemsBox" spacing="12"/>
+        <Separator/>
+        <HBox spacing="8" alignment="CENTER_LEFT">
+            <Label text="Total" style="-fx-font-size:18px; -fx-font-weight:bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="labelTotal" text="R$ 0,00" style="-fx-font-size:18px; -fx-text-fill:#c74921;"/>
+        </HBox>
+        <Button fx:id="btnFinalizar" text="Finalizar pedido" prefWidth="270" prefHeight="45"
+                style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-weight:bold; -fx-background-radius:6;"/>
+    </VBox>
 </HBox>

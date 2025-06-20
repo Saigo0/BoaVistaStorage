@@ -5,6 +5,9 @@ import com.ibdev.boavistastorage.entity.Fornecedor;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceException;
 
+import jakarta.persistence.Query;
+import com.ibdev.boavistastorage.entity.Fornecimento;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -94,6 +97,7 @@ public class FornecedorRepository {
                 fornecedorDB.setEmail(fornecedor.getEmail());
                 fornecedorDB.setEndereco(fornecedor.getEndereco());
                 fornecedorDB.setCidade(fornecedor.getCidade());
+
             } else {
                 System.out.println("Fornecedor não encontrado!");
                 throw new RuntimeException("Erro ao realizar a consulta por ID.");

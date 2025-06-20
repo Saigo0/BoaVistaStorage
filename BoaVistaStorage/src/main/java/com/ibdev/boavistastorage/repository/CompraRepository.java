@@ -12,6 +12,7 @@ import java.util.List;
 
 public class CompraRepository {
     private EntityManager em;
+    private ItemCompraRepository itemCompraRepository;
 
     public CompraRepository(EntityManager em) {
         this.em = em;
@@ -112,10 +113,19 @@ public class CompraRepository {
                 compraDB.setDataCompra(compra.getDataCompra());
                 compraDB.setFornecedor(compra.getFornecedor());
                 compraDB.setGerente(compra.getGerente());
+                if(compraDB.getItensCompra() != null && !compraDB.getItensCompra().isEmpty()) {
+                    for (ItemCompra itemCompra : compraDB.getItensCompra()) {
+                        if(itemCompra != null) {
+                            compraDB.removeItensCompra(itemCompra);
+                            itemCompraRepository.delete(itemCompra.getId());
+                        }
+                    }
+                }
                 if(compra.getItensCompra() != null && !compra.getItensCompra().isEmpty()) {
                     for (ItemCompra itemCompra : compra.getItensCompra()) {
-                        if (itemCompra.getFornecimento().getVendavel() == null) {
-                            itemCompra.getFornecimento().getInsumo();
+                        if(itemCompra != null) {
+                            itemCompra.setCompra(compra);
+                            compra.addItensCompra(itemCompra);
                         }
                     }
                 }

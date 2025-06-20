@@ -22,7 +22,7 @@ public class ClienteRepository {
                 if (em.getTransaction().isActive()) {
                     em.getTransaction().rollback();
                 }
-                throw new RuntimeException("Fornecedor já cadastrado com os mesmos dados.");
+                throw new RuntimeException("Cliente já cadastrado com os mesmos dados.");
             }
         } catch (Exception e) {
             if (em.getTransaction().isActive()) {

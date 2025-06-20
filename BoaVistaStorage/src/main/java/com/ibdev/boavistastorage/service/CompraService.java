@@ -12,11 +12,11 @@ public class CompraService {
         this.compraRepository = compraRepository;
     }
 
-    public boolean salvarCompra(Fornecedor fornecedor, Gerente gerente){
-        if(fornecedor == null || gerente == null) {
-            throw new IllegalArgumentException("Fornecedor ou gerente não pode ser nulo.");
-        }
-
-
-    }
+//    public boolean salvarCompra(Fornecedor fornecedor, Gerente gerente){
+//        if(fornecedor == null || gerente == null) {
+//            throw new IllegalArgumentException("Fornecedor ou gerente não pode ser nulo.");
+//        }
+//
+//
+//    }
 }

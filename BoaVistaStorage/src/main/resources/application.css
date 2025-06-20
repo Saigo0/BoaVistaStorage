@@ -1,0 +1,23 @@
+/* Declaração da fonte Inter (Variável) */
+@font-face {
+    font-family: 'Inter'; /* Nome que você usará para referenciar a fonte geral Inter */
+    src: url('fonts/Inter-VariableFont_opsz,wght.ttf'); /* Caminho relativo ao arquivo CSS */
+    /* Para fontes variáveis, você geralmente não especifica font-weight/style aqui,
+       mas sim no uso, como -fx-font-weight. */
+}
+
+/* Declaração da fonte Inter (18pt Medium) */
+@font-face {
+    font-family: 'Inter'; /* Reutilize o mesmo nome de família se quiser usar variações */
+    src: url('fonts/Inter_18pt-Medium.ttf'); /* Caminho relativo ao arquivo CSS */
+    font-weight: 500; /* Ou 'medium', se preferir. Valores numéricos são mais explícitos. */
+    /* font-style: normal; */ /* Opcional, se for uma variação de estilo */
+}
+
+/* Declaração da fonte Poppins SemiBold */
+@font-face {
+    font-family: 'Poppins'; /* Nome que você usará para referenciar a fonte geral Poppins */
+    src: url('fonts/Poppins-SemiBold.ttf'); /* Caminho relativo ao arquivo CSS */
+    font-weight: 600; /* Ou 'semibold', se preferir. Valores numéricos são mais explícitos. */
+    /* font-style: normal; */ /* Opcional, se for uma variação de estilo */
+}
