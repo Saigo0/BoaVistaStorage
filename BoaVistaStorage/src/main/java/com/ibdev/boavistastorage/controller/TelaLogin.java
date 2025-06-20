@@ -72,7 +72,6 @@ public class TelaLogin implements Initializable {
         txtLoginInvalido.setVisible(false);
         txtSenhaInvalida.setText("");
         txtSenhaInvalida.setVisible(false);
-
     }
 
     private void realizarLogin() {
