@@ -11,14 +11,14 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<!-- Tela Inicial Atendente – 1440 × 1024 -->
-
-<HBox prefHeight="1024" prefWidth="1440" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaPrincipalAtendente">
+<HBox xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.ibdev.boavistastorage.controller.TelaPrincipalAtendente"
+      spacing="0" style="-fx-background-color:white;" fillHeight="true">
 
     <!-- =====================  SIDEBAR  ===================== -->
-    <VBox prefHeight="1024" prefWidth="260" spacing="26" styleClass="sidebar">
+    <VBox spacing="26" styleClass="sidebar" HBox.hgrow="NEVER">
         <children>
-            <!--  LOGO  -->
             <ImageView fx:id="logoView" fitHeight="100" fitWidth="260.0" styleClass="logo-icon">
                 <image>
                     <Image url="@../../../images/Logo.png" />
@@ -28,7 +28,6 @@
             <!--  MENU SUPERIOR  -->
             <VBox spacing="20" styleClass="cima">
                 <children>
-                    <!-- Início (selecionado) -->
                     <HBox fx:id="btnInicio" styleClass="incio">
                         <children>
                             <ImageView fitHeight="40" fitWidth="40" styleClass="icons-gridfour">
@@ -47,7 +46,6 @@
                         </children>
                     </HBox>
 
-                    <!-- Pedidos -->
                     <HBox fx:id="btnPedidos" styleClass="pedidos">
                         <children>
                             <ImageView fitHeight="40" fitWidth="40" styleClass="icons-gridfour">
@@ -66,7 +64,6 @@
                         </children>
                     </HBox>
 
-                    <!-- Venda -->
                     <HBox fx:id="btnVenda" styleClass="venda">
                         <children>
                             <ImageView fitHeight="40" fitWidth="40" styleClass="icons-gridfour">
@@ -85,7 +82,6 @@
                         </children>
                     </HBox>
 
-                    <!-- Cardápio -->
                     <HBox fx:id="btnCardapio" styleClass="cardpio">
                         <children>
                             <ImageView fitHeight="40" fitWidth="40" styleClass="icons-gridfour">
@@ -104,7 +100,6 @@
                         </children>
                     </HBox>
 
-                    <!-- Cliente -->
                     <HBox fx:id="btnCliente" styleClass="cliente">
                         <children>
                             <ImageView fitHeight="40" fitWidth="40" styleClass="icons-gridfour">
@@ -125,10 +120,8 @@
                 </children>
             </VBox>
 
-            <!-- Espaço flexível -->
             <Region VBox.vgrow="ALWAYS" />
 
-            <!--  MENU INFERIOR  -->
             <VBox spacing="12" styleClass="baixo">
                 <children>
                     <HBox alignment="CENTER_LEFT" spacing="8" styleClass="financeiro1">
@@ -159,32 +152,35 @@
                         </children>
                     </HBox>
                 </children>
-            <VBox.margin>
-               <Insets bottom="40.0" />
-            </VBox.margin>
+                <VBox.margin>
+                    <Insets bottom="40.0" />
+                </VBox.margin>
             </VBox>
         </children>
     </VBox>
 
     <!-- =====================  CONTEÚDO PRINCIPAL  ===================== -->
-    <VBox prefHeight="1024" prefWidth="1180" spacing="32" style="-fx-background-color:#e7e7e7; -fx-padding:40;">
+    <VBox spacing="32" style="-fx-background-color:#e7e7e7; -fx-padding:40;" HBox.hgrow="ALWAYS">
         <children>
             <Label style="-fx-font-size:36px; -fx-font-family:'Poppins'; -fx-font-weight:700;" text="Página Inicial" />
 
-            <!-- Botões de ação -->
             <HBox spacing="60">
-                <Button fx:id="btnNovoPedido" prefHeight="56" prefWidth="340" style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-size:18px; -fx-font-weight:600; -fx-background-radius:12;" text="+  Novo pedido" />
+                <Button fx:id="btnNovoPedido" prefHeight="56" prefWidth="340"
+                        style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-size:18px; -fx-font-weight:600; -fx-background-radius:12;"
+                        text="+  Novo pedido" />
 
-                <Button fx:id="btnNovaVenda" prefHeight="56" prefWidth="340" style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-size:18px; -fx-font-weight:600; -fx-background-radius:12;" text="+  Nova venda" />
+                <Button fx:id="btnNovaVenda" prefHeight="56" prefWidth="340"
+                        style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-size:18px; -fx-font-weight:600; -fx-background-radius:12;"
+                        text="+  Nova venda" />
 
-                <Button fx:id="btnNovoCliente" prefHeight="56" prefWidth="340" style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-size:18px; -fx-font-weight:600; -fx-background-radius:12;" text="+  Novo cliente" />
+                <Button fx:id="btnNovoCliente" prefHeight="56" prefWidth="340"
+                        style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-size:18px; -fx-font-weight:600; -fx-background-radius:12;"
+                        text="+  Novo cliente" />
             </HBox>
 
-            <!-- Painéis de últimos registros -->
             <HBox spacing="40" VBox.vgrow="ALWAYS">
                 <children>
-                    <!-- Últimos Pedidos -->
-                    <VBox prefHeight="800" prefWidth="760" spacing="16" style="-fx-background-color:white; -fx-background-radius:8; -fx-padding:24;">
+                    <VBox spacing="16" style="-fx-background-color:white; -fx-background-radius:8; -fx-padding:24;" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
                         <children>
                             <Label style="-fx-font-size:20px; -fx-font-weight:bold;" text="Últimos pedidos" />
                             <TableView fx:id="tabelaPedidos" VBox.vgrow="ALWAYS">
@@ -197,11 +193,10 @@
                         </children>
                     </VBox>
 
-                    <!-- Últimas Vendas -->
-                    <VBox prefHeight="800" prefWidth="760" spacing="16" style="-fx-background-color:white; -fx-background-radius:8; -fx-padding:24;">
+                    <VBox spacing="16" style="-fx-background-color:white; -fx-background-radius:8; -fx-padding:24;" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
                         <children>
                             <Label style="-fx-font-size:20px; -fx-font-weight:bold;" text="Últimas vendas" />
-                            <TableView fx:id="tabelaVendas" prefHeight="692.0" prefWidth="556.0" VBox.vgrow="ALWAYS">
+                            <TableView fx:id="tabelaVendas" VBox.vgrow="ALWAYS">
                                 <columns>
                                     <TableColumn fx:id="idVenda" prefWidth="200" text="Número venda" />
                                     <TableColumn fx:id="VendaCliente" prefWidth="96.0" text="Cliente" />

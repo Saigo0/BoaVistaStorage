@@ -12,8 +12,7 @@ import java.io.IOException;
 public class SceneManager {
 
     private static Stage primaryStage;
-    // Adicione uma referência estática ao EntityManager
-    private static jakarta.persistence.EntityManager entityManager; // Adicione esta linha
+    private static jakarta.persistence.EntityManager entityManager;
 
     public static void init(Stage stage, jakarta.persistence.EntityManager em) {
         if (primaryStage != null) {
@@ -32,17 +31,17 @@ public class SceneManager {
             FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource(fxmlPath));
             Parent root = loader.load();
 
+            // Injetar o EntityManager no controlador, se necessário
             Object controller = loader.getController();
             if (controller instanceof com.ibdev.boavistastorage.controller.TelaLogin) {
                 ((com.ibdev.boavistastorage.controller.TelaLogin) controller).setEntityManager(entityManager);
             }
-            // adicionar mais 'if instanceof' para outros controladores que precisem do EntityManager
+            // Adicione outros controladores aqui, se necessário
 
             Scene scene = new Scene(root);
 
             primaryStage.setTitle(titulo);
             primaryStage.setScene(scene);
-            primaryStage.sizeToScene();
             primaryStage.centerOnScreen();
             primaryStage.show();
 
@@ -53,7 +52,34 @@ public class SceneManager {
     }
 
     public static void mudarCenaMaximizada(String fxmlPath, String titulo) {
-        mudarCena(fxmlPath, titulo);
-        primaryStage.setMaximized(true);
+        if (primaryStage == null || entityManager == null) {
+            throw new IllegalStateException("SceneManager não foi inicializado. Chame init() primeiro.");
+        }
+
+        try {
+            FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource(fxmlPath));
+            Parent root = loader.load();
+
+            // Injetar o EntityManager no controlador, se necessário
+            Object controller = loader.getController();
+            if (controller instanceof com.ibdev.boavistastorage.controller.TelaLogin) {
+                ((com.ibdev.boavistastorage.controller.TelaLogin) controller).setEntityManager(entityManager);
+            }
+            // Adicione outros controladores aqui, se necessário
+
+            Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
+            Scene scene = new Scene(root, bounds.getWidth(), bounds.getHeight());
+
+            primaryStage.setTitle(titulo);
+            primaryStage.setScene(scene);
+            primaryStage.setX(bounds.getMinX());
+            primaryStage.setY(bounds.getMinY());
+            primaryStage.setMaximized(true); // aqui sim, com efeito real
+            primaryStage.show();
+
+        } catch (IOException ex) {
+            System.err.println("Erro ao carregar a cena: " + fxmlPath);
+            throw new RuntimeException("Falha ao carregar FXML: " + fxmlPath, ex);
+        }
     }
 }

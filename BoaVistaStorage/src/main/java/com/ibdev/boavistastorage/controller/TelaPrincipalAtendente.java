@@ -78,7 +78,7 @@ public class TelaPrincipalAtendente implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Iniciando TelaPrincipalAtendente");
+        System.out.println("Iniciando TelaPrincipalAtendente com EntityManager: " + entityManager);
 
         Platform.runLater(() -> {
             configurarEventos();
@@ -93,12 +93,12 @@ public class TelaPrincipalAtendente implements Initializable {
     private void configurarEventos() {
         btnCardapio.setOnMouseClicked(event -> {
             Stage stage = (Stage) btnCardapio.getScene().getWindow();
-            SceneManager.mudarCena("/com/ibdev/view/tela-cardapio.fxml", "Tela Cardápio");
+            SceneManager.mudarCenaMaximizada("/com/ibdev/view/tela-cardapio.fxml", "Tela Cardápio");
         });
 
         btnLogout.setOnMouseClicked(event -> {
             Stage stage = (Stage) btnLogout.getScene().getWindow();
-            SceneManager.mudarCena("/com/ibdev/view/tela-login.fxml", "Tela Login");
+            SceneManager.mudarCenaMaximizada("/com/ibdev/view/tela-login.fxml", "Tela Login");
         });
     }
 }

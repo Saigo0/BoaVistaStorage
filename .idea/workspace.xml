@@ -6,18 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="3d14bb90-2084-43c2-8f61-8472d412129f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaCardapio.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaCardapio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaLogin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaPrincipalAtendente.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaPrincipalAtendente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaPrincipalGerente.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaPrincipalGerente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/main/SceneManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/main/SceneManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/repository/AtendenteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/repository/AtendenteRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/repository/GerenteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/repository/GerenteRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/service/AtendenteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/service/AtendenteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/service/GerenteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/service/GerenteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-pedido2-atendente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-pedido2-atendente.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-cardapio.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-cardapio.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-principal-atendente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-principal-atendente.fxml" afterDir="false" />
     </list>
     <list id="6d815c8d-e831-4bde-bf80-a47dfb46b934" name="Changes by jonat" comment="" />
     <list id="5ecca402-2599-4134-9b57-ed42472d8d1d" name="Changes by joseo" comment="" />
@@ -157,7 +151,7 @@
       <workItem from="1750462439227" duration="777000" />
       <workItem from="1750463298395" duration="787000" />
       <workItem from="1750467056897" duration="9183000" />
-      <workItem from="1750518681581" duration="10822000" />
+      <workItem from="1750518681581" duration="14736000" />
     </task>
     <servers />
   </component>

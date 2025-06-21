@@ -110,9 +110,4 @@ public class TelaLogin implements Initializable {
             txtSenhaInvalida.setText("Ocorreu um erro inesperado no sistema. Tente novamente mais tarde.");
         }
     }
-
-//    private void mudarCena(String fxml, String titulo) {
-//        Stage stage = (Stage) btnLogin.getScene().getWindow();
-//        SceneManager.mudarCenaMaximizada(fxml, titulo);
-//    }
 }

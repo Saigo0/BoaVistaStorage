@@ -155,7 +155,7 @@
         <Label style="-fx-font-size:28px; -fx-font-weight:bold;" text="Cardápio" />
 
         <!-- Grid de cards de produtos -->
-        <ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background-color:transparent;" VBox.vgrow="ALWAYS">
+        <ScrollPane fitToHeight="true" fitToWidth="true" VBox.vgrow="ALWAYS">
             <GridPane fx:id="gridCardapio" alignment="TOP_LEFT" hgap="30" vgap="30">
                 <columnConstraints>
                     <ColumnConstraints percentWidth="25" />
@@ -212,6 +212,9 @@
                 <rowConstraints>
                     <RowConstraints />
                 </rowConstraints>
+            <padding>
+               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
                 <!-- Copie / adicione mais VBox‑cards conforme necessário -->
             </GridPane>
         </ScrollPane>
