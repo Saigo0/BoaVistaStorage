@@ -102,6 +102,7 @@ public class TelaLogin implements Initializable {
                 return;
             }
         } catch (Exception e) {
+            e.printStackTrace();
         }
 
         try {
