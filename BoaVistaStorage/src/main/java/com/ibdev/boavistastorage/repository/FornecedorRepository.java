@@ -17,6 +17,7 @@ public class FornecedorRepository {
     public FornecedorRepository(EntityManager em) {
         this.em = em;
     }
+    public FornecimentoRepository fornecimentoRepository;
 
     public void create(Fornecedor fornecedor) {
         try {
@@ -98,6 +99,17 @@ public class FornecedorRepository {
                 fornecedorDB.setEndereco(fornecedor.getEndereco());
                 fornecedorDB.setCidade(fornecedor.getCidade());
 
+                for(Fornecimento fornecimento:  fornecedorDB.getFornecimentos()) {
+                    if(fornecimento != null) {
+                        fornecedorDB.removeFornecimento(fornecimento);
+                        fornecimentoRepository.delete(fornecimento.getIdFornecimento());
+                    }
+                }
+
+                for(Fornecimento fornecimento:  fornecedor.getFornecimentos()) {
+                    fornecimento.setFornecedor(fornecedor);
+                    fornecedorDB.addFornecimento(fornecimento);
+                }
             } else {
                 System.out.println("Fornecedor não encontrado!");
                 throw new RuntimeException("Erro ao realizar a consulta por ID.");

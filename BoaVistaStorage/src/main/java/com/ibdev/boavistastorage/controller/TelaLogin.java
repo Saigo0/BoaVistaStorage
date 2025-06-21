@@ -10,114 +10,87 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class TelaLogin implements Initializable {
+
     private EntityManager entityManager;
-    private AtendenteRepository atendenteRepository;
-    private GerenteRepository gerenteRepository;
-    private GerenteService gerenteService;
     private AtendenteService atendenteService;
+    private GerenteService gerenteService;
 
-    public TelaLogin() {
+    @FXML private Button btnLogin;
+    @FXML private PasswordField campoSenha;
+    @FXML private TextField campoUser;
+    @FXML private ImageView logoView;
+    @FXML private Label txtLoginInvalido;
+    @FXML private Label txtSenhaInvalida;
+
+    /* --------------------------------------------------------------------- */
+    public void setEntityManager(EntityManager em) {
+        this.entityManager = em;
+        atendenteService = new AtendenteService(new AtendenteRepository(em));
+        gerenteService   = new GerenteService(new GerenteRepository(em));
     }
 
-    public void setEntityManager(EntityManager entityManager) {
-        this.entityManager = entityManager;
-        this.atendenteRepository = new AtendenteRepository(entityManager);
-        this.gerenteRepository = new GerenteRepository(entityManager);
-        this.gerenteService = new GerenteService(gerenteRepository);
-        this.atendenteService = new AtendenteService(atendenteRepository);
-    }
-
-    @FXML
-    private Button btnLogin;
-
-    @FXML
-    private TextField campoUser;
-
-    @FXML
-    private TextField campoSenha;
-
-    @FXML
-    private Label txtLoginInvalido;
-
-    @FXML
-    private Label txtSenhaInvalida;
-
+    /* --------------------------------------------------------------------- */
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Iniciando TelaLogin");
+    public void initialize(URL url, ResourceBundle rb) {
         configurarEventos();
     }
 
     private void configurarEventos() {
-        btnLogin.setOnAction(event -> {
-            realizarLogin();
-        });
+        btnLogin.setOnAction(e -> realizarLogin());
 
-        campoUser.setOnKeyPressed(event -> {
-            txtLoginInvalido.setText("");
-        });
+        campoUser.setOnKeyPressed(e -> txtLoginInvalido.setVisible(false));
+        campoSenha.setOnKeyPressed(e -> txtSenhaInvalida.setVisible(false));
 
-        campoSenha.setOnKeyPressed(event -> {
-            txtSenhaInvalida.setText("");
-        });
-
-        txtLoginInvalido.setText("");
         txtLoginInvalido.setVisible(false);
-        txtSenhaInvalida.setText("");
         txtSenhaInvalida.setVisible(false);
     }
 
+    /* --------------------------------------------------------------------- */
     private void realizarLogin() {
         String usuario = campoUser.getText();
-        String senha = campoSenha.getText();
+        String senha   = campoSenha.getText();
 
-        if (usuario.trim().isEmpty() || usuario == null) {
+        if (usuario == null || usuario.trim().isEmpty()) {
             txtLoginInvalido.setText("Informe um login válido");
             txtLoginInvalido.setVisible(true);
-            txtSenhaInvalida.setText("");
             return;
         }
-        txtLoginInvalido.setText("");
-        txtSenhaInvalida.setText("");
-
-        if (senha.trim().isEmpty() || senha == null) {
+        if (senha == null || senha.trim().isEmpty()) {
             txtSenhaInvalida.setText("Informe uma senha válida");
             txtSenhaInvalida.setVisible(true);
             return;
         }
-        txtSenhaInvalida.setText("");
-        txtLoginInvalido.setText("");
 
         try {
             if (atendenteService.findByLoginAndSenha(usuario, senha) != null) {
-                Stage stage = (Stage) btnLogin.getScene().getWindow();
-                SceneManager.mudarCena(stage, "/com/ibdev/view/tela-principal-atendente.fxml", "Tela Principal Atendente");
+                mudarCena("/com/ibdev/view/tela-principal-atendente.fxml", "Tela Principal Atendente");
                 return;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        try {
             if (gerenteService.findByLoginAndSenha(usuario, senha) != null) {
-                Stage stage = (Stage) btnLogin.getScene().getWindow();
-                SceneManager.mudarCena(stage, "/com/ibdev/view/tela-principal-gerente.fxml", "Tela Principal Gerente");
+                mudarCena("/com/ibdev/view/tela-principal-gerente.fxml", "Tela Principal Gerente");
                 return;
             }
-        } catch (Exception e) {
+        } catch (Exception ex) {
+            ex.printStackTrace();   // pode trocar por um logger
         }
 
         txtLoginInvalido.setText("Não foi possível realizar o login");
-        txtLoginInvalido.setVisible(true);
         txtSenhaInvalida.setText("Não foi possível realizar o login");
+        txtLoginInvalido.setVisible(true);
         txtSenhaInvalida.setVisible(true);
     }
-}
 
+    private void mudarCena(String fxml, String titulo) {
+        Stage stage = (Stage) btnLogin.getScene().getWindow();
+        SceneManager.mudarCena(stage, fxml, titulo);
+    }
+}

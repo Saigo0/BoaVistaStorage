@@ -19,9 +19,9 @@
     <VBox prefHeight="1024" prefWidth="260" spacing="26" styleClass="sidebar">
         <children>
             <!--  LOGO  -->
-            <ImageView fx:id="logoView" fitHeight="100" fitWidth="260.0" preserveRatio="true" styleClass="logo-icon">
+            <ImageView fx:id="logoView" fitHeight="100" fitWidth="260.0" styleClass="logo-icon">
                 <image>
-                    <Image url="@/images/Logo.png" />
+                    <Image url="@../../../images/Logo.png" />
                 </image>
             </ImageView>
 
@@ -39,7 +39,7 @@
                                     <Image url="@../../../images/icons8-microsoft-40-laranja.png" />
                                 </image>
                             </ImageView>
-                            <Label styleClass="incio1" text="Início">
+                            <Label prefHeight="40.0" prefWidth="29.0" styleClass="incio1" text="Início">
                                 <HBox.margin>
                                     <Insets left="8" />
                                 </HBox.margin>
@@ -58,7 +58,7 @@
                                     <Image url="@../../../images/icons8-dollar-50.png" />
                                 </image>
                             </ImageView>
-                            <Label text="Pedidos">
+                            <Label prefHeight="40.0" prefWidth="43.0" text="Pedidos">
                                 <HBox.margin>
                                     <Insets left="8" />
                                 </HBox.margin>
@@ -77,7 +77,7 @@
                                     <Image url="@../../../images/icons8-profit-analysis-40.png" />
                                 </image>
                             </ImageView>
-                            <Label text="Venda">
+                            <Label prefHeight="40.0" prefWidth="34.0" text="Venda">
                                 <HBox.margin>
                                     <Insets left="8" />
                                 </HBox.margin>
@@ -96,7 +96,7 @@
                                     <Image url="@../../../images/icons8-menu-40.png" />
                                 </image>
                             </ImageView>
-                            <Label text="Cardápio">
+                            <Label prefHeight="40.0" prefWidth="48.0" text="Cardápio">
                                 <HBox.margin>
                                     <Insets left="8" />
                                 </HBox.margin>
@@ -115,7 +115,7 @@
                                     <Image url="@../../../images/icons8-user-40.png" />
                                 </image>
                             </ImageView>
-                            <Label text="Cliente">
+                            <Label prefHeight="40.0" prefWidth="37.0" text="Cliente">
                                 <HBox.margin>
                                     <Insets left="8" />
                                 </HBox.margin>
@@ -159,6 +159,9 @@
                         </children>
                     </HBox>
                 </children>
+            <VBox.margin>
+               <Insets bottom="40.0" />
+            </VBox.margin>
             </VBox>
         </children>
     </VBox>
@@ -187,7 +190,7 @@
                             <TableView fx:id="tabelaPedidos" VBox.vgrow="ALWAYS">
                                 <columns>
                                     <TableColumn fx:id="idPedido" prefWidth="200" text="Número pedido" />
-                                    <TableColumn fx:id="VendaCliente" prefWidth="136.0" text="Cliente" />
+                                    <TableColumn fx:id="VendaC1liente" prefWidth="136.0" text="Cliente" />
                                     <TableColumn fx:id="data" prefWidth="145.0" text="Data" />
                                 </columns>
                             </TableView>

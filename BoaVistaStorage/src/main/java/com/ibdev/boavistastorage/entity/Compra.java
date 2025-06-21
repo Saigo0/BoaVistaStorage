@@ -36,12 +36,11 @@ public class Compra {
 
     public Compra() {}
 
-    public Compra(Fornecedor fornecedor, Gerente gerente, double valorTotalCompra) {
+    public Compra(Fornecedor fornecedor, Gerente gerente, List<ItemCompra> itensCompra) {
         this.dataCompra = LocalDateTime.now();
         this.setFornecedor(fornecedor);
         this.setGerente(gerente);
         this.itensCompra = new ArrayList<ItemCompra>();
-        this.setValorTotalCompra(valorTotalCompra);
     }
 
     public Long getIdCompra() {

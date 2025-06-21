@@ -29,7 +29,7 @@ public class Fornecimento {
         this.setVendavel(vendavel);
     }
 
-    public Fornecimento(Fornecedor fornecedor, Insumo insumo) {
+    public Fornecimento(Fornecedor fornecedor) {
         this.setFornecedor(fornecedor);
         this.setInsumo(insumo);
     }

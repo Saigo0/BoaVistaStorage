@@ -18,7 +18,7 @@ public class CompraRepository {
         this.em = em;
     }
 
-    public void create(Compra compra) {
+    public boolean create(Compra compra) {
         try {
             em.getTransaction().begin();
             em.persist(compra);
@@ -36,6 +36,7 @@ public class CompraRepository {
             }
             throw new RuntimeException("Erro ao salvar a compra: " + e.getMessage());
         }
+        return true;
     }
 
     public void readAll() {
@@ -103,7 +104,7 @@ public class CompraRepository {
         }
     }
 
-    public void update(Long idCompra, Compra compra) {
+    public boolean update(Long idCompra, Compra compra) {
         try {
             em.getTransaction().begin();
 
@@ -142,9 +143,10 @@ public class CompraRepository {
             }
             throw new RuntimeException("Erro ao realizar a consulta por ID." + e.getMessage());
         }
+        return true;
     }
 
-    public void delete(Long id) {
+    public boolean delete(Long id) {
         try {
             em.getTransaction().begin();
             em.remove(em.find(Compra.class, id));
@@ -155,5 +157,6 @@ public class CompraRepository {
             }
             throw new RuntimeException("Erro ao deletar a compra: " + e.getMessage());
         }
+        return true;
     }
 }
