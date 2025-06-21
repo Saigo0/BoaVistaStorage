@@ -28,6 +28,9 @@ public class TelaCardapio implements Initializable {
     private EntityManager entityManager;
 
     @FXML
+    private Button btnCadastrarCardapio;
+
+    @FXML
     private HBox btnCardapio;
 
     @FXML
@@ -63,16 +66,13 @@ public class TelaCardapio implements Initializable {
     @FXML
     private VBox vboxCardapio;
 
-    @FXML
-    private Button btnCadastrarCardapio;
-
     private Cardapio cardapio;
 
     private CardapioService cardapioService;
 
-    private List<Produto> produtos = new ArrayList<>();
+    private List<Produto> produtos;
 
-    private List<Produto> armazenaProdutosCardapio = cardapioService.findCardapioById(cardapio.getIdCardapio()).getProdutosDisponiveis();
+    private List<Produto> armazenaProdutosCardapio;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -86,6 +86,8 @@ public class TelaCardapio implements Initializable {
     public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
         this.cardapioService = new CardapioService(new CardapioRepository(entityManager));
+        this.produtos = new ArrayList<>();
+        this.armazenaProdutosCardapio = cardapioService.findCardapioById(cardapio.getIdCardapio()).getProdutosDisponiveis();
     }
 
     public void configurarEventos() {
@@ -97,6 +99,11 @@ public class TelaCardapio implements Initializable {
         btnLogout.setOnMouseClicked(event -> {
             Stage stage = (Stage) btnLogout.getScene().getWindow();
             SceneManager.mudarCenaMaximizada("/com/ibdev/view/tela-login.fxml", "Login - Boa Vista Storage");
+        });
+
+        btnCadastrarCardapio.setOnMouseClicked(event -> {
+            Stage stage = (Stage) btnCadastrarCardapio.getScene().getWindow();
+            SceneManager.mudarCenaMaximizada("/com/ibdev/view/tela-adicionar-produto-cardapio.fxml", "Cadastro de Pedido - Boa Vista Storage");
         });
     }
 

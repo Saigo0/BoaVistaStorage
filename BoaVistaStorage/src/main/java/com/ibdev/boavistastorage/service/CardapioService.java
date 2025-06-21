@@ -1,6 +1,7 @@
 package com.ibdev.boavistastorage.service;
 
 import com.ibdev.boavistastorage.entity.Cardapio;
+import com.ibdev.boavistastorage.entity.Produto;
 import com.ibdev.boavistastorage.repository.CardapioRepository;
 
 public class CardapioService {
@@ -28,5 +29,27 @@ public class CardapioService {
 
     public void deleteCardapio(Long id) {
         cardapioRepository.delete(id);
+    }
+
+    public void addProdutoAoCardapio(Long idCardapio, Produto produto) {
+        Cardapio cardapio = cardapioRepository.findById(idCardapio);
+        if (cardapio != null) {
+            cardapio.addProdutosDisponiveis(produto);
+            produto.setCardapio(cardapio);
+            cardapioRepository.update(cardapio);
+        } else {
+            throw new RuntimeException("Cardápio não encontrado.");
+        }
+    }
+
+    public void removeProdutoDoCardapio(Long idCardapio, Produto produto) {
+        Cardapio cardapio = cardapioRepository.findById(idCardapio);
+        if (cardapio != null) {
+            cardapio.removeProdutosDisponiveis(produto);
+            produto.setCardapio(null);
+            cardapioRepository.update(cardapio);
+        } else {
+            throw new RuntimeException("Cardápio não encontrado.");
+        }
     }
 }

@@ -1,5 +1,12 @@
 package com.ibdev.boavistastorage.main;
 
+import com.ibdev.boavistastorage.entity.Cardapio;
+import com.ibdev.boavistastorage.entity.Produto;
+import com.ibdev.boavistastorage.entity.Vendavel;
+import com.ibdev.boavistastorage.repository.CardapioRepository;
+import com.ibdev.boavistastorage.repository.VendavelRepository;
+import com.ibdev.boavistastorage.service.CardapioService;
+import com.ibdev.boavistastorage.service.VendavelService;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import jakarta.persistence.EntityManager;
@@ -14,6 +21,8 @@ public class Main extends Application {
     public static void main(String[] args) {
         emf = Persistence.createEntityManagerFactory("jpa_basic");
         em = emf.createEntityManager();
+        CardapioRepository cardapioRepository = new CardapioRepository(em);
+        CardapioService cardapioService = new CardapioService(cardapioRepository);
 
         launch(args);
     }
