@@ -145,7 +145,7 @@
                         </children>
                     </HBox>
 
-                    <HBox alignment="CENTER_LEFT" spacing="8" styleClass="financeiro1">
+                    <HBox fx:id="btnLogout" alignment="CENTER_LEFT" spacing="8" styleClass="financeiro1">
                         <children>
                             <ImageView fitHeight="40" fitWidth="40">
                                 <HBox.margin>
@@ -186,9 +186,9 @@
                             <Label style="-fx-font-size:20px; -fx-font-weight:bold;" text="Últimos pedidos" />
                             <TableView fx:id="tabelaPedidos" VBox.vgrow="ALWAYS">
                                 <columns>
-                                    <TableColumn prefWidth="200" text="Número pedido" />
-                                    <TableColumn prefWidth="136.0" text="Cliente" />
-                                    <TableColumn prefWidth="145.0" text="Data" />
+                                    <TableColumn fx:id="idPedido" prefWidth="200" text="Número pedido" />
+                                    <TableColumn fx:id="VendaCliente" prefWidth="136.0" text="Cliente" />
+                                    <TableColumn fx:id="data" prefWidth="145.0" text="Data" />
                                 </columns>
                             </TableView>
                         </children>
@@ -198,11 +198,11 @@
                     <VBox prefHeight="800" prefWidth="760" spacing="16" style="-fx-background-color:white; -fx-background-radius:8; -fx-padding:24;">
                         <children>
                             <Label style="-fx-font-size:20px; -fx-font-weight:bold;" text="Últimas vendas" />
-                            <TableView fx:id="tabelaVendas" VBox.vgrow="ALWAYS">
+                            <TableView fx:id="tabelaVendas" prefHeight="692.0" prefWidth="556.0" VBox.vgrow="ALWAYS">
                                 <columns>
-                                    <TableColumn prefWidth="200" text="Número venda" />
-                                    <TableColumn prefWidth="200" text="Cliente" />
-                                    <TableColumn prefWidth="180" text="Data" />
+                                    <TableColumn fx:id="idVenda" prefWidth="200" text="Número venda" />
+                                    <TableColumn fx:id="VendaCliente" prefWidth="96.0" text="Cliente" />
+                                    <TableColumn fx:id="vendaData" prefWidth="185.0" text="Data" />
                                 </columns>
                             </TableView>
                         </children>
