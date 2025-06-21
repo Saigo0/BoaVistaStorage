@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Button?>
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaAdicionarProdutoCardapio" spacing="10" alignment="CENTER">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Nome do Produto:"/>
+    <TextField fx:id="nomeTextField" promptText="Ex: Pastel de Carne P"/>
+
+    <Label text="Descrição:"/>
+    <TextArea fx:id="descricaoTextArea" promptText="Ex: Pastel com recheio de carne moída..." wrapText="true"/>
+
+    <Label text="Preço:"/>
+    <TextField fx:id="precoTextField" promptText="Ex: 26.00"/>
+
+    <Button text="Adicionar Produto"/>
+</VBox>

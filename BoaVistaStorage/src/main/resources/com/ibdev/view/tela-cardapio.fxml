@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
@@ -15,8 +16,8 @@
 
 <!-- Tela Cardápio Atendente (1440 × 1024) -->
 
-<HBox prefHeight="1024" prefWidth="1440" style="-fx-font-family: 'Inter';" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaCardapio">
-   <VBox prefHeight="1024" prefWidth="260" spacing="26" styleClass="sidebar">
+<HBox prefHeight="1024.0" prefWidth="1440.0" style="-fx-font-family: 'Inter';" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaCardapio">
+   <VBox prefHeight="1024" prefWidth="260" spacing="20.0" style="-fx-background-color: ffff;" styleClass="sidebar">
       <children>
          <ImageView fx:id="logoView" fitHeight="100" fitWidth="260.0" styleClass="logo-icon">
             <image>
@@ -153,6 +154,7 @@
     <VBox prefWidth="1180" spacing="24" style="-fx-background-color:#e7e7e7; -fx-padding:30;">
         <!-- Título -->
         <Label style="-fx-font-size:28px; -fx-font-weight:bold;" text="Cardápio" />
+      <Button fx:id="btnCadastrarCardapio" mnemonicParsing="false" text="Button" />
 
         <!-- Grid de cards de produtos -->
         <ScrollPane fitToHeight="true" fitToWidth="true" VBox.vgrow="ALWAYS">
@@ -165,7 +167,7 @@
                 </columnConstraints>
 
                 <!-- EXEMPLO de card (linha 0, col 0) -->
-                <VBox alignment="TOP_LEFT" spacing="8" style="-fx-background-color:#ffffff; -fx-background-radius:8; -fx-padding:15;">
+                <VBox fx:id="vboxCardapio" alignment="TOP_LEFT" spacing="8" style="-fx-background-color:#ffffff; -fx-background-radius:8; -fx-padding:15;">
                     <StackPane prefHeight="100" style="-fx-background-color:#d9d9d9; -fx-background-radius:4;">
                         <Label text="Sem Imagem" />
                     </StackPane>

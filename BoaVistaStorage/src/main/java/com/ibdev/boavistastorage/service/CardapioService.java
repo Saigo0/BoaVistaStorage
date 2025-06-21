@@ -6,7 +6,7 @@ import com.ibdev.boavistastorage.repository.CardapioRepository;
 public class CardapioService {
     private static CardapioRepository cardapioRepository;
 
-    public CardapioService(CardapioService cardapioService) {
+    public CardapioService(CardapioRepository cardapioRepository) {
         this.cardapioRepository = cardapioRepository;
     }
 
