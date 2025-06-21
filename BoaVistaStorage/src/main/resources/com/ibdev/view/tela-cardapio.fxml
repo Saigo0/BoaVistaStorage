@@ -156,12 +156,12 @@
 
         <!-- Grid de cards de produtos -->
         <ScrollPane fitToHeight="true" fitToWidth="true" VBox.vgrow="ALWAYS">
-            <GridPane fx:id="gridCardapio" alignment="TOP_LEFT" hgap="30" vgap="30">
+            <GridPane fx:id="gridCardapio" alignment="TOP_LEFT" hgap="30" prefWidth="1118.0" vgap="30">
                 <columnConstraints>
-                    <ColumnConstraints percentWidth="25" />
-                    <ColumnConstraints percentWidth="25" />
-                    <ColumnConstraints percentWidth="25" />
-                    <ColumnConstraints percentWidth="25" />
+                    <ColumnConstraints percentWidth="25.0" />
+                    <ColumnConstraints percentWidth="25.0" />
+                    <ColumnConstraints percentWidth="25.0" />
+                    <ColumnConstraints percentWidth="25.0" />
                 </columnConstraints>
 
                 <!-- EXEMPLO de card (linha 0, col 0) -->
@@ -169,45 +169,9 @@
                     <StackPane prefHeight="100" style="-fx-background-color:#d9d9d9; -fx-background-radius:4;">
                         <Label text="Sem Imagem" />
                     </StackPane>
-                    <Label style="-fx-font-weight:bold;" text="Pastel de Carne P" />
-                    <Label style="-fx-font-size:11px;" text="Pastel com recheio de carne moída..." wrapText="true" />
-                    <Label style="-fx-text-fill:#c74921; -fx-font-weight:bold;" text="R$ 26,00" />
-                </VBox>
-                <VBox alignment="TOP_LEFT" spacing="8" style="-fx-background-color:#ffffff; -fx-background-radius:8; -fx-padding:15;" GridPane.columnIndex="1">
-                    <children>
-                        <StackPane prefHeight="100" style="-fx-background-color:#d9d9d9; -fx-background-radius:4;">
-                            <children>
-                                <Label text="Sem Imagem" />
-                            </children>
-                        </StackPane>
-                        <Label style="-fx-font-weight:bold;" text="Pastel de Carne P" />
-                        <Label style="-fx-font-size:11px;" text="Pastel com recheio de carne moída..." wrapText="true" />
-                        <Label style="-fx-text-fill:#c74921; -fx-font-weight:bold;" text="R$ 26,00" />
-                    </children>
-                </VBox>
-                <VBox alignment="TOP_LEFT" spacing="8" style="-fx-background-color:#ffffff; -fx-background-radius:8; -fx-padding:15;" GridPane.columnIndex="2">
-                    <children>
-                        <StackPane prefHeight="100" style="-fx-background-color:#d9d9d9; -fx-background-radius:4;">
-                            <children>
-                                <Label text="Sem Imagem" />
-                            </children>
-                        </StackPane>
-                        <Label style="-fx-font-weight:bold;" text="Pastel de Carne P" />
-                        <Label style="-fx-font-size:11px;" text="Pastel com recheio de carne moída..." wrapText="true" />
-                        <Label style="-fx-text-fill:#c74921; -fx-font-weight:bold;" text="R$ 26,00" />
-                    </children>
-                </VBox>
-                <VBox alignment="TOP_LEFT" spacing="8" style="-fx-background-color:#ffffff; -fx-background-radius:8; -fx-padding:15;" GridPane.columnIndex="3">
-                    <children>
-                        <StackPane prefHeight="100" style="-fx-background-color:#d9d9d9; -fx-background-radius:4;">
-                            <children>
-                                <Label text="Sem Imagem" />
-                            </children>
-                        </StackPane>
-                        <Label style="-fx-font-weight:bold;" text="Pastel de Carne P" />
-                        <Label style="-fx-font-size:11px;" text="Pastel com recheio de carne moída..." wrapText="true" />
-                        <Label style="-fx-text-fill:#c74921; -fx-font-weight:bold;" text="R$ 26,00" />
-                    </children>
+                    <Label fx:id="itemNome" style="-fx-font-weight:bold;" text="Pastel de Carne P" />
+                    <Label fx:id="insumos" style="-fx-font-size:11px;" text="Pastel com recheio de carne moída..." wrapText="true" />
+                    <Label fx:id="precoVenda" style="-fx-text-fill:#c74921; -fx-font-weight:bold;" text="R$ 26,00" />
                 </VBox>
                 <rowConstraints>
                     <RowConstraints />
