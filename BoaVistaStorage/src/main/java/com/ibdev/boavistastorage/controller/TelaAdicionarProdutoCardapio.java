@@ -3,20 +3,21 @@ package com.ibdev.boavistastorage.controller;
 import com.ibdev.boavistastorage.entity.Cardapio;
 import com.ibdev.boavistastorage.entity.Produto;
 import com.ibdev.boavistastorage.entity.Vendavel;
-import com.ibdev.boavistastorage.main.SceneManager;
 import com.ibdev.boavistastorage.repository.CardapioRepository;
 import com.ibdev.boavistastorage.service.CardapioService;
-import jakarta.persistence.EntityManager;
+import com.ibdev.boavistastorage.main.SceneManager;
+
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import jakarta.persistence.EntityManager;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class TelaAdicionarProdutoCardapio implements Initializable {
@@ -36,20 +37,15 @@ public class TelaAdicionarProdutoCardapio implements Initializable {
 
     @FXML
     private TextField precoTextField;
-
-    @FXML
-    private TextField txtIdCardapio;
-
-
+    
     private CardapioService cardapioService;
+    private Cardapio cardapioAtual;
+    private TelaCardapio telaCardapioController;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Inicializando TelaCardapio com EntityManager: " + entityManager);
-
-        Platform.runLater(() -> {
-            configurarEventos();
-        });
+        System.out.println("Inicializando TelaAdicionarProdutoCardapio");
+        Platform.runLater(this::configurarEventos);
     }
 
     public void setEntityManager(EntityManager entityManager) {
@@ -57,49 +53,88 @@ public class TelaAdicionarProdutoCardapio implements Initializable {
         this.cardapioService = new CardapioService(new CardapioRepository(entityManager));
     }
 
+    public void setCardapio(Cardapio cardapio) {
+        this.cardapioAtual = cardapio;
+        if (cardapioAtual != null) {
+            System.out.println("Cardápio atual: " + cardapioAtual.getIdCardapio());
+        } else {
+            System.out.println("Nenhum cardápio foi definido.");
+        }
+    }
+
+    public void setTelaCardapioController(TelaCardapio controller) {
+        this.telaCardapioController = controller;
+    }
+
     public void configurarEventos() {
         btnVoltar.setOnAction(event -> {
             Stage stage = (Stage) btnVoltar.getScene().getWindow();
-            SceneManager.mudarCenaMaximizada("/com/ibdev/view/tela-cardapio.fxml", "TelaCardapio");
+            stage.close();
         });
 
         btnAdicionarProduto.setOnAction(event -> {
-            Produto produto = new Vendavel();
-            String nome = nomeTextField.getText();
-            String idCardapio = txtIdCardapio.getText();
-            String precoStr = precoTextField.getText();
+            String nome = nomeTextField.getText().trim();
+            String descricao = descricaoTextArea.getText().trim(); // Pega a descrição
+            String precoStr = precoTextField.getText().trim();
 
-            if (nome.isEmpty() || precoStr.isEmpty()) {
-                System.out.println("Por favor, preencha todos os campos.");
+            if (nome.isEmpty() || descricao.isEmpty() || precoStr.isEmpty()) {
+                showAlert(Alert.AlertType.ERROR, "Erro de Validação", "Por favor, preencha todos os campos.");
                 return;
             }
 
             double preco;
             try {
-                preco = Double.parseDouble(precoStr);
+                preco = Double.parseDouble(precoStr.replace(",", ".")); // Lida com vírgula
+                if (preco <= 0) {
+                    showAlert(Alert.AlertType.ERROR, "Erro de Validação", "O preço deve ser um valor positivo.");
+                    return;
+                }
             } catch (NumberFormatException e) {
-                System.out.println("Preço inválido. Por favor, insira um número válido.");
+                showAlert(Alert.AlertType.ERROR, "Erro de Validação", "Preço inválido. Por favor, insira um número válido.");
                 return;
             }
 
-            Long idCardapioLong;
+            if (cardapioAtual == null) {
+                showAlert(Alert.AlertType.ERROR, "Erro", "Cardápio não foi carregado corretamente.");
+                return;
+            }
+
+            Produto novoProduto = new Vendavel();
+            novoProduto.setNome(nome);
+            novoProduto.setPrecoCusto(preco);
+
             try {
-                idCardapioLong = Long.parseLong(idCardapio);
-            } catch (NumberFormatException e) {
-                System.out.println("ID do cardápio inválido. Por favor, insira um número válido.");
-                return;
+                entityManager.getTransaction().begin();
+                novoProduto.setCardapio(cardapioAtual);
+                entityManager.persist(novoProduto);
+                cardapioAtual.addProdutosDisponiveis(novoProduto);
+                entityManager.merge(cardapioAtual);
+                entityManager.getTransaction().commit();
+
+                showAlert(Alert.AlertType.INFORMATION, "Sucesso", "Produto adicionado com sucesso!");
+
+                nomeTextField.clear();
+                descricaoTextArea.clear();
+                precoTextField.clear();
+
+                Stage stage = (Stage) btnAdicionarProduto.getScene().getWindow();
+                stage.close();
+
+            } catch (Exception e) {
+                if (entityManager.getTransaction().isActive()) {
+                    entityManager.getTransaction().rollback();
+                }
+                showAlert(Alert.AlertType.ERROR, "Erro ao Adicionar Produto", "Erro: " + e.getMessage());
+                e.printStackTrace();
             }
-
-            produto.setNome(nome);
-            produto.setPrecoCusto(preco);
-
-            cardapioService.addProdutoAoCardapio(idCardapioLong, produto);
-
-            nomeTextField.clear();
-            descricaoTextArea.clear();
-            precoTextField.clear();
-
-            System.out.println("Produto adicionado com sucesso!");
         });
+    }
+
+    private void showAlert(Alert.AlertType type, String title, String message) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }
