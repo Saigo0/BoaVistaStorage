@@ -42,15 +42,6 @@ public class TelaPrincipalAtendente implements Initializable {
     private HBox btnInicio;
 
     @FXML
-    private Button btnNovaVenda;
-
-    @FXML
-    private Button btnNovoCliente;
-
-    @FXML
-    private Button btnNovoPedido;
-
-    @FXML
     private HBox btnPedidos;
 
     @FXML
