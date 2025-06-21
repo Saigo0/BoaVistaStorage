@@ -2,6 +2,7 @@ package com.ibdev.boavistastorage.service;
 
 import com.ibdev.boavistastorage.entity.Atendente;
 import com.ibdev.boavistastorage.repository.AtendenteRepository;
+import jakarta.persistence.NoResultException;
 
 public class AtendenteService {
     private AtendenteRepository atendenteRepository;
@@ -18,9 +19,10 @@ public class AtendenteService {
             } else {
                 throw new RuntimeException("Login ou senha inválidos");
             }
+        } catch (NoResultException e) {
+            return null;
         } catch (Exception e) {
             throw new RuntimeException("Erro ao realizar a consulta por login e senha: " + e.getMessage());
         }
     }
-
 }

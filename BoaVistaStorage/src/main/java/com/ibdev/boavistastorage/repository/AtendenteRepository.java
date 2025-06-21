@@ -91,7 +91,7 @@ public class AtendenteRepository {
                     .setParameter("senha", senha)
                     .getSingleResult();
         } catch (NoResultException e) {
-            return null; // Ou lance uma exceção customizada, se preferir
+            return null;
         } catch (Exception e) {
             throw new RuntimeException("Erro ao realizar a consulta por login e senha: " + e.getMessage());
         }

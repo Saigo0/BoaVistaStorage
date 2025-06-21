@@ -84,16 +84,13 @@ public class GerenteRepository {
                     .setParameter("login", login)
                     .setParameter("senha", senha)
                     .getSingleResult();
-        } catch (PersistenceException ex) {
-            if (ex.getCause() instanceof jakarta.persistence.NoResultException) {
-                throw new RuntimeException("Login ou senha inválidos.");
-            } else {
-                throw new RuntimeException("Erro ao realizar a consulta por login e senha: " + ex.getMessage());
-            }
+        } catch (NoResultException e) {
+            return null;
         } catch (Exception e) {
             throw new RuntimeException("Erro ao realizar a consulta por login e senha: " + e.getMessage());
         }
     }
+
 
     public void update(Long idGerente, Gerente gerente) {
         try {

@@ -13,10 +13,12 @@
 
 <!-- Tela de Login – 1440 × 1024, baseada nos campos fornecidos -->
 
-<HBox prefHeight="1024" prefWidth="1440" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaLogin">
+<HBox fx:id="rootHBox" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.ibdev.boavistastorage.controller.TelaLogin"
+      style="-fx-background-color:white;" spacing="0" fillHeight="true">
 
-   <!-- Coluna da logo -->
-   <VBox alignment="CENTER" prefWidth="720" style="-fx-background-color: fffff;">
+
+   <VBox alignment="CENTER" style="-fx-background-color:#ffffff;" HBox.hgrow="ALWAYS">
       <children>
          <ImageView fx:id="logoView" fitHeight="220.0" fitWidth="420" preserveRatio="true">
             <image>
@@ -30,7 +32,7 @@
    </VBox>
 
    <!-- Coluna do formulário -->
-   <VBox alignment="CENTER" prefWidth="720" spacing="24" style="-fx-background-color:#e7e7e7;">
+   <VBox alignment="CENTER" style="-fx-background-color:#e7e7e7;" HBox.hgrow="ALWAYS">
       <padding><Insets bottom="120" left="120" right="120" top="120" /></padding>
 
       <children>

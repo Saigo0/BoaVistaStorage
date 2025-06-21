@@ -143,6 +143,9 @@
                         <TableColumn text="Quantidade" />
                         <TableColumn text="Preço" />
                     </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
                 </TableView>
                 <HBox alignment="BOTTOM_RIGHT">
                     <Label style="-fx-font-weight: bold;" text="Total" />

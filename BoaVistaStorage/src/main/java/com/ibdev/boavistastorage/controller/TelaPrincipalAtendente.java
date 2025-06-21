@@ -20,20 +20,8 @@ import java.util.ResourceBundle;
 public class TelaPrincipalAtendente implements Initializable {
     private EntityManager entityManager;
 
-    public TelaPrincipalAtendente() {}
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Iniciando TelaPrincipalAtendente");
-
-        Platform.runLater(() -> {
-            configurarEventos();
-        });
-    }
-
-    public void setEntityManager(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
+    @FXML
+    private TableColumn<?, ?> VendaC1liente;
 
     @FXML
     private TableColumn<?, ?> VendaCliente;
@@ -46,6 +34,9 @@ public class TelaPrincipalAtendente implements Initializable {
 
     @FXML
     private HBox btnInicio;
+
+    @FXML
+    private HBox btnLogout;
 
     @FXML
     private Button btnNovaVenda;
@@ -83,19 +74,31 @@ public class TelaPrincipalAtendente implements Initializable {
     @FXML
     private TableColumn<?, ?> vendaData;
 
-    @FXML
-    private HBox btnLogout;
+    public TelaPrincipalAtendente() {}
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println("Iniciando TelaPrincipalAtendente");
+
+        Platform.runLater(() -> {
+            configurarEventos();
+        });
+    }
+
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
 
     private void configurarEventos() {
         btnCardapio.setOnMouseClicked(event -> {
             Stage stage = (Stage) btnCardapio.getScene().getWindow();
-            SceneManager.mudarCena(stage, "/com/ibdev/view/tela-cardapio.fxml", "Tela Cardápio");
+            SceneManager.mudarCena("/com/ibdev/view/tela-cardapio.fxml", "Tela Cardápio");
         });
 
         btnLogout.setOnMouseClicked(event -> {
             Stage stage = (Stage) btnLogout.getScene().getWindow();
-            SceneManager.mudarCena(stage, "/com/ibdev/view/tela-login.fxml", "Tela Login");
+            SceneManager.mudarCena("/com/ibdev/view/tela-login.fxml", "Tela Login");
         });
     }
 }

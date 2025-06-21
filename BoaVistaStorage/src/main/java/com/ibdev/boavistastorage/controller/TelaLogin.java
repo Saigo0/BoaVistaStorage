@@ -1,10 +1,14 @@
 package com.ibdev.boavistastorage.controller;
 
+import com.ibdev.boavistastorage.entity.Atendente;
+import com.ibdev.boavistastorage.entity.Funcionario;
+import com.ibdev.boavistastorage.entity.Gerente;
 import com.ibdev.boavistastorage.main.SceneManager;
 import com.ibdev.boavistastorage.repository.AtendenteRepository;
 import com.ibdev.boavistastorage.repository.GerenteRepository;
 import com.ibdev.boavistastorage.service.AtendenteService;
 import com.ibdev.boavistastorage.service.GerenteService;
+import com.ibdev.boavistastorage.service.LoginService;
 import jakarta.persistence.EntityManager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -23,22 +27,29 @@ public class TelaLogin implements Initializable {
     private EntityManager entityManager;
     private AtendenteService atendenteService;
     private GerenteService gerenteService;
+    private LoginService loginService;
 
-    @FXML private Button btnLogin;
-    @FXML private PasswordField campoSenha;
-    @FXML private TextField campoUser;
-    @FXML private ImageView logoView;
-    @FXML private Label txtLoginInvalido;
-    @FXML private Label txtSenhaInvalida;
+    @FXML
+    private Button btnLogin;
+    @FXML
+    private PasswordField campoSenha;
+    @FXML
+    private TextField campoUser;
+    @FXML
+    private ImageView logoView;
+    @FXML
+    private Label txtLoginInvalido;
+    @FXML
+    private Label txtSenhaInvalida;
 
-    /* --------------------------------------------------------------------- */
     public void setEntityManager(EntityManager em) {
+        System.out.println("setEntityManager chamado no controller: " + this);
         this.entityManager = em;
         atendenteService = new AtendenteService(new AtendenteRepository(em));
-        gerenteService   = new GerenteService(new GerenteRepository(em));
+        gerenteService = new GerenteService(new GerenteRepository(em));
+        loginService = new LoginService(atendenteService, gerenteService);
     }
 
-    /* --------------------------------------------------------------------- */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         configurarEventos();
@@ -54,43 +65,54 @@ public class TelaLogin implements Initializable {
         txtSenhaInvalida.setVisible(false);
     }
 
-    /* --------------------------------------------------------------------- */
     private void realizarLogin() {
         String usuario = campoUser.getText();
-        String senha   = campoSenha.getText();
+        String senha = campoSenha.getText();
 
         if (usuario == null || usuario.trim().isEmpty()) {
-            txtLoginInvalido.setText("Informe um login válido");
+            txtLoginInvalido.setText("O campo usuário é obrigatório");
             txtLoginInvalido.setVisible(true);
             return;
         }
         if (senha == null || senha.trim().isEmpty()) {
-            txtSenhaInvalida.setText("Informe uma senha válida");
+            txtSenhaInvalida.setText("O campo senha é obrigatório");
             txtSenhaInvalida.setVisible(true);
             return;
         }
 
+        txtLoginInvalido.setVisible(false);
+        txtSenhaInvalida.setVisible(false);
+
         try {
-            if (atendenteService.findByLoginAndSenha(usuario, senha) != null) {
-                mudarCena("/com/ibdev/view/tela-principal-atendente.fxml", "Tela Principal Atendente");
-                return;
+            Funcionario funcionario = loginService.atutenticar(usuario, senha);
+
+            if (funcionario instanceof Gerente) {
+                Gerente gerente = (Gerente) funcionario;
+                System.out.println("Gerente logado: " + gerente.getNome());
+                SceneManager.mudarCenaMaximizada("/com/ibdev/view/tela-principal-gerente.fxml", "Tela Principal Gerente");
+
+            } else if (funcionario instanceof Atendente) {
+                Atendente atendente = (Atendente) funcionario;
+                System.out.println("Login como ATENDENTE bem-sucedido. Usuário de nome: " + atendente.getNome());
+                SceneManager.mudarCenaMaximizada("/com/ibdev/view/tela-principal-atendente.fxml", "Tela Principal Atendente");
             }
-            if (gerenteService.findByLoginAndSenha(usuario, senha) != null) {
-                mudarCena("/com/ibdev/view/tela-principal-gerente.fxml", "Tela Principal Gerente");
-                return;
+
+            else {
+                txtLoginInvalido.setText("Usuário ou senha inválidos");
+                txtLoginInvalido.setVisible(true);
+                txtSenhaInvalida.setText("Usuário ou senha inválidos");
+                txtSenhaInvalida.setVisible(true);
             }
+
         } catch (Exception ex) {
-            ex.printStackTrace();   // pode trocar por um logger
+            ex.printStackTrace();
+            txtLoginInvalido.setText("Ocorreu um erro inesperado no sistema. Tente novamente mais tarde.");
+            txtSenhaInvalida.setText("Ocorreu um erro inesperado no sistema. Tente novamente mais tarde.");
         }
-
-        txtLoginInvalido.setText("Não foi possível realizar o login");
-        txtSenhaInvalida.setText("Não foi possível realizar o login");
-        txtLoginInvalido.setVisible(true);
-        txtSenhaInvalida.setVisible(true);
     }
 
-    private void mudarCena(String fxml, String titulo) {
-        Stage stage = (Stage) btnLogin.getScene().getWindow();
-        SceneManager.mudarCena(stage, fxml, titulo);
-    }
+//    private void mudarCena(String fxml, String titulo) {
+//        Stage stage = (Stage) btnLogin.getScene().getWindow();
+//        SceneManager.mudarCenaMaximizada(fxml, titulo);
+//    }
 }
