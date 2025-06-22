@@ -30,7 +30,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         SceneManager.init(primaryStage, em); // Passe o EntityManager aqui
-        SceneManager.mudarCenaMaximizada("/com/ibdev/view/tela-cardapio.fxml", "Cardapio - Boa Vista Storage");
+        SceneManager.mudarCenaMaximizada("/com/ibdev/view/tela-login.fxml", "Tela Inicial - Boa Vista Storage");
     }
 
     @Override
