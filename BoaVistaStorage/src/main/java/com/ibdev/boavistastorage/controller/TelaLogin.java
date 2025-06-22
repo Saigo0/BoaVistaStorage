@@ -95,19 +95,24 @@ public class TelaLogin implements Initializable {
                 Atendente atendente = (Atendente) funcionario;
                 System.out.println("Login como ATENDENTE bem-sucedido. Usuário de nome: " + atendente.getNome());
                 SceneManager.mudarCenaMaximizada("/com/ibdev/view/tela-principal-atendente.fxml", "Tela Principal Atendente");
-            }
-
-            else {
+            } else {
                 txtLoginInvalido.setText("Usuário ou senha inválidos");
                 txtLoginInvalido.setVisible(true);
                 txtSenhaInvalida.setText("Usuário ou senha inválidos");
                 txtSenhaInvalida.setVisible(true);
             }
 
+        } catch (RuntimeException ex) {
+            txtLoginInvalido.setText("Por favor, verifique se o usuário e a senha estão corretos.");
+            txtLoginInvalido.setVisible(true);
+            txtSenhaInvalida.setText("Por favor, verifique se o usuário e a senha estão corretos.");
+            txtSenhaInvalida.setVisible(true);
         } catch (Exception ex) {
             ex.printStackTrace();
             txtLoginInvalido.setText("Ocorreu um erro inesperado no sistema. Tente novamente mais tarde.");
+            txtLoginInvalido.setVisible(true);
             txtSenhaInvalida.setText("Ocorreu um erro inesperado no sistema. Tente novamente mais tarde.");
+            txtSenhaInvalida.setVisible(true);
         }
     }
 }

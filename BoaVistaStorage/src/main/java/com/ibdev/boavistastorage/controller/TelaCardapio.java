@@ -58,6 +58,9 @@ public class TelaCardapio implements Initializable {
     private HBox btnPedidos;
 
     @FXML
+    private Button btnRemoverItemCardapio;
+
+    @FXML
     private HBox btnVenda;
 
     @FXML
@@ -188,6 +191,33 @@ public class TelaCardapio implements Initializable {
                 e.printStackTrace();
             }
         });
+
+        btnRemoverItemCardapio.setOnMouseClicked(event -> {
+            if (cardapio == null || cardapio.getIdCardapio() == null) {
+                showAlert(Alert.AlertType.WARNING, "Atenção", "Cardápio não carregado ou não existe. Crie um cardápio primeiro.");
+                return;
+            }
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ibdev/view/tela-excluir-produto-cardapio.fxml"));
+                Parent root = loader.load();
+
+                TelaExcluirProdutoCardapio controller = loader.getController();
+                controller.setEntityManager(entityManager);
+                controller.setCardapio(cardapio);
+                controller.setTelaCardapioController(this);
+
+                Stage stage = new Stage();
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setTitle("Excluir Produto do Cardápio");
+                stage.setScene(new Scene(root));
+                stage.showAndWait();
+
+            } catch (IOException e) {
+                showAlert(Alert.AlertType.ERROR, "Erro de Carregamento", "Não foi possível carregar a tela de exclusão de produto: " + e.getMessage());
+                e.printStackTrace();
+            }
+        });
     }
 
     public void carregarProdutosNoCardapio() {
@@ -237,6 +267,7 @@ public class TelaCardapio implements Initializable {
     private VBox criarVBoxProduto(Produto produto) {
         VBox vbox = new VBox();
         vbox.setSpacing(8);
+        vbox.setPrefHeight(250);
         vbox.setStyle("-fx-background-color:#ffffff; -fx-background-radius:8; -fx-padding:15;");
         vbox.setAlignment(javafx.geometry.Pos.TOP_LEFT);
 

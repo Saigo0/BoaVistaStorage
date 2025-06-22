@@ -93,7 +93,7 @@ public class TelaAdicionarProdutoCardapio implements Initializable {
             String precoStr = precoTextField.getText().trim();
             String descricao = descricaoTextArea.getText().trim();
 
-            if (txtId.isEmpty() || precoStr.isEmpty() || descricao.isEmpty()) {
+            if (txtId.isEmpty() || precoStr.isEmpty()) {
                 showAlert(Alert.AlertType.ERROR, "Erro de Validação", "Por favor, preencha todos os campos.");
                 return;
             }
@@ -125,6 +125,11 @@ public class TelaAdicionarProdutoCardapio implements Initializable {
                             return;
                         }
 
+                        if (descricao.trim().isEmpty()) {
+                            showAlert(Alert.AlertType.ERROR, "Erro de Validação", "Descrição não pode estar vazia para produtos produzidos.");
+                            return;
+                        }
+
                         novoProduzido.setCardapio(cardapioAtual);
                         novoProduzido.setPrecoVenda(preco);
                         novoProduzido.setDescricao(descricao);
@@ -140,8 +145,21 @@ public class TelaAdicionarProdutoCardapio implements Initializable {
                             return;
                         }
 
+                        if (novoVendavel.getStatusEstoque() == null) {
+                            if (novoVendavel.getQuantEstoque() <= 0) {
+                                novoVendavel.setStatusEstoque(StatusEstoque.ZERADO);
+                            } else if (novoVendavel.getQuantEstoque() < 20) {
+                                novoVendavel.setStatusEstoque(StatusEstoque.RAZOAVEL);
+                            } else {
+                                novoVendavel.setStatusEstoque(StatusEstoque.BOM);
+
+                            }
+                        }
+
                         if (novoVendavel.getStatusEstoque().equals(StatusEstoque.ZERADO)) {
                             showAlert(Alert.AlertType.ERROR, "Erro de Estoque", "Produto está com estoque zerado. Não é possível adicioná-lo ao cardápio.");
+                            idTextField.clear();
+                            precoTextField.clear();
                             return;
                         }
                         novoVendavel.setCardapio(cardapioAtual);
@@ -155,7 +173,7 @@ public class TelaAdicionarProdutoCardapio implements Initializable {
                     showAlert(Alert.AlertType.ERROR, "Erro de Validação", "ID inválido. Por favor, insira um número válido.");
                     return;
                 } catch (RuntimeException e) {
-                    showAlert(Alert.AlertType.ERROR, "Erro ao Buscar Produto", "Erro: " + e.getMessage());
+                    showAlert(Alert.AlertType.ERROR, "Erro ao Buscar Produto", "Erro ao buscar produto");
                     return;
                 }
 
@@ -163,7 +181,7 @@ public class TelaAdicionarProdutoCardapio implements Initializable {
                 if (entityManager.getTransaction().isActive()) {
                     entityManager.getTransaction().rollback();
                 }
-                showAlert(Alert.AlertType.ERROR, "Erro ao Adicionar Produto", "Erro: " + e.getMessage());
+                showAlert(Alert.AlertType.ERROR, "Erro ao Adicionar Produto", "Erro ao adicionar produto ao cardápio");
                 e.printStackTrace();
             }
         });

@@ -11,7 +11,7 @@ import java.util.List;
 @Entity
 @Table(name = "produzido")
 public class Produzido extends Produto {
-
+    @Column(unique = true)
     private String descricao;
 
     @Column(nullable = false)

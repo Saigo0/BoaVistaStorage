@@ -10,12 +10,8 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
-<!-- Tela Cardápio Atendente (1440 × 1024) -->
 
 <HBox prefHeight="1024.0" prefWidth="1440.0" style="-fx-font-family: 'Inter';" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaCardapio">
    <VBox prefHeight="1024" prefWidth="260" spacing="20.0" style="-fx-background-color: ffff;" styleClass="sidebar">
@@ -152,46 +148,33 @@
    </VBox>
 
 
-    <!-- =============== ÁREA PRINCIPAL (CARDÁPIO) =========================== -->
-    <VBox prefWidth="1180" spacing="24" style="-fx-background-color:#e7e7e7; -fx-padding:30;">
-       <HBox alignment="CENTER_LEFT" spacing="20">
-          <children>
-             <Label style="-fx-font-size: 36px; -fx-font-weight: 500;" text="Cardápio">
+   <VBox prefWidth="1180" spacing="24" style="-fx-background-color:#e7e7e7; -fx-padding:30;">
+      <HBox alignment="CENTER_LEFT" spacing="20">
+         <children>
+            <Label style="-fx-font-size: 36px; -fx-font-weight: 500;" text="Cardápio">
                <font>
                   <Font name="Poppins ExtraBold" size="12.0" />
                </font></Label>
-             <Region HBox.hgrow="ALWAYS" />
-             <Button fx:id="btnCadastrarCardapio" prefHeight="36" style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-weight:bold; -fx-background-radius:8;" text="Cadastrar produto" />
-          </children>
-       </HBox>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnRemoverItemCardapio" prefHeight="36" style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-weight:bold; -fx-background-radius:8;" text="Remover produto" />
+            <Button fx:id="btnCadastrarCardapio" prefHeight="36" style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-weight:bold; -fx-background-radius:8;" text="Adicionar ou alterar produto" />
+         </children>
+      </HBox>
 
-        <!-- Grid de cards de produtos -->
-        <ScrollPane fitToHeight="true" fitToWidth="true" VBox.vgrow="ALWAYS">
-            <GridPane fx:id="gridCardapio" alignment="TOP_LEFT" hgap="30" prefWidth="1118.0" vgap="30">
-                <columnConstraints>
-                    <ColumnConstraints percentWidth="25.0" />
-                    <ColumnConstraints percentWidth="25.0" />
-                    <ColumnConstraints percentWidth="25.0" />
-                    <ColumnConstraints percentWidth="25.0" />
-                </columnConstraints>
-
-                <!-- EXEMPLO de card (linha 0, col 0) -->
-                <VBox fx:id="vboxCardapio" alignment="TOP_LEFT" spacing="8" style="-fx-background-color:#ffffff; -fx-background-radius:8; -fx-padding:15;">
-                    <StackPane prefHeight="100" style="-fx-background-color:#d9d9d9; -fx-background-radius:4;">
-                        <Label text="Sem Imagem" />
-                    </StackPane>
-                    <Label fx:id="itemNome" style="-fx-font-weight:bold;" text="Pastel de Carne P" />
-                    <Label fx:id="insumos" style="-fx-font-size:11px;" text="Pastel com recheio de carne moída..." wrapText="true" />
-                    <Label fx:id="precoVenda" style="-fx-text-fill:#c74921; -fx-font-weight:bold;" text="R$ 26,00" />
-                </VBox>
-                <rowConstraints>
-                    <RowConstraints />
-                </rowConstraints>
-            <padding>
-               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-            </padding>
-                <!-- Copie / adicione mais VBox‑cards conforme necessário -->
+      <ScrollPane fitToHeight="false" fitToWidth="true" VBox.vgrow="ALWAYS">
+         <content>
+            <GridPane fx:id="gridCardapio" alignment="TOP_LEFT" hgap="30" vgap="30">
+               <columnConstraints>
+                  <ColumnConstraints prefWidth="230.0" />
+                  <ColumnConstraints prefWidth="230.0" />
+                  <ColumnConstraints prefWidth="230.0" />
+                  <ColumnConstraints prefWidth="230.0" />
+               </columnConstraints>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
             </GridPane>
-        </ScrollPane>
-    </VBox>
+         </content>
+      </ScrollPane>
+   </VBox>
 </HBox>

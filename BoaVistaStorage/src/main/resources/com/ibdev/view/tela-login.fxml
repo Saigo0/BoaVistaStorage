@@ -41,7 +41,7 @@
             </VBox.margin></Label>
 
          <!-- Campo usuário -->
-         <VBox maxWidth="480" spacing="6">
+         <VBox maxWidth="480" spacing="10.0">
             <Label style="-fx-font-size:14px;" text="Usuário" />
             <TextField fx:id="campoUser" prefHeight="48" style="-fx-background-radius:8;" />
             <Label fx:id="txtLoginInvalido" style="-fx-text-fill:red; -fx-font-size:12px;" text=" " />
@@ -55,7 +55,10 @@
          </VBox>
 
          <!-- Botão -->
-         <Button fx:id="btnLogin" prefHeight="48" prefWidth="480" style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-size:18px; -fx-font-weight:600; -fx-background-radius:8;" text="Entrar" />
+         <Button fx:id="btnLogin" prefHeight="48" prefWidth="480" style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-size:18px; -fx-font-weight:600; -fx-background-radius:8;" text="Entrar">
+            <VBox.margin>
+               <Insets top="10.0" />
+            </VBox.margin></Button>
       </children>
    </VBox>
 </HBox>
