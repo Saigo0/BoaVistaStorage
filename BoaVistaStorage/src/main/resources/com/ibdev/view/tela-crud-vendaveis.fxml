@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 
 <!-- Tela CRUD Vendáveis – 1440 × 1024 -->
-<BorderPane fx:controller="com.ibdev.boavistastorage.controller.TelaCRUDVendáveis"
+<BorderPane fx:controller="com.ibdev.boavistastorage.controller.TelaCRUDVendaveis"
             xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
             prefWidth="1440" prefHeight="1024">
 
@@ -29,7 +29,7 @@
         <!-- Logo -->
         <ImageView fitWidth="200" fitHeight="80" pickOnBounds="true">
             <image>
-                <!-- Coloque sua imagem aqui -->
+                <!-- Coloque a sua imagem aqui -->
                 @com/ibdev/imagens/logo.png
             </image>
         </ImageView>

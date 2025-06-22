@@ -1,6 +1,7 @@
 package com.ibdev.boavistastorage.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -9,7 +10,7 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TelaCRUDVendáveis {
+public class TelaCRUDVendaveis implements Initializable {
 
     @FXML
     private Button btnAtualizar;

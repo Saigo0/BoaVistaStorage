@@ -49,10 +49,6 @@ public class TelaAdicionarEstoque implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cmbTipoItem.setItems(FXCollections.observableArrayList("Vendável", "Insumo"));
         cmbTipoItem.valueProperty().addListener((obs, oldVal, newVal) -> configurarCamposPorTipo(newVal));
-
-        // REMOVER: Não precisamos mais inicializar o ComboBox de unidade de medida
-        // cmbUnidadeMedida.setItems(FXCollections.observableArrayList(UnidadeDeMedida.values()));
-
         btnAdicionar.setOnAction(event -> handleAdicionar());
         btnCancelar.setOnAction(event -> closeStage());
 
@@ -76,9 +72,9 @@ public class TelaAdicionarEstoque implements Initializable {
         txtPrecoVenda.setManaged(false);
 
         lblUnidadeMedida.setVisible(false);
-        txtUnidadeMedida.setVisible(false); // MUDANÇA AQUI
+        txtUnidadeMedida.setVisible(false);
         lblUnidadeMedida.setManaged(false);
-        txtUnidadeMedida.setManaged(false); // MUDANÇA AQUI
+        txtUnidadeMedida.setManaged(false);
 
         if ("Vendável".equals(tipoSelecionado)) {
             lblPrecoVenda.setVisible(true);
@@ -89,11 +85,11 @@ public class TelaAdicionarEstoque implements Initializable {
             GridPane.setRowIndex(txtPrecoVenda, 4);
         } else if ("Insumo".equals(tipoSelecionado)) {
             lblUnidadeMedida.setVisible(true);
-            txtUnidadeMedida.setVisible(true); // MUDANÇA AQUI
+            txtUnidadeMedida.setVisible(true);
             lblUnidadeMedida.setManaged(true);
-            txtUnidadeMedida.setManaged(true); // MUDANÇA AQUI
+            txtUnidadeMedida.setManaged(true);
             GridPane.setRowIndex(lblUnidadeMedida, 4);
-            GridPane.setRowIndex(txtUnidadeMedida, 4); // MUDANÇA AQUI
+            GridPane.setRowIndex(txtUnidadeMedida, 4);
         }
     }
 
@@ -126,12 +122,12 @@ public class TelaAdicionarEstoque implements Initializable {
                                                 vendavel.getQuantEstoque());
                 novoProduto = vendavel;
             } else if ("Insumo".equals(tipo)) {
-                String unidadeMedida = txtUnidadeMedida.getText().trim(); // MUDANÇA AQUI: Obter do TextField
+                String unidadeMedida = txtUnidadeMedida.getText().trim();
                 Insumo insumo = new Insumo();
                 insumo.setNome(nome);
                 insumo.setPrecoCusto(precoCusto);
                 insumo.setQuantidadeEstoque(quantidade);
-                insumo.setUnidadeDeMedida(unidadeMedida); // MUDANÇA AQUI: Salvar a String
+                insumo.setUnidadeDeMedida(unidadeMedida);
                 insumo.setStatusEstoque(calcularStatusEstoque(quantidade));
                 insumoService.salvarInsumo(insumo.getNome(),
                                             insumo.getPrecoCusto(),
@@ -203,8 +199,8 @@ public class TelaAdicionarEstoque implements Initializable {
                 return false;
             }
         } else if ("Insumo".equals(tipo)) {
-            String unidadeMedida = txtUnidadeMedida.getText().trim(); // MUDANÇA AQUI
-            if (unidadeMedida.isEmpty()) { // Validação para a string
+            String unidadeMedida = txtUnidadeMedida.getText().trim();
+            if (unidadeMedida.isEmpty()) {
                 showAlert(Alert.AlertType.WARNING, "Validação", "Unidade de Medida não pode ser vazia.");
                 return false;
             }
