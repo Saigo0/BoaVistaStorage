@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <!-- Tela Cardápio Atendente (1440 × 1024) -->
 
@@ -33,7 +34,7 @@
                            <Insets left="20" />
                         </HBox.margin>
                         <image>
-                           <Image url="@../../../images/icons8-microsoft-40-laranja.png" />
+                           <Image url="@../../../images/icons8-microsoft-40.png" />
                         </image>
                      </ImageView>
                      <Label prefHeight="40.0" styleClass="incio1" text="Início">
@@ -84,10 +85,10 @@
                            <Insets left="20" />
                         </HBox.margin>
                         <image>
-                           <Image url="@../../../images/icons8-menu-40.png" />
+                           <Image url="@../../../images/icons8-menu-40-laranja.png" />
                         </image>
                      </ImageView>
-                     <Label prefHeight="40.0" text="Cardápio">
+                     <Label prefHeight="40.0" text="Cardápio" textFill="#c74921">
                         <HBox.margin>
                            <Insets left="8" />
                         </HBox.margin>
@@ -150,11 +151,19 @@
       </children>
    </VBox>
 
+
     <!-- =============== ÁREA PRINCIPAL (CARDÁPIO) =========================== -->
     <VBox prefWidth="1180" spacing="24" style="-fx-background-color:#e7e7e7; -fx-padding:30;">
-        <!-- Título -->
-        <Label style="-fx-font-size:28px; -fx-font-weight:bold;" text="Cardápio" />
-      <Button fx:id="btnCadastrarCardapio" mnemonicParsing="false" text="Button" />
+       <HBox alignment="CENTER_LEFT" spacing="20">
+          <children>
+             <Label style="-fx-font-size: 36px; -fx-font-weight: 500;" text="Cardápio">
+               <font>
+                  <Font name="Poppins ExtraBold" size="12.0" />
+               </font></Label>
+             <Region HBox.hgrow="ALWAYS" />
+             <Button fx:id="btnCadastrarCardapio" prefHeight="36" style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-weight:bold; -fx-background-radius:8;" text="Cadastrar produto" />
+          </children>
+       </HBox>
 
         <!-- Grid de cards de produtos -->
         <ScrollPane fitToHeight="true" fitToWidth="true" VBox.vgrow="ALWAYS">

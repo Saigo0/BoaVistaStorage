@@ -13,9 +13,7 @@
 
 <!-- Tela de Login – 1440 × 1024, baseada nos campos fornecidos -->
 
-<HBox fx:id="rootHBox" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.ibdev.boavistastorage.controller.TelaLogin"
-      style="-fx-background-color:white;" spacing="0" fillHeight="true">
+<HBox fx:id="rootHBox" fillHeight="true" prefHeight="1024.0" prefWidth="1440.0" spacing="0" style="-fx-background-color:white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaLogin">
 
 
    <VBox alignment="CENTER" style="-fx-background-color:#ffffff;" HBox.hgrow="ALWAYS">
@@ -37,7 +35,10 @@
 
       <children>
          <!-- Título -->
-         <Label style="-fx-font-size:28px; -fx-font-family:'Poppins'; -fx-font-weight:700;" text="Acesse seu cadastro" />
+         <Label prefHeight="40.0" prefWidth="482.0" style="-fx-font-size:28px; -fx-font-family:'Poppins'; -fx-font-weight:700;" text="Acesse seu cadastro">
+            <VBox.margin>
+               <Insets bottom="20.0" />
+            </VBox.margin></Label>
 
          <!-- Campo usuário -->
          <VBox maxWidth="480" spacing="6">

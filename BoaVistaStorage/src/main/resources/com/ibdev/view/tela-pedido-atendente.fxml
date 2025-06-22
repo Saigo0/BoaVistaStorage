@@ -12,8 +12,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <!-- =====================  SIDEBAR  ===================== -->
     <left>
         <VBox prefHeight="1024" prefWidth="260" spacing="26" style="-fx-background-color: #ffffff;" styleClass="sidebar">
@@ -48,7 +49,7 @@
                                     <HBox.margin><Insets left="20" /></HBox.margin>
                                     <image><Image url="@../../../images/icons8-dollar-40-laranja.png" /></image>
                                 </ImageView>
-                                <Label prefHeight="40.0" prefWidth="43.0" text="Pedidos">
+                                <Label prefHeight="40.0" prefWidth="43.0" text="Pedidos" textFill="#c74921">
                                     <HBox.margin><Insets left="8" /></HBox.margin>
                                 </Label>
                             </children>
@@ -130,16 +131,16 @@
     <!-- =====================  ÁREA CENTRAL  ===================== -->
     <center>
         <VBox spacing="20" style="-fx-padding: 20; -fx-background-color: #f4f4f4;">
-            <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Pedido" />
+            <Label style="-fx-font-size: 36px; -fx-font-weight: bold;" text="Pedido" />
             <FlowPane hgap="20" vgap="20">
                 <!-- Repetir este VBox para cada produto -->
                 <VBox prefHeight="220" prefWidth="180" spacing="10" style="-fx-background-color: #ffffff; -fx-padding: 10; -fx-background-radius: 8;">
-                    <Label style="-fx-alignment: center;" text="Espaço para imagem" />
-                    <Label style="-fx-font-weight: bold;" text="Pastel de Carne P" />
-                    <Label style="-fx-font-size: 12px;" text="Pastel com recheio de carne moída..." />
+                    <Label prefHeight="101.0" prefWidth="158.0" style="-fx-alignment: center;" text="Espaço para imagem" />
+                    <Label prefHeight="17.0" prefWidth="155.0" style="-fx-font-weight: bold;" text="Pastel de Carne P" />
+                    <Label prefHeight="45.0" prefWidth="160.0" style="-fx-font-size: 12px;" text="Pastel com recheio de carne moída..." />
                     <HBox spacing="10">
-                        <Label style="-fx-text-fill: #c74921; -fx-font-weight: bold;" text="R$ 26,00" />
-                        <Button style="-fx-background-color: #c74921; -fx-text-fill: white; -fx-background-radius: 5;" text="+ Adicionar" />
+                        <Label prefHeight="25.0" prefWidth="49.0" style="-fx-text-fill: #c74921; -fx-font-weight: bold;" text="R$ 26,00" />
+                        <Button style="-fx-background-color: #c74921; -fx-text-fill: white; -fx-background-radius: 5;" text="+ Adicionar" translateX="20.0" />
                     </HBox>
                 </VBox>
                 <!-- Adicione mais VBoxes iguais aqui para mais produtos -->
@@ -168,8 +169,12 @@
             </VBox>
             <VBox prefHeight="160.0" prefWidth="260.0" spacing="10.0">
                 <Separator />
-                <Label text="Total" />
-                <Label style="-fx-font-weight: bold; -fx-text-fill: #c74921; -fx-font-size: 16px;" text="R$ 78,00" />
+                <Label style="-fx-font-weight: bold;" text="Total">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+                <Label style="-fx-font-weight: bold; -fx-text-fill: #c74921; -fx-font-size: 16px;" text="R$ 78,00" translateX="180.0" translateY="-38.0" />
                 <Button prefWidth="260" style="-fx-background-color: #c74921; -fx-text-fill: white; -fx-background-radius: 8; -fx-padding: 12; -fx-font-weight: bold;" text="Finalizar pedido" />
             <opaqueInsets>
                <Insets />
@@ -177,6 +182,9 @@
             <rotationAxis>
                <Point3D />
             </rotationAxis>
+            <VBox.margin>
+               <Insets top="720.0" />
+            </VBox.margin>
             </VBox>
         </VBox>
     </right>

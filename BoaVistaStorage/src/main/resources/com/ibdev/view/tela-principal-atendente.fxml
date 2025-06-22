@@ -35,7 +35,7 @@
                                     <Image url="@../../../images/icons8-microsoft-40-laranja.png" />
                                 </image>
                             </ImageView>
-                            <Label prefHeight="40.0" prefWidth="29.0" styleClass="incio1" text="Início">
+                            <Label prefHeight="40.0" prefWidth="29.0" styleClass="incio1" text="Início" textFill="#c74921">
                                 <HBox.margin>
                                     <Insets left="8" />
                                 </HBox.margin>
