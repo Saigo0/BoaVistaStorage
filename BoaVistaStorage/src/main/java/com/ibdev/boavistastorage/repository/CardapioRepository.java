@@ -39,6 +39,11 @@ public class CardapioRepository {
         return em.find(Cardapio.class, id);
     }
 
+    public List<Cardapio> findAll() {
+        return em.createQuery("SELECT c FROM Cardapio c", Cardapio.class)
+                .getResultList();
+    }
+
     public void update(Cardapio cardapio) {
         if (cardapio.getProdutosDisponiveis().size() <= 0) {
             throw new RuntimeException("O cardápio deve ter pelo menos um produto disponível.");

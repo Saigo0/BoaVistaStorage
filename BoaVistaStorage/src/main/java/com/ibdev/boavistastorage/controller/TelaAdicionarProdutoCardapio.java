@@ -1,23 +1,23 @@
 package com.ibdev.boavistastorage.controller;
 
-import com.ibdev.boavistastorage.entity.Cardapio;
-import com.ibdev.boavistastorage.entity.Produto;
-import com.ibdev.boavistastorage.entity.Vendavel;
+import com.ibdev.boavistastorage.entity.*;
 import com.ibdev.boavistastorage.repository.CardapioRepository;
+import com.ibdev.boavistastorage.repository.ProduzidoRepository;
+import com.ibdev.boavistastorage.repository.VendavelRepository;
 import com.ibdev.boavistastorage.service.CardapioService;
 import com.ibdev.boavistastorage.main.SceneManager;
 
+import com.ibdev.boavistastorage.service.ProduzidoService;
+import com.ibdev.boavistastorage.service.VendavelService;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import jakarta.persistence.EntityManager;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class TelaAdicionarProdutoCardapio implements Initializable {
@@ -30,14 +30,20 @@ public class TelaAdicionarProdutoCardapio implements Initializable {
     private Button btnVoltar;
 
     @FXML
+    private CheckBox checkBoxIsProduzido;
+
+    @FXML
     private TextArea descricaoTextArea;
 
     @FXML
-    private TextField nomeTextField;
+    private TextField idTextField;
 
     @FXML
     private TextField precoTextField;
-    
+
+    private ProduzidoService produzidoService;
+    private VendavelService vendavelService;
+
     private CardapioService cardapioService;
     private Cardapio cardapioAtual;
     private TelaCardapio telaCardapioController;
@@ -51,6 +57,8 @@ public class TelaAdicionarProdutoCardapio implements Initializable {
     public void setEntityManager(EntityManager entityManager) {
         this.entityManager = entityManager;
         this.cardapioService = new CardapioService(new CardapioRepository(entityManager));
+        this.produzidoService = new ProduzidoService(new ProduzidoRepository(entityManager));
+        this.vendavelService = new VendavelService(new VendavelRepository(entityManager));
     }
 
     public void setCardapio(Cardapio cardapio) {
@@ -67,24 +75,32 @@ public class TelaAdicionarProdutoCardapio implements Initializable {
     }
 
     public void configurarEventos() {
+        descricaoTextArea.editableProperty().bind(checkBoxIsProduzido.selectedProperty());
+        
+        checkBoxIsProduzido.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) {
+                descricaoTextArea.clear();
+            }
+        });
+
         btnVoltar.setOnAction(event -> {
             Stage stage = (Stage) btnVoltar.getScene().getWindow();
             stage.close();
         });
 
         btnAdicionarProduto.setOnAction(event -> {
-            String nome = nomeTextField.getText().trim();
-            String descricao = descricaoTextArea.getText().trim(); // Pega a descrição
+            String txtId = idTextField.getText().trim();
             String precoStr = precoTextField.getText().trim();
+            String descricao = descricaoTextArea.getText().trim();
 
-            if (nome.isEmpty() || descricao.isEmpty() || precoStr.isEmpty()) {
+            if (txtId.isEmpty() || precoStr.isEmpty() || descricao.isEmpty()) {
                 showAlert(Alert.AlertType.ERROR, "Erro de Validação", "Por favor, preencha todos os campos.");
                 return;
             }
 
             double preco;
             try {
-                preco = Double.parseDouble(precoStr.replace(",", ".")); // Lida com vírgula
+                preco = Double.parseDouble(precoStr.replace(",", "."));
                 if (preco <= 0) {
                     showAlert(Alert.AlertType.ERROR, "Erro de Validação", "O preço deve ser um valor positivo.");
                     return;
@@ -99,26 +115,49 @@ public class TelaAdicionarProdutoCardapio implements Initializable {
                 return;
             }
 
-            Produto novoProduto = new Vendavel();
-            novoProduto.setNome(nome);
-            novoProduto.setPrecoCusto(preco);
-
             try {
-                entityManager.getTransaction().begin();
-                novoProduto.setCardapio(cardapioAtual);
-                entityManager.persist(novoProduto);
-                cardapioAtual.addProdutosDisponiveis(novoProduto);
-                entityManager.merge(cardapioAtual);
-                entityManager.getTransaction().commit();
+                try {
+                    if (checkBoxIsProduzido.isSelected()) {
+                        Produzido novoProduzido = produzidoService.findById(Long.parseLong(txtId));
 
-                showAlert(Alert.AlertType.INFORMATION, "Sucesso", "Produto adicionado com sucesso!");
+                        if (novoProduzido == null) {
+                            showAlert(Alert.AlertType.ERROR, "Erro ao Buscar Produto", "Produzido não encontrado com o ID: " + txtId);
+                            return;
+                        }
 
-                nomeTextField.clear();
-                descricaoTextArea.clear();
-                precoTextField.clear();
+                        novoProduzido.setCardapio(cardapioAtual);
+                        novoProduzido.setPrecoVenda(preco);
+                        novoProduzido.setDescricao(descricao);
+                        produzidoService.upadateProduzido(Long.parseLong(txtId), novoProduzido);
+                        cardapioAtual.addProdutosDisponiveis(novoProduzido);
+                        entityManager.merge(cardapioAtual);
+                        showAlert(Alert.AlertType.INFORMATION, "Sucesso", "Produto adicionado com sucesso!");
+                    } else {
+                        Vendavel novoVendavel = vendavelService.buscarVendavelPorId(Long.parseLong(txtId));
 
-                Stage stage = (Stage) btnAdicionarProduto.getScene().getWindow();
-                stage.close();
+                        if (novoVendavel == null) {
+                            showAlert(Alert.AlertType.ERROR, "Erro ao Buscar Produto", "Vendável não encontrado com o ID: " + txtId);
+                            return;
+                        }
+
+                        if (novoVendavel.getStatusEstoque().equals(StatusEstoque.ZERADO)) {
+                            showAlert(Alert.AlertType.ERROR, "Erro de Estoque", "Produto está com estoque zerado. Não é possível adicioná-lo ao cardápio.");
+                            return;
+                        }
+                        novoVendavel.setCardapio(cardapioAtual);
+                        novoVendavel.setPrecoVenda(preco);
+                        vendavelService.atualizarVendavel(Long.parseLong(txtId), novoVendavel);
+                        cardapioAtual.addProdutosDisponiveis(novoVendavel);
+                        entityManager.merge(cardapioAtual);
+                        showAlert(Alert.AlertType.INFORMATION, "Sucesso", "Produto adicionado com sucesso!");
+                    }
+                } catch (NumberFormatException e) {
+                    showAlert(Alert.AlertType.ERROR, "Erro de Validação", "ID inválido. Por favor, insira um número válido.");
+                    return;
+                } catch (RuntimeException e) {
+                    showAlert(Alert.AlertType.ERROR, "Erro ao Buscar Produto", "Erro: " + e.getMessage());
+                    return;
+                }
 
             } catch (Exception e) {
                 if (entityManager.getTransaction().isActive()) {

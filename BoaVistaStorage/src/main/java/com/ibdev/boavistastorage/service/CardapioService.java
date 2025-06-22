@@ -4,6 +4,8 @@ import com.ibdev.boavistastorage.entity.Cardapio;
 import com.ibdev.boavistastorage.entity.Produto;
 import com.ibdev.boavistastorage.repository.CardapioRepository;
 
+import java.util.List;
+
 public class CardapioService {
     private static CardapioRepository cardapioRepository;
 
@@ -17,6 +19,10 @@ public class CardapioService {
 
     public Cardapio findCardapioById(Long id) {
         return cardapioRepository.findById(id);
+    }
+
+    public List<Cardapio> findAllCardapios() {
+        return cardapioRepository.findAll();
     }
 
     public void updateCardapio(Cardapio cardapio) {
