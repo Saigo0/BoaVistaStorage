@@ -7,4 +7,10 @@ public enum StatusEstoque {
     StatusEstoque() {
     }
 
+
+
+    @Override
+    public String toString() {
+        return "StatusEstoque{}";
+    }
 }

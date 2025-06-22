@@ -17,6 +17,7 @@ public class Vendavel extends Produto {
     @OneToMany(mappedBy = "vendavel")
     private List<Fornecimento> fornecimentos;
 
+    @Enumerated(EnumType.STRING)
     private StatusEstoque statusEstoque;
 
     public Vendavel(){

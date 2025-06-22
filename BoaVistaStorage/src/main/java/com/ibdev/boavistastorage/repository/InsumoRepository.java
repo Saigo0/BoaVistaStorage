@@ -4,6 +4,8 @@ import com.ibdev.boavistastorage.entity.Insumo;
 import com.ibdev.boavistastorage.entity.StatusEstoque;
 import jakarta.persistence.EntityManager;
 
+import java.util.List;
+
 public class InsumoRepository {
     private EntityManager em;
     
@@ -33,6 +35,11 @@ public class InsumoRepository {
 
     public Insumo findById(Long id) {
         return em.find(Insumo.class, id);
+    }
+
+    public List<Insumo> findAll() {
+        return em.createQuery("select i from Insumo i", Insumo.class)
+                .getResultList();
     }
 
     public Insumo findByName(String nome) {
@@ -66,14 +73,14 @@ public class InsumoRepository {
             Insumo insumoDB = em.find(Insumo.class, idInsumo);
 
             if (insumoDB != null) {
-                insumoDB.setNome(insumoDB.getNome());
-                insumoDB.setPrecoCusto(insumoDB.getPrecoCusto());
-                insumoDB.setUnidadeDeMedida(insumoDB.getUnidadeDeMedida());
-                insumoDB.setUnidadeDeMedida(insumoDB.getUnidadeDeMedida());
-                insumoDB.setQuantidadeEstoque(insumoDB.getQuantidadeEstoque());
-                insumoDB.setStatusEstoque(insumoDB.getStatusEstoque());
-                insumoDB.setCardapio(insumoDB.getCardapio());
-                insumoDB.setInsumosProduzidos(insumoDB.getInsumosProduzidos());
+                insumoDB.setNome(insumo.getNome());
+                insumoDB.setPrecoCusto(insumo.getPrecoCusto());
+                insumoDB.setUnidadeDeMedida(insumo.getUnidadeDeMedida());
+                insumoDB.setUnidadeDeMedida(insumo.getUnidadeDeMedida());
+                insumoDB.setQuantidadeEstoque(insumo.getQuantidadeEstoque());
+                insumoDB.setStatusEstoque(insumo.getStatusEstoque());
+                insumoDB.setCardapio(insumo.getCardapio());
+                insumoDB.setInsumosProduzidos(insumo.getInsumosProduzidos());
             } else {
                 System.out.println("Insumo não encontrado!");
                 throw new RuntimeException("Erro ao realizar a consulta por ID.");

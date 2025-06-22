@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="450.0" prefWidth="500.0" spacing="20.0" style="-fx-background-color: #f4f4f4; -fx-border-color: #ccc; -fx-border-width: 1;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaAdicionarEstoque">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <Label text="Adicionar Novo Item ao Estoque" textFill="#333333">
+        <font>
+            <Font name="System Bold" size="24.0" />
+        </font>
+        <VBox.margin>
+            <Insets bottom="10.0" />
+        </VBox.margin>
+    </Label>
+
+    <GridPane hgap="10.0" vgap="10.0">
+        <columnConstraints>
+            <javafx.scene.layout.ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="120.0" />
+            <javafx.scene.layout.ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" />
+        </columnConstraints>
+
+        <Label text="Tipo de Item:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <ComboBox fx:id="cmbTipoItem" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="0" promptText="Selecione o tipo" />
+
+        <Label text="Nome:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="txtNome" promptText="Nome do item" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label text="Preço de Custo:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="txtPrecoCusto" promptText="Ex: 10.50" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <Label text="Quantidade:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <TextField fx:id="txtQuantidade" promptText="Ex: 100" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+        <Label fx:id="lblPrecoVenda" text="Preço de Venda:" GridPane.columnIndex="0" GridPane.rowIndex="4" visible="false" managed="false" />
+        <TextField fx:id="txtPrecoVenda" promptText="Ex: 15.99" GridPane.columnIndex="1" GridPane.rowIndex="4" visible="false" managed="false" />
+
+        <Label fx:id="lblUnidadeMedida" text="Unidade de Medida:" GridPane.columnIndex="0" GridPane.rowIndex="4" visible="false" managed="false" />
+        <TextField fx:id="txtUnidadeMedida" promptText="Ex: KG, Litro, Unidade" GridPane.columnIndex="1" GridPane.rowIndex="4" visible="false" managed="false" />
+    </GridPane>
+
+    <HBox alignment="CENTER" spacing="15.0">
+        <Button fx:id="btnAdicionar" prefHeight="35.0" prefWidth="100.0" text="Adicionar">
+            <style>
+                -fx-background-color: #28a745;
+                -fx-text-fill: white;
+                -fx-background-radius: 5;
+            </style>
+        </Button>
+        <Button fx:id="btnCancelar" prefHeight="35.0" prefWidth="100.0" text="Cancelar">
+            <style>
+                -fx-background-color: #6c757d;
+                -fx-text-fill: white;
+                -fx-background-radius: 5;
+            </style>
+        </Button>
+    </HBox>
+</VBox>

@@ -3,6 +3,8 @@ package com.ibdev.boavistastorage.service;
 import com.ibdev.boavistastorage.entity.Vendavel;
 import com.ibdev.boavistastorage.repository.VendavelRepository;
 
+import java.util.List;
+
 public class VendavelService {
     private VendavelRepository vendavelRepository;
 
@@ -36,6 +38,14 @@ public class VendavelService {
             throw new RuntimeException("Produto não encontrado com o ID: " + id);
         }
         return vendavel;
+    }
+
+    public List<Vendavel> buscarTodosVendaveis() {
+        List<Vendavel> vendaveis = vendavelRepository.findAll();
+        if(vendaveis.isEmpty()) {
+            throw new RuntimeException("Nenhum produto encontrado.");
+        }
+        return vendaveis;
     }
 
     public Vendavel buscarVendavelPorNome(String nome) {

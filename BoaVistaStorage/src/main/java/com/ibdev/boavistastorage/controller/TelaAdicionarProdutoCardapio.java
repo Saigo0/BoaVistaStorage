@@ -76,7 +76,7 @@ public class TelaAdicionarProdutoCardapio implements Initializable {
 
     public void configurarEventos() {
         descricaoTextArea.editableProperty().bind(checkBoxIsProduzido.selectedProperty());
-        
+
         checkBoxIsProduzido.selectedProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue) {
                 descricaoTextArea.clear();

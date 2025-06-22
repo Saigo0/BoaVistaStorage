@@ -46,6 +46,20 @@ public class VendavelRepository {
         return em.find(Vendavel.class, id);
     }
 
+    public List<Vendavel> findAll() {
+        try {
+            return em.createQuery("select v from Vendavel v", Vendavel.class)
+                    .getResultList();
+        } catch (PersistenceException e) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            throw new RuntimeException("Erro ao buscar todos os vendaveis: " + e.getMessage());
+        } catch (Exception e) {
+            throw new RuntimeException("Erro ao buscar todos os vendaveis: " + e.getMessage());
+        }
+    }
+
     public Vendavel findByNome(String nome) {
         return em.createQuery("select v from Vendavel v where v.nome = :nome", Vendavel.class)
                 .setParameter("nome", nome)

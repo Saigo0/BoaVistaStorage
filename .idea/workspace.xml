@@ -6,8 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="3d14bb90-2084-43c2-8f61-8472d412129f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaAdicionarProdutoCardapio.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaAdicionarProdutoCardapio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaEstoqueGerente.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaEstoqueGerente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/entity/StatusEstoque.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/entity/StatusEstoque.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/entity/Vendavel.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/entity/Vendavel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/main/SceneManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/main/SceneManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/repository/InsumoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/repository/InsumoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/repository/VendavelRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/repository/VendavelRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/service/InsumoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/service/InsumoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/service/VendavelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/service/VendavelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-adicionar-produto-cardapio.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-adicionar-produto-cardapio.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-estoque-gerente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-estoque-gerente.fxml" afterDir="false" />
     </list>
     <list id="6d815c8d-e831-4bde-bf80-a47dfb46b934" name="Changes by jonat" comment="" />
     <list id="5ecca402-2599-4134-9b57-ed42472d8d1d" name="Changes by joseo" comment="" />
@@ -21,8 +31,8 @@
       <list>
         <option value="Enum" />
         <option value="JavaFXApplication" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -114,8 +124,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26094.121" />
-        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-IU-251.26094.121" />
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
       </set>
     </attachedChunks>
   </component>
@@ -153,6 +163,7 @@
       <workItem from="1750564699768" duration="4844000" />
       <workItem from="1750603642680" duration="5632000" />
       <workItem from="1750609658542" duration="539000" />
+      <workItem from="1750613549571" duration="6521000" />
     </task>
     <servers />
   </component>

@@ -4,6 +4,8 @@ import com.ibdev.boavistastorage.entity.StatusEstoque;
 import com.ibdev.boavistastorage.repository.InsumoRepository;
 import com.ibdev.boavistastorage.entity.Insumo;
 
+import java.util.List;
+
 public class InsumoService {
     private InsumoRepository insumoRepository;
 
@@ -37,6 +39,18 @@ public class InsumoService {
             throw new RuntimeException("Insumo não encontrado com o ID: " + id);
         }
         return insumo;
+    }
+
+    public List<Insumo> buscarTodosInsumos() {
+        try {
+            List<Insumo> insumos = insumoRepository.findAll();
+            if(insumos == null || insumos.isEmpty()) {
+                throw new RuntimeException("Nenhum insumo encontrado.");
+            }
+            return insumos;
+        } catch (Exception e) {
+            throw new RuntimeException("Erro ao buscar todos os insumos: " + e.getMessage());
+        }
     }
 
     public Insumo buscarInsumoPorNome(String nome) {

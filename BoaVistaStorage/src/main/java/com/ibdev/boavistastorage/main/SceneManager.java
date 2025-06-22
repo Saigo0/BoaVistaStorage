@@ -3,6 +3,8 @@ package com.ibdev.boavistastorage.main;
 import com.ibdev.boavistastorage.controller.TelaAdicionarProdutoCardapio;
 import com.ibdev.boavistastorage.controller.TelaCardapio;
 import com.ibdev.boavistastorage.controller.TelaLogin;
+import com.ibdev.boavistastorage.controller.TelaEstoqueGerente; // <<< IMPORTAR TELA ESTOQUE GERENTE
+
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
@@ -23,7 +25,7 @@ public class SceneManager {
             throw new IllegalStateException("SceneManager já foi inicializado.");
         }
         primaryStage = stage;
-        entityManager = em;
+        entityManager = em; // Armazena o EntityManager aqui
     }
 
     public static void mudarCena(String fxmlPath, String titulo, EntityManager em) {
@@ -40,6 +42,16 @@ public class SceneManager {
             } else if (controller instanceof TelaCardapio) {
                 ((TelaCardapio) controller).setEntityManager(em);
             }
+            // <<< ADICIONADO: Injeção para TelaEstoqueGerente >>>
+            else if (controller instanceof TelaEstoqueGerente) {
+                ((TelaEstoqueGerente) controller).setEntityManager(em);
+                System.out.println("EntityManager setado na TelaEstoqueGerente (via SceneManager.mudarCena).");
+            }
+            // Se você tiver outras telas que precisam de EM, adicione mais 'else if's aqui
+            // else if (controller instanceof OutraTelaController) {
+            //     ((OutraTelaController) controller).setEntityManager(em);
+            // }
+
 
             Scene scene = new Scene(root);
 
@@ -70,6 +82,15 @@ public class SceneManager {
             } else if (controller instanceof TelaCardapio) {
                 ((TelaCardapio) controller).setEntityManager(em);
             }
+            // <<< ADICIONADO: Injeção para TelaEstoqueGerente >>>
+            else if (controller instanceof TelaEstoqueGerente) {
+                ((TelaEstoqueGerente) controller).setEntityManager(em);
+                System.out.println("EntityManager setado na TelaEstoqueGerente (via SceneManager.mudarCenaMaximizada).");
+            }
+            // Se você tiver outras telas que precisam de EM, adicione mais 'else if's aqui
+            // else if (controller instanceof OutraTelaController) {
+            //     ((OutraTelaController) controller).setEntityManager(em);
+            // }
 
             Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
             Scene scene = new Scene(root, bounds.getWidth(), bounds.getHeight());
@@ -88,10 +109,12 @@ public class SceneManager {
     }
 
     public static void mudarCena(String fxmlPath, String titulo) {
+        // Esta sobrecarga usa o entityManager estático que foi setado no init()
         mudarCena(fxmlPath, titulo, entityManager);
     }
 
     public static void mudarCenaMaximizada(String fxmlPath, String titulo) {
+        // Esta sobrecarga usa o entityManager estático que foi setado no init()
         mudarCenaMaximizada(fxmlPath, titulo, entityManager);
     }
 }
