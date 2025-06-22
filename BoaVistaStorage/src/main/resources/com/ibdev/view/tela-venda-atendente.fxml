@@ -15,7 +15,7 @@
 
 <!-- Tela Venda – Atendente | 1440 × 1024 -->
 
-<BorderPane prefHeight="1024" prefWidth="1440" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaVendaAtendenteController">
+<BorderPane prefHeight="1024" prefWidth="1440" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaVendaAtendente">
 
     <!-- ========== SIDEBAR ========== -->
     <left>
