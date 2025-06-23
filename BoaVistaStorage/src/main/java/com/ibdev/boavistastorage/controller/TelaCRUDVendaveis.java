@@ -1,5 +1,6 @@
 package com.ibdev.boavistastorage.controller;
 
+import com.ibdev.boavistastorage.service.VendavelService;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -50,6 +51,8 @@ public class TelaCRUDVendaveis implements Initializable {
 
     @FXML
     private TextField txtPrecoVenda;
+
+    private VendavelService vendavelService;
 
     public void initialize(URL location, ResourceBundle resources) {
 
