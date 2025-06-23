@@ -13,22 +13,25 @@ public class InsumoService {
         this.insumoRepository = insumoRepository;
     }
 
-    public boolean salvarInsumo(String nome, double precoCusto, String unidadeDeMedida, double quantidadeEstoque) {
-        if(nome == null || nome.isEmpty()) {
-            throw new IllegalArgumentException("Nome do insumo não pode ser vazio.");
-        }
-        if(precoCusto < 0) {
-            throw new IllegalArgumentException("Preço de custo não pode ser negativo.");
-        }
-        if(unidadeDeMedida == null || unidadeDeMedida.isEmpty()) {
-            throw new IllegalArgumentException("Unidade de medida não pode ser vazia.");
-        }
-        if(quantidadeEstoque < 0) {
-            throw new IllegalArgumentException("Quantidade em estoque não pode ser negativa.");
-        }
-        Insumo insumo = new Insumo(nome, precoCusto, unidadeDeMedida, quantidadeEstoque);
-        return insumoRepository.create(insumo);
+    public void createInsumo(Insumo insumo) {
+        
     }
+
+//    public boolean salvarInsumo(Insumo insumo) {
+//        if(nome == null || nome.isEmpty()) {
+//            throw new IllegalArgumentException("Nome do insumo não pode ser vazio.");
+//        }
+//        if(precoCusto < 0) {
+//            throw new IllegalArgumentException("Preço de custo não pode ser negativo.");
+//        }
+//        if(unidadeDeMedida == null || unidadeDeMedida.isEmpty()) {
+//            throw new IllegalArgumentException("Unidade de medida não pode ser vazia.");
+//        }
+//        if(quantidadeEstoque < 0) {
+//            throw new IllegalArgumentException("Quantidade em estoque não pode ser negativa.");
+//        }
+//        return insumoRepository.create(insumo);
+//    }
 
     public Insumo buscarInsumoPorId(Long id) {
         if(id == null || id <= 0) {

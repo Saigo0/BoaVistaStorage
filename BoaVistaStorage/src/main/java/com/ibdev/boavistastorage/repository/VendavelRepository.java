@@ -17,9 +17,7 @@ public class VendavelRepository {
 
     public boolean create(Vendavel vendavel) {
         try {
-            em.getTransaction().begin();
             em.persist(vendavel);
-            em.getTransaction().commit();
         } catch (PersistenceException ex) {
             if (ex.getCause() instanceof org.hibernate.exception.ConstraintViolationException) {
                 if (em.getTransaction().isActive()) {

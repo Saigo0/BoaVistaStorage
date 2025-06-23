@@ -20,8 +20,7 @@ public class Vendavel extends Produto {
     @Enumerated(EnumType.STRING)
     private StatusEstoque statusEstoque;
 
-    public Vendavel(){
-
+    public Vendavel() {
     }
 
     public Vendavel(String nome, double precoCusto, double precoVenda) {

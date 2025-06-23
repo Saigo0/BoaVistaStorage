@@ -17,7 +17,6 @@ import javafx.stage.Stage;
 import jakarta.persistence.EntityManager;
 
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class TelaAdicionarProdutoCardapio implements Initializable {
@@ -118,7 +117,7 @@ public class TelaAdicionarProdutoCardapio implements Initializable {
             try {
                 try {
                     if (checkBoxIsProduzido.isSelected()) {
-                        Produzido novoProduzido = produzidoService.findById(Long.parseLong(txtId));
+                        Produzido novoProduzido = produzidoService.buscarProduzidoPorId(Long.parseLong(txtId));
 
                         if (novoProduzido == null) {
                             showAlert(Alert.AlertType.ERROR, "Erro ao Buscar Produto", "Produzido não encontrado com o ID: " + txtId);

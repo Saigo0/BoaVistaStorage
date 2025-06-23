@@ -15,9 +15,7 @@ public class InsumoRepository {
 
     public boolean create(Insumo insumo) {
         try {
-            em.getTransaction().begin();
             em.persist(insumo);
-            em.getTransaction().commit();
             return true;
         } catch (Exception e) {
             if (em.getTransaction().isActive()) {

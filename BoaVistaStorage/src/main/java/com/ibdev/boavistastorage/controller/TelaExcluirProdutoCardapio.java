@@ -133,7 +133,7 @@ public class TelaExcluirProdutoCardapio implements Initializable {
             Produto produtoEncontrado = null;
 
             if (checkBoxIsProduzido.isSelected()) {
-                produzidoService.findById(produtoId);
+                produzidoService.buscarProduzidoPorId(produtoId);
                 Optional<Produzido> produzidoOpt = cardapioAtual.getProdutosDisponiveis().stream()
                         .filter(p -> p instanceof Produzido && p.getId().equals(produtoId))
                         .map(p -> (Produzido) p)
@@ -174,7 +174,7 @@ public class TelaExcluirProdutoCardapio implements Initializable {
             Produto produtoParaRemover = null;
 
             if (checkBoxIsProduzido.isSelected()) {
-                Produzido produzido = produzidoService.findById(produtoId);
+                Produzido produzido = produzidoService.buscarProduzidoPorId(produtoId);
                 if (produzido != null && cardapioAtual.getProdutosDisponiveis().contains(produzido)) {
                     produtoParaRemover = produzido;
                 }

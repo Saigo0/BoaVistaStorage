@@ -116,10 +116,7 @@ public class TelaAdicionarEstoque implements Initializable {
                 vendavel.setQuantEstoque(quantidade);
                 vendavel.setPrecoVenda(precoVenda);
                 vendavel.setStatusEstoque(calcularStatusEstoque(quantidade));
-                vendavelService.salvarVendavel(vendavel.getNome(),
-                                                vendavel.getPrecoCusto(),
-                                                vendavel.getPrecoVenda(),
-                                                vendavel.getQuantEstoque());
+                vendavelService.salvarVendavel(vendavel);
                 novoProduto = vendavel;
             } else if ("Insumo".equals(tipo)) {
                 String unidadeMedida = txtUnidadeMedida.getText().trim();
@@ -129,10 +126,7 @@ public class TelaAdicionarEstoque implements Initializable {
                 insumo.setQuantidadeEstoque(quantidade);
                 insumo.setUnidadeDeMedida(unidadeMedida);
                 insumo.setStatusEstoque(calcularStatusEstoque(quantidade));
-                insumoService.salvarInsumo(insumo.getNome(),
-                                            insumo.getPrecoCusto(),
-                                            insumo.getUnidadeDeMedida(),
-                                            insumo.getQuantidadeEstoque());
+                insumoService.salvarInsumo(insumo);
                 novoProduto = insumo;
             }
 

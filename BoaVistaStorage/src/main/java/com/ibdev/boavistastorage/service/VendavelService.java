@@ -12,20 +12,37 @@ public class VendavelService {
         this.vendavelRepository = vendavelRepository;
     }
 
-    public boolean salvarVendavel(String nome, double precoCusto, double precoVenda) {
-        if(nome == null || nome.isEmpty()) {
+
+    public void salvarVendavel(Vendavel vendavel) {
+        if(vendavel == null) {
+            throw new IllegalArgumentException("Objeto Vendavel não pode ser nulo.");
+        }
+        if(vendavel.getNome() == null || vendavel.getNome().isEmpty()) {
             throw new IllegalArgumentException("Nome do produto não pode ser vazio.");
         }
-        if(precoCusto < 0) {
+        if(vendavel.getPrecoCusto() < 0) {
             throw new IllegalArgumentException("Preço de custo não pode ser negativo.");
         }
-        if(precoVenda < 0) {
-            throw new IllegalArgumentException("Preço de venda não pode ser negativo");
+        if(vendavel.getPrecoVenda() < 0) {
+            throw new IllegalArgumentException("Preço de venda não pode ser negativo.");
         }
 
-        Vendavel vendavel = new Vendavel(nome, precoCusto, precoVenda);
-        return vendavelRepository.create(vendavel);
+        vendavelRepository.create(vendavel);
     }
+//    public boolean salvarVendavel(String nome, double precoCusto, double precoVenda) {
+//        if(nome == null || nome.isEmpty()) {
+//            throw new IllegalArgumentException("Nome do produto não pode ser vazio.");
+//        }
+//        if(precoCusto < 0) {
+//            throw new IllegalArgumentException("Preço de custo não pode ser negativo.");
+//        }
+//        if(precoVenda < 0) {
+//            throw new IllegalArgumentException("Preço de venda não pode ser negativo");
+//        }
+//
+//        Vendavel vendavel = new Vendavel(nome, precoCusto, precoVenda);
+//        return vendavelRepository.create(vendavel);
+//    }
 
     public Vendavel buscarVendavelPorId(Long id) {
         if(id == null || id <= 0) {
