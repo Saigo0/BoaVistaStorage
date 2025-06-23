@@ -16,12 +16,12 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 
-    <Label prefHeight="35.0" prefWidth="358.0" text="Adicionar/Alterar Novo Produto" textFill="#333333">
+    <Label prefHeight="27.0" prefWidth="297.0" text="Adicionar/Alterar Novo Produto" textAlignment="CENTER" textFill="#333333" textOverrun="WORD_ELLIPSIS">
         <font>
-            <Font name="Inter Bold" size="24.0" />
+            <Font name="Poppins ExtraBold" size="18.0" />
         </font>
         <VBox.margin>
-            <Insets bottom="10.0" />
+            <Insets bottom="10.0" left="4.0" />
         </VBox.margin>
     </Label>
 

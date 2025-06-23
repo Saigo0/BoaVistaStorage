@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
 <!-- Tela CRUD Insumo – 1440 × 1024 -->
-<BorderPane fx:controller="com.ibdev.boavistastorage.controller.TelaCRUDInsumo"
-            xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            prefWidth="1440" prefHeight="1024">
+
+<BorderPane prefHeight="1024" prefWidth="1440" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaCRUDInsumo">
 
     <!-- ========== SIDEBAR ========== -->
     <left>
@@ -17,35 +26,46 @@
             <children>
                 <!-- LOGO -->
                 <ImageView fitHeight="100" fitWidth="260" preserveRatio="true">
-                    <image><Image url="@../../../images/Logo.png"/></image>
+                    <image><Image url="@../../../images/Logo.png" /></image>
                 </ImageView>
+            <VBox spacing="12" style="-fx-padding:0 0 0 20;">
+               <children>
+                  <Label style="-fx-font-size: 20;" text="🏠 Início" />
+                  <Label style="-fx-font-size: 20;" text="📋 Produtos" />
+                  <Label style="-fx-font-size: 18;" text="—  Compra">
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label style="-fx-font-size: 18;" text="—  Cadastro insumo">
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label style="-fx-font-size: 18;" text="—  Cadastro vendável">
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label style="-fx-font-size: 20;" text="📦 Estoque" />
+                  <Label style="-fx-font-size: 20;" text="💰 Pedidos e Vendas" />
+                  <Label style="-fx-font-size: 20;" text="👥 Pessoas" textFill="#c74921" />
+                  <VBox spacing="6" style="-fx-padding:0 0 0 12;">
+                     <children>
+                        <Label style="-fx-font-size: 18;" text="—  Fornecedor" textFill="#c74921" />
+                     </children>
+                  </VBox>
+                  <Label style="-fx-font-size: 20;" text="📊 Financeiro" />
+               </children>
+            </VBox>
 
-                <!-- MENU PRINCIPAL -->
-                <VBox spacing="12" style="-fx-padding:0 0 0 20;">
-                    <children>
-                        <Label text="▣ Início"                     />
-                        <Label text="📦 Produtos" style="-fx-font-weight:bold; -fx-text-fill:#c74921;"/>
-                        <VBox spacing="6" style="-fx-padding:0 0 0 12;">
-                            <children>
-                                <Label text="—  Compra"             />
-                                <Label text="—  Cadastro insumo"   style="-fx-text-fill:#c74921; -fx-font-weight:bold;"/>
-                                <Label text="—  Cadastro vendável" />
-                            </children>
-                        </VBox>
-                        <Label text="📊 Estoque"                  />
-                        <Label text="💰 Pedidos e Vendas"        />
-                        <Label text="👥 Pessoas"                 />
-                        <Label text="🔍 Financeiro"              />
-                    </children>
-                </VBox>
-
-                <Region VBox.vgrow="ALWAYS"/>
+                <Region VBox.vgrow="ALWAYS" />
 
                 <!-- Rodapé -->
                 <VBox spacing="10" style="-fx-padding:0 0 20 20;">
                     <children>
-                        <Label text="⚙ Configurações" />
-                        <Label text="🚪 Logout"        />
+                        <Label style="-fx-font-size: 20;" text="⚙ Configurações" />
+                        <Label style="-fx-font-size: 20;" text="🚪 Logout" />
                     </children>
                 </VBox>
             </children>
@@ -57,43 +77,44 @@
         <VBox spacing="24" style="-fx-background-color:#e7e7e7; -fx-padding:30;">
             <children>
                 <!-- TÍTULO -->
-                <Label text="Cadastro de insumos" style="-fx-font-size:28px; -fx-font-weight:bold;" />
+                <Label style="-fx-font-size:28px; -fx-font-weight:bold;" text="Cadastro de insumos" />
 
                 <!-- FORMULÁRIO -->
-                <GridPane hgap="20" vgap="16" prefWidth="1100">
+                <GridPane hgap="20" prefWidth="1100" vgap="16">
                     <columnConstraints>
                         <ColumnConstraints percentWidth="50" />
                         <ColumnConstraints percentWidth="50" />
                     </columnConstraints>
 
                     <!-- Nome / Preço de custo -->
-                    <TextField fx:id="txtNome"  promptText="Nome" GridPane.columnSpan="1" />
-                    <TextField fx:id="txtPreco" promptText="Preço de custo" GridPane.columnIndex="1" />
+                    <TextField fx:id="txtNome" prefHeight="50.0" prefWidth="550.0" promptText="Nome" GridPane.columnSpan="1" />
+                    <TextField fx:id="txtPreco" prefHeight="50.0" prefWidth="550.0" promptText="Preço de custo" GridPane.columnIndex="1" />
 
                     <!-- Fornecedor / Unidade de medida -->
-                    <TextField fx:id="txtFornecedor" promptText="Fornecedor" GridPane.rowIndex="1" />
-                    <TextField fx:id="txtUnidade"    promptText="Unidade de medida" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <TextField fx:id="txtFornecedor" prefHeight="50.0" prefWidth="550.0" promptText="Fornecedor" GridPane.rowIndex="1" />
+                    <TextField fx:id="txtUnidade" prefHeight="50.0" prefWidth="550.0" promptText="Unidade de medida" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
                 </GridPane>
 
                 <!-- TABELA INSUMOS -->
-                <TableView fx:id="tabelaInsumos" prefHeight="400" prefWidth="1100">
+                <TableView fx:id="tabelaInsumos" prefHeight="695.0" prefWidth="1120.0">
                     <columns>
-                        <TableColumn fx:id="colNome"      text="Nome"      prefWidth="300" />
-                        <TableColumn fx:id="colPreco"     text="Preço"     prefWidth="120" />
-                        <TableColumn fx:id="colFornecedor" text="Fornecedor" prefWidth="240" />
-                        <TableColumn fx:id="colUnidade"   text="Unidade"   prefWidth="120" />
-                        <TableColumn fx:id="colAcoes"     text="Ações"     prefWidth="120" />
+                        <TableColumn fx:id="colNome" prefWidth="300" text="Nome" />
+                        <TableColumn fx:id="colPreco" prefWidth="120" text="Preço" />
+                        <TableColumn fx:id="colFornecedor" prefWidth="240" text="Fornecedor" />
+                        <TableColumn fx:id="colUnidade" prefWidth="120" text="Unidade" />
+                        <TableColumn fx:id="colAcoes" prefWidth="120" text="Ações" />
                     </columns>
                 </TableView>
 
                 <!-- BOTÕES -->
-                <HBox spacing="30" alignment="CENTER">
-                    <Button fx:id="btnCriar" text="Criar insumo" prefWidth="220" prefHeight="40"
-                            style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-weight:bold; -fx-background-radius:8;" />
-                    <Button fx:id="btnAtualizar" text="Atualizar" prefWidth="220" prefHeight="40"
-                            style="-fx-background-color:#d85f2c; -fx-text-fill:white; -fx-font-weight:bold; -fx-background-radius:8;" />
-                    <Button fx:id="btnExcluir" text="Excluir" prefWidth="220" prefHeight="40"
-                            style="-fx-background-color:#751c00; -fx-text-fill:white; -fx-font-weight:bold; -fx-background-radius:8;" />
+                <HBox alignment="CENTER" spacing="30">
+                    <Button fx:id="btnCriar" prefHeight="40" prefWidth="330.0" style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-weight:bold; -fx-background-radius:8;" text="Criar insumo" />
+                    <Button fx:id="btnAtualizar" prefHeight="40" prefWidth="220" style="-fx-background-color:#d85f2c; -fx-text-fill:white; -fx-font-weight:bold; -fx-background-radius:8;" text="Atualizar" />
+                    <Button fx:id="btnExcluir" prefHeight="40" prefWidth="220" style="-fx-background-color:#751c00; -fx-text-fill:white; -fx-font-weight:bold; -fx-background-radius:8;" text="Excluir" />
                 </HBox>
             </children>
         </VBox>

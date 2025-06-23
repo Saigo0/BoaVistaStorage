@@ -1,90 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.ibdev.boavistastorage.controller.TelaCompraProduto">
+<BorderPane prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaCompraProduto">
 
-    <!-- Sidebar -->
+    <!-- ========== SIDEBAR ========== -->
     <left>
-        <VBox spacing="10" style="-fx-background-color: #f8f8f8;" prefWidth="250">
-            <padding><Insets top="20" left="15" right="15" bottom="20"/></padding>
-            <ImageView fitHeight="100" fitWidth="200"/>
-            <Label text="Início" style="-fx-font-weight: bold;"/>
-            <TitledPane text="Produtos" expanded="true">
-                <VBox spacing="5">
-                    <Label text="➤ Compra"/>
-                    <Label text="Cadastro Insumo"/>
-                    <Label text="Cadastro Vendável"/>
+        <VBox prefWidth="260" spacing="26" style="-fx-background-color:#ffffff;">
+            <children>
+                <!-- Logo -->
+                <ImageView fitHeight="100" fitWidth="260.0">
+                    <image><Image url="@../../../images/Logo.png" /></image>
+                </ImageView>
+
+                <!-- Menu -->
+                <VBox prefHeight="237.0" prefWidth="260.0" spacing="12" style="-fx-padding:0 0 0 20;">
+                    <children>
+                        <Label style="-fx-font-size: 20;" text="🏠 Início" />
+                        <Label style="-fx-font-size: 20;" text="📋 Produtos" textFill="#c74921" />
+                        <VBox spacing="6" style="-fx-padding:0 0 0 12;">
+                            <children>
+                                <Label style="-fx-font-size: 20;" text="—  Compra" textFill="#c74921" />
+                                <Label style="-fx-font-size: 20;" text="—  Cadastro insumo" />
+                                <Label style="-fx-font-size: 20;" text="—  Cadastro vendável" />
+                            </children>
+                        </VBox>
+                        <Label style="-fx-font-size: 20;" text="📦 Estoque" />
+                        <Label style="-fx-font-size: 20;" text="💰 Pedidos e Vendas" />
+                        <Label style="-fx-font-size: 20;" text="👥 Pessoas" />
+                  <Label style="-fx-font-size: 18;" text="—  Fornecedor">
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                  </Label>
+                        <Label style="-fx-font-size: 20;" text="📊 Financeiro" />
+                    </children>
                 </VBox>
-            </TitledPane>
-            <Label text="Estoque"/>
-            <Label text="Pedidos e Vendas"/>
-            <Label text="Pessoas"/>
-            <Label text="Financeiro"/>
-            <Label text="Configurações"/>
-            <Label text="Logout"/>
+
+                <Region VBox.vgrow="ALWAYS" />
+
+                <VBox prefHeight="109.0" prefWidth="260.0" spacing="10" style="-fx-padding:0 0 20 20;">
+                    <children>
+                        <Label style="-fx-font-size: 20;" text="⚙ Configurações" />
+                        <Label style="-fx-font-size: 20;" text="🚪 Logout" />
+                    </children>
+                </VBox>
+            </children>
         </VBox>
     </left>
 
     <!-- Conteúdo Principal -->
     <center>
         <VBox spacing="20" style="-fx-background-color: #eeeeee;">
-            <padding><Insets top="30" left="30" right="30" bottom="30"/></padding>
+            <padding><Insets bottom="30" left="30" right="30" top="30" /></padding>
 
-            <Label text="Compra de produtos" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+            <Label style="-fx-font-size: 30; -fx-font-weight: bold;" text="Compra de produtos" />
 
             <!-- Dados do fornecedor -->
             <HBox spacing="10">
-                <VBox spacing="5">
+                <VBox prefWidth="971.0" spacing="5">
                     <Label text="Nome do fornecedor (Cadastrado no sistema)" />
-                    <TextField fx:id="fornecedorField" prefWidth="600" />
+                    <TextField fx:id="fornecedorField" prefHeight="40.0" prefWidth="971.0" />
                 </VBox>
-                <Button text="Adicionar fornecedor"
-                        style="-fx-background-color: #c74921; -fx-text-fill: white;"/>
+                <Button prefHeight="40.0" prefWidth="128.0" style="-fx-background-color: #c74921; -fx-text-fill: white;" text="Adicionar fornecedor">
+               <HBox.margin>
+                  <Insets top="20.0" />
+               </HBox.margin>
+            </Button>
             </HBox>
 
             <!-- Dados do produto -->
             <HBox spacing="10">
-                <VBox spacing="5">
-                    <Label text="Nome do produto"/>
-                    <TextField fx:id="produtoField" prefWidth="300"/>
+                <VBox prefHeight="21.0" prefWidth="584.0" spacing="5">
+                    <Label text="Nome do produto" />
+                    <TextField fx:id="produtoField" prefHeight="47.0" prefWidth="584.0" />
                 </VBox>
                 <VBox spacing="5">
-                    <Label text="Quantidade"/>
-                    <TextField fx:id="quantidadeField" prefWidth="150"/>
+                    <Label text="Quantidade" />
+                    <TextField fx:id="quantidadeField" prefHeight="35.0" prefWidth="401.0" />
                 </VBox>
-                <Button text="Adicionar produto"
-                        style="-fx-background-color: #c74921; -fx-text-fill: white;"/>
+                <Button prefHeight="37.0" prefWidth="113.0" style="-fx-background-color: #c74921; -fx-text-fill: white;" text="Adicionar produto">
+               <HBox.margin>
+                  <Insets top="20.0" />
+               </HBox.margin></Button>
             </HBox>
 
             <!-- Tabela de produtos -->
-            <TableView fx:id="tabelaProdutos" prefHeight="400">
+            <TableView fx:id="tabelaProdutos" prefHeight="582.0" prefWidth="1120.0">
                 <columns>
-                    <TableColumn text="Produto" prefWidth="300"/>
-                    <TableColumn text="Quantidade" prefWidth="150"/>
-                    <TableColumn text="Preço Unitário" prefWidth="150"/>
-                    <TableColumn text="Subtotal" prefWidth="150"/>
-                    <TableColumn text="Ações" prefWidth="150"/>
+                    <TableColumn prefWidth="300" text="Produto" />
+                    <TableColumn prefWidth="150" text="Quantidade" />
+                    <TableColumn prefWidth="150" text="Preço Unitário" />
+                    <TableColumn prefWidth="150" text="Subtotal" />
+                    <TableColumn prefWidth="150" text="Ações" />
                 </columns>
             </TableView>
 
             <!-- Total e botão de registrar -->
-            <HBox spacing="20" alignment="CENTER_RIGHT">
-                <Label text="Total da compra:"
-                       style="-fx-font-size: 20; -fx-font-weight: bold;"/>
-                <Label fx:id="totalLabel"
-                       text="R$ 104,00"
-                       style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: #c74921;"/>
+            <HBox alignment="CENTER_RIGHT" spacing="20">
+                <Label style="-fx-font-size: 20; -fx-font-weight: bold;" text="Total da compra:">
+               <HBox.margin>
+                  <Insets right="830.0" />
+               </HBox.margin>
+            </Label>
+                <Label fx:id="totalLabel" prefHeight="32.0" prefWidth="188.0" style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: #c74921;" text="R$ 104,00" />
             </HBox>
 
-            <Button text="Registrar"
-                    style="-fx-background-color: #c74921; -fx-text-fill: white; -fx-font-weight: bold;"
-                    prefWidth="500" prefHeight="40"/>
+               <Button prefHeight="56.0" prefWidth="1600.0" style="-fx-background-color: #c74921; -fx-font-size: 26; -fx-text-fill: white; -fx-font-weight: bold;" text="Registrar" />
 
         </VBox>
     </center>

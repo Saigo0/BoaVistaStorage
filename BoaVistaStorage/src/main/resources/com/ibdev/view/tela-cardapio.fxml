@@ -25,86 +25,73 @@
             <children>
                <HBox fx:id="btnInicio" styleClass="incio">
                   <children>
-                     <ImageView fitHeight="40" fitWidth="40" styleClass="icons-gridfour">
-                        <HBox.margin>
-                           <Insets left="20" />
-                        </HBox.margin>
-                        <image>
-                           <Image url="@../../../images/icons8-microsoft-40.png" />
-                        </image>
-                     </ImageView>
-                     <Label prefHeight="40.0" styleClass="incio1" text="Início">
+                     <Label prefHeight="40.0" style="-fx-font-size: 20;" styleClass="incio1" text="🏠 Início">
                         <HBox.margin>
                            <Insets left="8" />
                         </HBox.margin>
+                        <font>
+                           <Font size="24.0" />
+                        </font>
+                        <padding>
+                           <Insets left="20.0" />
+                        </padding>
                      </Label>
                   </children>
                </HBox>
                <HBox fx:id="btnPedidos" styleClass="pedidos">
                   <children>
-                     <ImageView fitHeight="40" fitWidth="40" styleClass="icons-gridfour">
-                        <HBox.margin>
-                           <Insets left="20" />
-                        </HBox.margin>
-                        <image>
-                           <Image url="@../../../images/icons8-dollar-50.png" />
-                        </image>
-                     </ImageView>
-                     <Label prefHeight="40.0" text="Pedidos">
+                     <Label prefHeight="40.0" style="-fx-font-size: 20;" text="📋 Pedidos">
                         <HBox.margin>
                            <Insets left="8" />
                         </HBox.margin>
+                        <padding>
+                           <Insets left="20.0" />
+                        </padding>
                      </Label>
                   </children>
                </HBox>
                <HBox fx:id="btnVenda" styleClass="venda">
                   <children>
-                     <ImageView fitHeight="40" fitWidth="40" styleClass="icons-gridfour">
-                        <HBox.margin>
-                           <Insets left="20" />
-                        </HBox.margin>
-                        <image>
-                           <Image url="@../../../images/icons8-profit-analysis-40.png" />
-                        </image>
-                     </ImageView>
-                     <Label prefHeight="40.0" text="Venda">
+                     <Label prefHeight="40.0" style="-fx-font-size: 20;" text="💰 Venda">
                         <HBox.margin>
                            <Insets left="8" />
                         </HBox.margin>
+                        <font>
+                           <Font size="24.0" />
+                        </font>
+                        <padding>
+                           <Insets left="20.0" />
+                        </padding>
                      </Label>
                   </children>
                </HBox>
                <HBox fx:id="btnCardapio" styleClass="cardpio">
                   <children>
-                     <ImageView fitHeight="40" fitWidth="40" styleClass="icons-gridfour">
-                        <HBox.margin>
-                           <Insets left="20" />
-                        </HBox.margin>
-                        <image>
-                           <Image url="@../../../images/icons8-menu-40-laranja.png" />
-                        </image>
-                     </ImageView>
-                     <Label prefHeight="40.0" text="Cardápio" textFill="#c74921">
+                     <Label prefHeight="40.0" style="-fx-font-size: 20;" text="📋 Cardápio" textFill="#c74921">
                         <HBox.margin>
                            <Insets left="8" />
                         </HBox.margin>
+                        <font>
+                           <Font size="24.0" />
+                        </font>
+                        <padding>
+                           <Insets left="20.0" />
+                        </padding>
                      </Label>
                   </children>
                </HBox>
                <HBox fx:id="btnCliente" styleClass="cliente">
                   <children>
-                     <ImageView fitHeight="40" fitWidth="40" styleClass="icons-gridfour">
-                        <HBox.margin>
-                           <Insets left="20" />
-                        </HBox.margin>
-                        <image>
-                           <Image url="@../../../images/icons8-user-40.png" />
-                        </image>
-                     </ImageView>
-                     <Label prefHeight="40.0" text="Cliente">
+                     <Label prefHeight="40.0" style="-fx-font-size: 20;" text="👥 Cliente">
                         <HBox.margin>
                            <Insets left="8" />
                         </HBox.margin>
+                        <font>
+                           <Font size="24.0" />
+                        </font>
+                        <padding>
+                           <Insets left="20.0" />
+                        </padding>
                      </Label>
                   </children>
                </HBox>
@@ -115,28 +102,18 @@
             <children>
                <HBox alignment="CENTER_LEFT" spacing="8" styleClass="financeiro1">
                   <children>
-                     <ImageView fitHeight="40" fitWidth="40">
-                        <HBox.margin>
-                           <Insets left="20" />
-                        </HBox.margin>
-                        <image>
-                           <Image url="@../../../images/icons8-config-40.png" />
-                        </image>
-                     </ImageView>
-                     <Label text="Configurações" />
+                     <Label style="-fx-font-size: 24;" text="⚙ Configurações">
+                        <padding>
+                           <Insets left="20.0" />
+                        </padding></Label>
                   </children>
                </HBox>
                <HBox fx:id="btnLogout" alignment="CENTER_LEFT" spacing="8" styleClass="financeiro1">
                   <children>
-                     <ImageView fitHeight="40" fitWidth="40">
-                        <HBox.margin>
-                           <Insets left="20" />
-                        </HBox.margin>
-                        <image>
-                           <Image url="@../../../images/icons8-logout-40.png" />
-                        </image>
-                     </ImageView>
-                     <Label text="Logout" />
+                     <Label style="-fx-font-size: 24;" text="🚪  Sair">
+                        <padding>
+                           <Insets left="20.0" />
+                        </padding></Label>
                   </children>
                </HBox>
             </children>
@@ -148,7 +125,7 @@
    </VBox>
 
 
-   <VBox prefWidth="1180" spacing="24" style="-fx-background-color:#e7e7e7; -fx-padding:30;">
+   <VBox prefHeight="1024.0" prefWidth="1733.0" spacing="24" style="-fx-background-color:#e7e7e7; -fx-padding:30;">
       <HBox alignment="CENTER_LEFT" spacing="20">
          <children>
             <Label style="-fx-font-size: 36px; -fx-font-weight: 500;" text="Cardápio">
