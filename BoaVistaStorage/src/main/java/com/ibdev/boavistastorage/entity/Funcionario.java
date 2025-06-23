@@ -2,6 +2,7 @@ package com.ibdev.boavistastorage.entity;
 
 import jakarta.persistence.*;
 
+
 @Entity
 public abstract class Funcionario extends Pessoa {
     @Column(nullable = false, unique = true)
