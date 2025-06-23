@@ -12,7 +12,7 @@ public class VendavelService {
         this.vendavelRepository = vendavelRepository;
     }
 
-    public boolean salvarVendavel(String nome, double precoCusto, double precoVenda, double quantidadeEstoque) {
+    public boolean salvarVendavel(String nome, double precoCusto, double precoVenda) {
         if(nome == null || nome.isEmpty()) {
             throw new IllegalArgumentException("Nome do produto não pode ser vazio.");
         }
@@ -22,10 +22,8 @@ public class VendavelService {
         if(precoVenda < 0) {
             throw new IllegalArgumentException("Preço de venda não pode ser negativo");
         }
-        if(quantidadeEstoque < 0) {
-            throw new IllegalArgumentException("Quantidade em estoque não pode ser negativa.");
-        }
-        Vendavel vendavel = new Vendavel(nome, precoCusto, precoVenda, quantidadeEstoque);
+
+        Vendavel vendavel = new Vendavel(nome, precoCusto, precoVenda);
         return vendavelRepository.create(vendavel);
     }
 
