@@ -43,7 +43,7 @@ public class AtendenteRepository {
         return em.find(Atendente.class, id);
     }
 
-    public Atendente findByName(String nome) {
+    public Atendente findByNome(String nome) {
         try {
             return em.createQuery("select a from Atendente a where a.nome = :nome", Atendente.class)
                     .setParameter("nome", nome)

@@ -18,7 +18,7 @@ public class Gerente extends Funcionario {
     public Gerente() {
     }
 
-    public Gerente(String nome, String telefone, String CPF, String endereco, String login, String senha, Compra compra) {
+    public Gerente(String nome, String telefone, String CPF, String endereco, String login, String senha) {
         super(nome, telefone, CPF, endereco, login, senha);
         this.compra = new ArrayList<>();
     }

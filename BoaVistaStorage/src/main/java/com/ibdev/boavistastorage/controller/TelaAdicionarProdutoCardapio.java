@@ -133,7 +133,7 @@ public class TelaAdicionarProdutoCardapio implements Initializable {
                         novoProduzido.setCardapio(cardapioAtual);
                         novoProduzido.setPrecoVenda(preco);
                         novoProduzido.setDescricao(descricao);
-                        produzidoService.upadateProduzido(Long.parseLong(txtId), novoProduzido);
+                        produzidoService.atualizarProduzido(Long.parseLong(txtId), novoProduzido);
                         cardapioAtual.addProdutosDisponiveis(novoProduzido);
                         entityManager.merge(cardapioAtual);
                         showAlert(Alert.AlertType.INFORMATION, "Sucesso", "Produto adicionado com sucesso!");

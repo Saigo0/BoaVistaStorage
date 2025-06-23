@@ -42,7 +42,7 @@ public class GerenteRepository {
         return em.find(Gerente.class, id);
     }
 
-    public Gerente findByName(String nome) {
+    public Gerente findByNome(String nome) {
         return em.createQuery("select g from Gerente g where g.nome = :nome", Gerente.class)
                 .setParameter("nome", nome)
                 .getSingleResult();
