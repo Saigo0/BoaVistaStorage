@@ -1,6 +1,5 @@
 package com.ibdev.boavistastorage.entity;
 
-import com.sun.istack.NotNull;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
