@@ -35,7 +35,7 @@ public class TelaAdicionarEstoque implements Initializable {
     @FXML private Label lblPrecoVenda;
     @FXML private TextField txtPrecoVenda;
     @FXML private Label lblUnidadeMedida;
-    @FXML private TextField txtUnidadeMedida; // MUDANÇA AQUI: de ComboBox para TextField
+    @FXML private TextField txtUnidadeMedida;
     @FXML private Button btnAdicionar;
     @FXML private Button btnCancelar;
 
