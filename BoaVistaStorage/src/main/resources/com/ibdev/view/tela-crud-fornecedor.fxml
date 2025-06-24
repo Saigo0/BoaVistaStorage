@@ -69,7 +69,7 @@
                 <VBox spacing="10" style="-fx-padding:0 0 20 20;">
                     <children>
                         <Label style="-fx-font-size: 20;" text="⚙ Configurações" />
-                        <Label style="-fx-font-size: 20;" text="🚪 Logout" />
+                        <Label style="-fx-font-size: 20;" text="🚪  Sair" />
                     </children>
                 </VBox>
             </children>

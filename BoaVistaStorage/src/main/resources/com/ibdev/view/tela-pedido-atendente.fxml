@@ -1,43 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.layout.StackPane?> <?import javafx.scene.control.ProgressIndicator?> <BorderPane prefHeight="700.0" prefWidth="1200.0" style="-fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaPedidoAtendente">
+
+<BorderPane prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #f4f4f4;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaPedidoAtendente">
     <left>
-        <VBox alignment="TOP_CENTER" prefWidth="200.0" style="-fx-background-color: #333333;" spacing="20.0">
-            <padding>
-                <Insets top="20.0" bottom="20.0" />
-            </padding>
-            <VBox alignment="CENTER" prefHeight="80.0" prefWidth="80.0" style="-fx-background-color: #555555; -fx-background-radius: 5;">
-                <Label text="Logo" textFill="WHITE" />
-            </VBox>
-            <Label text="Villa Sabor Boa Vista" textFill="WHITE">
-                <font>
-                    <Font name="System Bold" size="14.0" />
-                </font>
-            </Label>
-            <Separator prefWidth="150.0" />
-            <VBox spacing="10.0" alignment="TOP_LEFT">
-                <Button text="Início" prefWidth="180.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-alignment: CENTER_LEFT; -fx-padding: 10 0 10 20;" onAction="#handleInicio" />
-                <Button text="Pedidos" prefWidth="180.0" style="-fx-background-color: #555555; -fx-text-fill: white; -fx-alignment: CENTER_LEFT; -fx-padding: 10 0 10 20;" onAction="#handlePedidos" />
-                <Button text="Venda" prefWidth="180.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-alignment: CENTER_LEFT; -fx-padding: 10 0 10 20;" onAction="#handleVenda" />
-                <Button text="Cardápio" prefWidth="180.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-alignment: CENTER_LEFT; -fx-padding: 10 0 10 20;" onAction="#handleCardapio" />
-                <Button text="Cliente" prefWidth="180.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-alignment: CENTER_LEFT; -fx-padding: 10 0 10 20;" onAction="#handleCliente" />
-            </VBox>
+        <VBox prefHeight="1024" prefWidth="260" spacing="20.0" style="-fx-background-color: ffff;" styleClass="sidebar">
+            <children>
+                <ImageView fx:id="logoView" fitHeight="100" fitWidth="260.0" styleClass="logo-icon">
+                    <image>
+                        <Image url="@../../../images/Logo.png" />
+                    </image>
+                </ImageView>
+                <VBox spacing="20" styleClass="cima">
+                    <children>
+                        <HBox fx:id="btnInicio" styleClass="incio">
+                            <children>
+                                <Label prefHeight="40.0" style="-fx-font-size: 20;" styleClass="incio1" text="🏠 Início">
+                                    <HBox.margin>
+                                        <Insets left="8" />
+                                    </HBox.margin>
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="20.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox fx:id="btnPedidos" styleClass="pedidos">
+                            <children>
+                                <Label prefHeight="40.0" style="-fx-font-size: 20;" text="📋 Pedidos" textFill="#c74921">
+                                    <HBox.margin>
+                                        <Insets left="8" />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="20.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox fx:id="btnVenda" styleClass="venda">
+                            <children>
+                                <Label prefHeight="40.0" style="-fx-font-size: 20;" text="💰 Venda">
+                                    <HBox.margin>
+                                        <Insets left="8" />
+                                    </HBox.margin>
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="20.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox fx:id="btnCardapio" styleClass="cardpio">
+                            <children>
+                                <Label prefHeight="40.0" style="-fx-font-size: 20;" text="📋 Cardápio">
+                                    <HBox.margin>
+                                        <Insets left="8" />
+                                    </HBox.margin>
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="20.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox fx:id="btnCliente" styleClass="cliente">
+                            <children>
+                                <Label prefHeight="40.0" style="-fx-font-size: 20;" text="👥 Cliente">
+                                    <HBox.margin>
+                                        <Insets left="8" />
+                                    </HBox.margin>
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="20.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <Region VBox.vgrow="ALWAYS" />
+                <VBox spacing="12" styleClass="baixo">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="8" styleClass="financeiro1">
+                            <children>
+                                <Label style="-fx-font-size: 20;" text="⚙ Configurações">
+                                    <padding>
+                                        <Insets left="20.0" />
+                                    </padding></Label>
+                            </children>
+                        </HBox>
+                        <HBox fx:id="btnLogout" alignment="CENTER_LEFT" spacing="8" styleClass="financeiro1">
+                            <children>
+                                <Label style="-fx-font-size: 20;" text="🚪  Sair">
+                                    <padding>
+                                        <Insets left="20.0" />
+                                    </padding></Label>
+                            </children>
+                        </HBox>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="40.0" />
+                    </VBox.margin>
+                </VBox>
+            </children>
         </VBox>
     </left>
 
     <center>
-        <VBox spacing="15.0" alignment="TOP_LEFT">
+        <VBox alignment="TOP_LEFT" spacing="15.0">
             <padding>
-                <Insets top="20.0" right="20.0" bottom="20.0" left="20.0" />
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
             <Label text="Cardápio" textFill="#333333">
                 <font>
@@ -46,19 +141,19 @@
             </Label>
             <StackPane VBox.vgrow="ALWAYS"> <ScrollPane fitToWidth="true" hbarPolicy="NEVER" style="-fx-background-color: transparent;">
                 <content>
-                    <FlowPane fx:id="flowPaneProdutos" hgap="20.0" vgap="20.0" alignment="TOP_LEFT">
+                    <FlowPane fx:id="flowPaneProdutos" alignment="TOP_LEFT" hgap="20.0" vgap="20.0">
                         <VBox alignment="TOP_CENTER" prefHeight="220.0" prefWidth="180.0" style="-fx-background-color: #ffffff; -fx-border-color: #e0e0e0; -fx-border-width: 1; -fx-background-radius: 8; -fx-border-radius: 8;">
                             <padding>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </padding>
                             <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #e0e0e0; -fx-background-radius: 5;">
-                                <Label text="Espaço para imagem" textFill="#666666" alignment="CENTER" wrapText="true">
+                                <Label alignment="CENTER" text="Espaço para imagem" textFill="#666666" wrapText="true">
                                     <font>
                                         <Font size="10.0" />
                                     </font>
                                 </Label>
                             </VBox>
-                            <Label text="Nome do Produto" alignment="CENTER" wrapText="true">
+                            <Label alignment="CENTER" text="Nome do Produto" wrapText="true">
                                 <font>
                                     <Font name="System Bold" size="14.0" />
                                 </font>
@@ -66,7 +161,7 @@
                                     <Insets bottom="2.0" />
                                 </VBox.margin>
                             </Label>
-                            <Label text="Descrição breve do produto..." alignment="CENTER" wrapText="true">
+                            <Label alignment="CENTER" text="Descrição breve do produto..." wrapText="true">
                                 <font>
                                     <Font size="10.0" />
                                 </font>
@@ -82,7 +177,7 @@
                                     <Insets bottom="5.0" />
                                 </VBox.margin>
                             </Label>
-                            <Button text="+ Adicionar" prefWidth="120.0" style="-fx-background-color: #007bff; -fx-text-fill: white; -fx-background-radius: 5;">
+                            <Button prefWidth="120.0" style="-fx-background-color: c74921; -fx-text-fill: white; -fx-background-radius: 5;" text="+ Adicionar">
                                 <font>
                                     <Font name="System Bold" size="12.0" />
                                 </font>
@@ -97,9 +192,9 @@
     </center>
 
     <right>
-        <VBox prefWidth="350.0" style="-fx-background-color: #ffffff; -fx-border-color: #e0e0e0; -fx-border-width: 0 0 0 1;" alignment="TOP_CENTER" spacing="15.0">
+        <VBox alignment="TOP_CENTER" prefWidth="350.0" spacing="15.0" style="-fx-background-color: #ffffff; -fx-border-color: #e0e0e0; -fx-border-width: 0 0 0 1;">
             <padding>
-                <Insets top="20.0" right="15.0" bottom="20.0" left="15.0" />
+                <Insets bottom="20.0" left="15.0" right="15.0" top="20.0" />
             </padding>
             <Label fx:id="lblPedidoNumero" text="Pedido #XXXX" textFill="#333333">
                 <font>
@@ -110,15 +205,15 @@
 
             <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="500.0" style="-fx-background-color: transparent;">
                 <content>
-                    <VBox fx:id="vBoxItensPedido" spacing="10.0" alignment="TOP_CENTER">
+                    <VBox fx:id="vBoxItensPedido" alignment="TOP_CENTER" spacing="10.0">
                         <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="300.0" spacing="10.0" style="-fx-background-color: #f8f8f8; -fx-border-color: #eee; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;">
                             <padding>
                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                             </padding>
                             <VBox alignment="CENTER" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #e0e0e0; -fx-background-radius: 3;">
-                                <Label text="Img" textFill="#999999" alignment="CENTER" />
+                                <Label alignment="CENTER" text="Img" textFill="#999999" />
                             </VBox>
-                            <VBox HBox.hgrow="ALWAYS" alignment="CENTER_LEFT">
+                            <VBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
                                 <Label text="Nome do Item" wrapText="true">
                                     <font>
                                         <Font name="System Bold" size="12.0" />
@@ -131,13 +226,13 @@
                                 </Label>
                             </VBox>
                             <HBox alignment="CENTER_RIGHT" spacing="5.0">
-                                <Button text="-" prefWidth="25.0" prefHeight="25.0" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-background-radius: 3;" />
-                                <Label text="1" alignment="CENTER" prefWidth="30.0">
+                                <Button prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: c74921; -fx-text-fill: white; -fx-background-radius: 3;" text="-" />
+                                <Label alignment="CENTER" prefWidth="30.0" text="1">
                                     <font>
                                         <Font name="System Bold" size="14.0" />
                                     </font>
                                 </Label>
-                                <Button text="+" prefWidth="25.0" prefHeight="25.0" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-background-radius: 3;" />
+                                <Button prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: c74921; -fx-text-fill: white; -fx-background-radius: 3;" text="+" />
                             </HBox>
                         </HBox>
                     </VBox>
@@ -157,13 +252,12 @@
                     </font>
                 </Label>
             </HBox>
-            <Button fx:id="btnProsseguir" prefWidth="250.0" prefHeight="45.0" text="Prosseguir para o Pagamento">
+            <Button fx:id="btnProsseguir" prefHeight="45.0" prefWidth="250.0" text="Prosseguir para o Pagamento">
                 <style>
                     -fx-background-color: #007bff;
                     -fx-text-fill: white;
                     -fx-font-size: 16px;
-                    -fx-background-radius: 8;
-                </style>
+                    -fx-background-radius: 8;-fx-background-color: c74921;</style>
                 <VBox.margin>
                     <Insets top="10.0" />
                 </VBox.margin>

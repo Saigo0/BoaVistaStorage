@@ -15,34 +15,117 @@
 
 <!-- Tela Venda – Atendente | 1440 × 1024 -->
 
+<?import javafx.scene.text.Font?>
 <BorderPane prefHeight="1024" prefWidth="1440" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaVendaAtendente">
 
     <!-- ========== SIDEBAR ========== -->
     <left>
-        <VBox prefHeight="1024" prefWidth="260" spacing="26" styleClass="sidebar">
+        <VBox prefHeight="1024" prefWidth="260" spacing="20.0" style="-fx-background-color: ffff;" styleClass="sidebar">
             <children>
-                <ImageView fitHeight="100" fitWidth="260">
-                    <image><Image url="@../../../images/Logo.png" /></image>
+                <ImageView fx:id="logoView" fitHeight="100" fitWidth="260.0" styleClass="logo-icon">
+                    <image>
+                        <Image url="@../../../images/Logo.png" />
+                    </image>
                 </ImageView>
-
-                <VBox spacing="20" styleClass="menu">
+                <VBox spacing="20" styleClass="cima">
                     <children>
-                        <Label styleClass="sidebar-item" text="Início" />
-                        <Label styleClass="sidebar-item" text="Pedidos" />
-                        <Label styleClass="sidebar-item-active" text="Venda" />
-                        <Label styleClass="sidebar-item" text="Cardápio" />
-                        <Label styleClass="sidebar-item" text="Cliente" />
+                        <HBox fx:id="btnInicio" styleClass="incio">
+                            <children>
+                                <Label prefHeight="40.0" style="-fx-font-size: 20;" styleClass="incio1" text="🏠 Início">
+                                    <HBox.margin>
+                                        <Insets left="8" />
+                                    </HBox.margin>
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="20.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox fx:id="btnPedidos" styleClass="pedidos">
+                            <children>
+                                <Label prefHeight="40.0" style="-fx-font-size: 20;" text="📋 Pedidos">
+                                    <HBox.margin>
+                                        <Insets left="8" />
+                                    </HBox.margin>
+                                    <padding>
+                                        <Insets left="20.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox fx:id="btnVenda" styleClass="venda">
+                            <children>
+                                <Label prefHeight="40.0" style="-fx-font-size: 20;" text="💰 Venda">
+                                    <HBox.margin>
+                                        <Insets left="8" />
+                                    </HBox.margin>
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="20.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox fx:id="btnCardapio" styleClass="cardpio">
+                            <children>
+                                <Label prefHeight="40.0" style="-fx-font-size: 20;" text="📋 Cardápio" textFill="#c74921">
+                                    <HBox.margin>
+                                        <Insets left="8" />
+                                    </HBox.margin>
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="20.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox fx:id="btnCliente" styleClass="cliente">
+                            <children>
+                                <Label prefHeight="40.0" style="-fx-font-size: 20;" text="👥 Cliente">
+                                    <HBox.margin>
+                                        <Insets left="8" />
+                                    </HBox.margin>
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="20.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </HBox>
                     </children>
                 </VBox>
-
                 <Region VBox.vgrow="ALWAYS" />
-
-                <VBox spacing="12" styleClass="bottom-menu">
+                <VBox spacing="12" styleClass="baixo">
                     <children>
-                        <Label styleClass="sidebar-item" text="Configurações" />
-                        <Label styleClass="sidebar-item" text="Logout" />
+                        <HBox alignment="CENTER_LEFT" spacing="8" styleClass="financeiro1">
+                            <children>
+                                <Label style="-fx-font-size: 20;" text="⚙ Configurações">
+                                    <padding>
+                                        <Insets left="20.0" />
+                                    </padding></Label>
+                            </children>
+                        </HBox>
+                        <HBox fx:id="btnLogout" alignment="CENTER_LEFT" spacing="8" styleClass="financeiro1">
+                            <children>
+                                <Label style="-fx-font-size: 20;" text="🚪  Sair">
+                                    <padding>
+                                        <Insets left="20.0" />
+                                    </padding></Label>
+                            </children>
+                        </HBox>
                     </children>
-                    <VBox.margin><Insets bottom="40" /></VBox.margin>
+                    <VBox.margin>
+                        <Insets bottom="40.0" />
+                    </VBox.margin>
                 </VBox>
             </children>
         </VBox>

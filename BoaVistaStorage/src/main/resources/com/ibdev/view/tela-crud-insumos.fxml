@@ -31,13 +31,13 @@
             <VBox spacing="12" style="-fx-padding:0 0 0 20;">
                <children>
                   <Label style="-fx-font-size: 20;" text="🏠 Início" />
-                  <Label style="-fx-font-size: 20;" text="📋 Produtos" />
+                  <Label style="-fx-font-size: 20;" text="📋 Produtos" textFill="#c74921" />
                   <Label style="-fx-font-size: 18;" text="—  Compra">
                      <VBox.margin>
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label style="-fx-font-size: 18;" text="—  Cadastro insumo">
+                  <Label style="-fx-font-size: 18;" text="—  Cadastro insumo" textFill="#c74921">
                      <VBox.margin>
                         <Insets left="10.0" />
                      </VBox.margin>
@@ -49,23 +49,23 @@
                   </Label>
                   <Label style="-fx-font-size: 20;" text="📦 Estoque" />
                   <Label style="-fx-font-size: 20;" text="💰 Pedidos e Vendas" />
-                  <Label style="-fx-font-size: 20;" text="👥 Pessoas" textFill="#c74921" />
+                  <Label style="-fx-font-size: 20;" text="👥 Pessoas" />
                   <VBox spacing="6" style="-fx-padding:0 0 0 12;">
                      <children>
-                        <Label style="-fx-font-size: 18;" text="—  Fornecedor" textFill="#c74921" />
+                        <Label style="-fx-font-size: 18;" text="—  Fornecedor" />
                      </children>
                   </VBox>
                   <Label style="-fx-font-size: 20;" text="📊 Financeiro" />
                </children>
             </VBox>
 
-                <Region VBox.vgrow="ALWAYS" />
+                <Region prefHeight="360.0" prefWidth="260.0" VBox.vgrow="ALWAYS" />
 
                 <!-- Rodapé -->
                 <VBox spacing="10" style="-fx-padding:0 0 20 20;">
                     <children>
                         <Label style="-fx-font-size: 20;" text="⚙ Configurações" />
-                        <Label style="-fx-font-size: 20;" text="🚪 Logout" />
+                        <Label style="-fx-font-size: 20;" text="🚪  Sair" />
                     </children>
                 </VBox>
             </children>

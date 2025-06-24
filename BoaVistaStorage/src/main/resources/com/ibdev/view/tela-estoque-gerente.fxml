@@ -10,32 +10,59 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?> <HBox prefHeight="1024" prefWidth="1440" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaEstoqueGerente">
+<?import javafx.scene.text.Font?>
 
-    <VBox fx:id="sidebarVBox" prefHeight="1024" prefWidth="260" spacing="26" style="-fx-background-color: #ffffff;"> <children>
-        <ImageView fitHeight="100" fitWidth="260" preserveRatio="true">
-            <image><Image url="@../../../images/Logo.png" /></image>
-        </ImageView>
+<HBox prefHeight="1024" prefWidth="1440" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaEstoqueGerente">
 
-        <VBox spacing="20"> <children>
-            <HBox styleClass="menu-item" fx:id="btnInicio"><children><ImageView fitHeight="20" fitWidth="20"><image><Image url="@../../../images/icons8-microsoft-40.png" /></image></ImageView><Label text="Início" /></children></HBox>
-            <HBox styleClass="menu-item" fx:id="btnProdutos"><children><ImageView fitHeight="20" fitWidth="20"><image><Image url="@../../../images/icons8-microsoft-40.png" /></image></ImageView><Label text="Produtos" /></children></HBox>
-            <HBox styleClass="menu-item-selecionado" fx:id="btnEstoque"><children><ImageView fitHeight="20" fitWidth="20"><image><Image url="@../../../images/icons8-microsoft-40.png" /></image></ImageView><Label text="Estoque" textFill="#c74921" /></children></HBox> <HBox styleClass="menu-item" fx:id="btnPedidosVendas"><children><ImageView fitHeight="20" fitWidth="20"><image><Image url="@../../../images/icons8-dollar-40.png" /></image></ImageView><Label text="Pedidos e Vendas" /></children></HBox>
-            <HBox styleClass="menu-item" fx:id="btnPessoas"><children><ImageView fitHeight="20" fitWidth="20"><image><Image url="@../../../images/icons8-user-40.png" /></image></ImageView><Label text="Pessoas" /></children></HBox>
-            <HBox styleClass="menu-item" fx:id="btnFinanceiro"><children><ImageView fitHeight="20" fitWidth="20"><image><Image url="@../../../images/icons8-profit-analysis-40.png" /></image></ImageView><Label text="Financeiro" /></children></HBox>
-        </children>
+    <!-- ========== SIDEBAR ========== -->
+        <VBox prefWidth="260" spacing="26" style="-fx-background-color:#ffffff;">
+            <children>
+                <!-- LOGO -->
+                <ImageView fitHeight="100" fitWidth="260" preserveRatio="true">
+                    <image><Image url="@../../../images/Logo.png" /></image>
+                </ImageView>
+                <VBox spacing="12" style="-fx-padding:0 0 0 20;">
+                    <children>
+                        <Label style="-fx-font-size: 20;" text="🏠 Início" />
+                        <Label style="-fx-font-size: 20;" text="📋 Produtos" />
+                        <Label style="-fx-font-size: 18;" text="—  Compra">
+                            <VBox.margin>
+                                <Insets left="10.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Label style="-fx-font-size: 18;" text="—  Cadastro insumo">
+                            <VBox.margin>
+                                <Insets left="10.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Label style="-fx-font-size: 18;" text="—  Cadastro vendável">
+                            <VBox.margin>
+                                <Insets left="10.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Label style="-fx-font-size: 20;" text="📦 Estoque" textFill="#c74921" />
+                        <Label style="-fx-font-size: 20;" text="💰 Pedidos e Vendas" />
+                        <Label style="-fx-font-size: 20;" text="👥 Pessoas" />
+                        <VBox spacing="6" style="-fx-padding:0 0 0 12;">
+                            <children>
+                                <Label style="-fx-font-size: 18;" text="—  Fornecedor" />
+                            </children>
+                        </VBox>
+                        <Label style="-fx-font-size: 20;" text="📊 Financeiro" />
+                    </children>
+                </VBox>
+
+                <Region prefHeight="355.0" prefWidth="260.0" VBox.vgrow="ALWAYS" />
+
+                <!-- Rodapé -->
+                <VBox spacing="10" style="-fx-padding:0 0 20 20;">
+                    <children>
+                        <Label style="-fx-font-size: 20;" text="⚙ Configurações" />
+                        <Label style="-fx-font-size: 20;" text="🚪  Sair" />
+                    </children>
+                </VBox>
+            </children>
         </VBox>
-
-        <Region VBox.vgrow="ALWAYS" />
-
-        <VBox spacing="12"> <children>
-            <HBox alignment="CENTER_LEFT" spacing="8" styleClass="menu-item"><children><ImageView fitHeight="20" fitWidth="20"><image><Image url="@../../../images/icons8-config-40.png" /></image></ImageView><Label text="Configurações" /></children></HBox>
-            <HBox alignment="CENTER_LEFT" spacing="8" styleClass="menu-item" fx:id="btnLogout"><children><ImageView fitHeight="20" fitWidth="20"><image><Image url="@../../../images/icons8-logout-40.png" /></image></ImageView><Label text="Logout" /></children></HBox>
-        </children>
-            <VBox.margin><Insets bottom="40" /></VBox.margin>
-        </VBox>
-    </children>
-    </VBox>
 
     <VBox prefWidth="1180" spacing="24" style="-fx-background-color:#e7e7e7; -fx-padding:30;">
         <children>
@@ -47,7 +74,7 @@
                 </children>
             </HBox>
 
-            <TableView fx:id="tabelaEstoque" VBox.vgrow="ALWAYS" style="-fx-background-color: #ffffff; -fx-border-color: #d0d0d0; -fx-border-radius: 8; -fx-background-radius: 8;"> <columns>
+            <TableView fx:id="tabelaEstoque" style="-fx-background-color: #ffffff; -fx-border-color: #d0d0d0; -fx-border-radius: 8; -fx-background-radius: 8;" VBox.vgrow="ALWAYS"> <columns>
                 <TableColumn fx:id="colCodigo" prefWidth="80.0" text="CÓDIGO" /> <TableColumn fx:id="colProduto" prefWidth="280.0" text="PRODUTO" /> <TableColumn fx:id="colQtde" prefWidth="130.0" text="QUANTIDADE" />
                 <TableColumn fx:id="colPreco" prefWidth="150.0" text="PREÇO CUSTO" /> <TableColumn fx:id="colStatus" prefWidth="150.0" text="STATUS" /> <TableColumn fx:id="colAcoes" prefWidth="250.0" text="AÇÕES" /> </columns>
             </TableView>

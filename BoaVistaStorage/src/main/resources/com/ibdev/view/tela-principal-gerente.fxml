@@ -14,28 +14,51 @@
 
     <!-- Sidebar -->
     <left>
-        <VBox prefWidth="260" spacing="20" style="-fx-background-color: #ffffff;">
+        <!-- ========== SIDEBAR ========== -->
+        <VBox prefWidth="260" spacing="26" style="-fx-background-color:#ffffff;">
             <children>
-                <ImageView fitHeight="100" fitWidth="260.0" style="-fx-alignment: center;">
-                    <image>
-                        <Image url="@../../../images/Logo.png" />
-                    </image>
+                <!-- LOGO -->
+                <ImageView fitHeight="100" fitWidth="260" preserveRatio="true">
+                    <image><Image url="@../../../images/Logo.png" /></image>
                 </ImageView>
-                <VBox spacing="10" style="-fx-padding: 0 0 0 20;">
+                <VBox spacing="12" style="-fx-padding:0 0 0 20;">
                     <children>
-                        <Label style="-fx-font-weight: bold; -fx-text-fill: #c74921;" text="🗄 Início" />
-                        <Label text="💼 Produtos" />
-                        <Label text="📊 Estoque" />
-                        <Label text="💳 Pedidos e Vendas" textFill="#111111" />
-                        <Label text="👥 Pessoas" />
-                        <Label text="🔍 Financeiro" />
+                        <Label style="-fx-font-size: 20;" text="🏠 Início" />
+                        <Label style="-fx-font-size: 20;" text="📋 Produtos" />
+                        <Label style="-fx-font-size: 18;" text="—  Compra">
+                            <VBox.margin>
+                                <Insets left="10.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Label style="-fx-font-size: 18;" text="—  Cadastro insumo">
+                            <VBox.margin>
+                                <Insets left="10.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Label style="-fx-font-size: 18;" text="—  Cadastro vendável">
+                            <VBox.margin>
+                                <Insets left="10.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Label style="-fx-font-size: 20;" text="📦 Estoque" textFill="#c74921" />
+                        <Label style="-fx-font-size: 20;" text="💰 Pedidos e Vendas" />
+                        <Label style="-fx-font-size: 20;" text="👥 Pessoas" />
+                        <VBox spacing="6" style="-fx-padding:0 0 0 12;">
+                            <children>
+                                <Label style="-fx-font-size: 18;" text="—  Fornecedor" />
+                            </children>
+                        </VBox>
+                        <Label style="-fx-font-size: 20;" text="📊 Financeiro" />
                     </children>
                 </VBox>
-                <Region VBox.vgrow="ALWAYS" />
-                <VBox spacing="10" style="-fx-padding: 0 0 20 20;">
+
+                <Region prefHeight="355.0" prefWidth="260.0" VBox.vgrow="ALWAYS" />
+
+                <!-- Rodapé -->
+                <VBox spacing="10" style="-fx-padding:0 0 20 20;">
                     <children>
-                        <Label text="⚙ Configurações" />
-                        <Label text="🚪 Logout" />
+                        <Label style="-fx-font-size: 20;" text="⚙ Configurações" />
+                        <Label style="-fx-font-size: 20;" text="🚪  Sair" />
                     </children>
                 </VBox>
             </children>

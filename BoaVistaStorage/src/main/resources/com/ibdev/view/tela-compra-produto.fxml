@@ -31,9 +31,9 @@
                         <Label style="-fx-font-size: 20;" text="📋 Produtos" textFill="#c74921" />
                         <VBox spacing="6" style="-fx-padding:0 0 0 12;">
                             <children>
-                                <Label style="-fx-font-size: 20;" text="—  Compra" textFill="#c74921" />
-                                <Label style="-fx-font-size: 20;" text="—  Cadastro insumo" />
-                                <Label style="-fx-font-size: 20;" text="—  Cadastro vendável" />
+                                <Label style="-fx-font-size: 18;" text="—  Compra" textFill="#c74921" />
+                                <Label style="-fx-font-size: 18;" text="—  Cadastro insumo" />
+                                <Label style="-fx-font-size: 18;" text="—  Cadastro vendável" />
                             </children>
                         </VBox>
                         <Label style="-fx-font-size: 20;" text="📦 Estoque" />
@@ -53,7 +53,7 @@
                 <VBox prefHeight="109.0" prefWidth="260.0" spacing="10" style="-fx-padding:0 0 20 20;">
                     <children>
                         <Label style="-fx-font-size: 20;" text="⚙ Configurações" />
-                        <Label style="-fx-font-size: 20;" text="🚪 Logout" />
+                        <Label style="-fx-font-size: 20;" text="🚪  Sair" />
                     </children>
                 </VBox>
             </children>
