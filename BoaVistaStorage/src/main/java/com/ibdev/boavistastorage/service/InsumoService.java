@@ -17,21 +17,21 @@ public class InsumoService {
         
     }
 
-//    public boolean salvarInsumo(Insumo insumo) {
-//        if(nome == null || nome.isEmpty()) {
-//            throw new IllegalArgumentException("Nome do insumo não pode ser vazio.");
-//        }
-//        if(precoCusto < 0) {
-//            throw new IllegalArgumentException("Preço de custo não pode ser negativo.");
-//        }
-//        if(unidadeDeMedida == null || unidadeDeMedida.isEmpty()) {
-//            throw new IllegalArgumentException("Unidade de medida não pode ser vazia.");
-//        }
-//        if(quantidadeEstoque < 0) {
-//            throw new IllegalArgumentException("Quantidade em estoque não pode ser negativa.");
-//        }
-//        return insumoRepository.create(insumo);
-//    }
+    public boolean salvarInsumo(Insumo insumo) {
+        if(insumo.getNome() == null || insumo.getNome().isEmpty()) {
+            throw new IllegalArgumentException("Nome do insumo não pode ser vazio.");
+        }
+        if(insumo.getPrecoCusto() < 0) {
+            throw new IllegalArgumentException("Preço de custo não pode ser negativo.");
+        }
+        if(insumo.getUnidadeDeMedida() == null || insumo.getUnidadeDeMedida().isEmpty()) {
+            throw new IllegalArgumentException("Unidade de medida não pode ser vazia.");
+        }
+        if(insumo.getQuantidadeEstoque() < 0) {
+            throw new IllegalArgumentException("Quantidade em estoque não pode ser negativa.");
+        }
+        return insumoRepository.create(insumo);
+    }
 
     public Insumo buscarInsumoPorId(Long id) {
         if(id == null || id <= 0) {

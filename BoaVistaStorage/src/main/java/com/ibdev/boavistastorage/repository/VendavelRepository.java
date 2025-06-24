@@ -17,22 +17,23 @@ public class VendavelRepository {
 
     public boolean create(Vendavel vendavel) {
         try {
+            em.getTransaction().begin();
             em.persist(vendavel);
+            em.getTransaction().commit();
+            return true;
         } catch (PersistenceException ex) {
-            if (ex.getCause() instanceof org.hibernate.exception.ConstraintViolationException) {
-                if (em.getTransaction().isActive()) {
-                    em.getTransaction().rollback();
-                }
-                throw new RuntimeException("Vendavel já cadastrado com os mesmos dados.");
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
             }
+            throw new RuntimeException("Vendavel já cadastrado com os mesmos dados.");
         } catch (Exception ex) {
             if (em.getTransaction().isActive()) {
                 em.getTransaction().rollback();
             }
             throw new RuntimeException("Erro ao salvar vendavel: " + ex.getMessage());
         }
-        return true;
     }
+
 
     public void readAll() {
         em.createQuery("select v from Vendavel v", Vendavel.class)

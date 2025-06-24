@@ -107,7 +107,7 @@
                                     <Image url="@../../../images/icons8-user-40.png" />
                                 </image>
                             </ImageView>
-                            <Label prefHeight="40.0" prefWidth="37.0" text="Cliente">
+                            <Label fx:id="LabelCliente" prefHeight="40.0" prefWidth="37.0" text="Cliente">
                                 <HBox.margin>
                                     <Insets left="8" />
                                 </HBox.margin>

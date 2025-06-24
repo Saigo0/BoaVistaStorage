@@ -32,6 +32,7 @@ public class TelaPrincipalAtendente implements Initializable {
     @FXML
     private HBox btnCliente;
 
+
     @FXML
     private HBox btnInicio;
 
@@ -80,9 +81,7 @@ public class TelaPrincipalAtendente implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("Iniciando TelaPrincipalAtendente com EntityManager: " + entityManager);
 
-        Platform.runLater(() -> {
-            configurarEventos();
-        });
+        Platform.runLater(this::configurarEventos);
     }
 
     public void setEntityManager(EntityManager entityManager) {
@@ -94,6 +93,12 @@ public class TelaPrincipalAtendente implements Initializable {
         btnCardapio.setOnMouseClicked(event -> {
             Stage stage = (Stage) btnCardapio.getScene().getWindow();
             SceneManager.mudarCenaMaximizada("/com/ibdev/view/tela-cardapio.fxml", "Tela Cardápio");
+        });
+
+        btnCliente.setOnMouseClicked(event -> {
+            Stage stage = (Stage) btnCliente.getScene().getWindow();
+            SceneManager.mudarCenaMaximizada("/com/ibdev/view/tela-crud-vendaveis.fxml", "Cliente");
+            System.out.println("Iniciando Cliente com FXML: ");
         });
 
         btnLogout.setOnMouseClicked(event -> {

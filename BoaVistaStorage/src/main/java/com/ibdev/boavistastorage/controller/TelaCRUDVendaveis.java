@@ -1,18 +1,32 @@
 package com.ibdev.boavistastorage.controller;
 
 import com.ibdev.boavistastorage.entity.Vendavel;
+import com.ibdev.boavistastorage.main.SceneManager;
+import com.ibdev.boavistastorage.repository.VendavelRepository;
 import com.ibdev.boavistastorage.service.VendavelService;
+import jakarta.persistence.EntityManager;
+import javafx.application.Platform;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class TelaCRUDVendaveis implements Initializable {
+
+    @FXML
+    private ImageView logoImageView;
 
     @FXML
     private Button btnAtualizar;
@@ -51,22 +65,32 @@ public class TelaCRUDVendaveis implements Initializable {
     private TextField txtPrecoVenda;
 
     private VendavelService vendavelService;
+    private List<Vendavel> vendaveis;
     private ObservableList<Vendavel> listaVendaveis;
-
+    private VendavelRepository vendavelRepository;
     private Vendavel vendavelSelecionado;
+    private EntityManager entityManager;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         configurarTabela();
-        carregarTabela();
-
+        configurarEventos();
         tabelaVendaveis.setOnMouseClicked(this::selecionarVendavel);
     }
 
+    public void setEntityManager(EntityManager entityManager) {
+        this.entityManager = entityManager;
+        this.vendavelService = new VendavelService(new VendavelRepository(entityManager));
+        carregarTabela();
+    }
+
+
+
     private void configurarTabela() {
-        colNome.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getNome()));
-        colPrecoCusto.setCellValueFactory(cellData -> new javafx.beans.property.SimpleObjectProperty<>(cellData.getValue().getPrecoCusto()));
-        colPrecoVenda.setCellValueFactory(cellData -> new javafx.beans.property.SimpleObjectProperty<>(cellData.getValue().getPrecoVenda()));
+        colNome.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNome()));
+        colPrecoCusto.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getPrecoCusto()));
+        colPrecoVenda.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getPrecoVenda()));
     }
 
     private void carregarTabela() {
@@ -77,12 +101,11 @@ public class TelaCRUDVendaveis implements Initializable {
     @FXML
     private void criarVendavel() {
         String nome = txtNome.getText();
-        String fornecedor = txtFornecedor.getText();
         double precoCusto = Double.parseDouble(txtPrecoCusto.getText());
         double precoVenda = Double.parseDouble(txtPrecoVenda.getText());
 
         Vendavel novoVendavel = new Vendavel(nome, precoCusto, precoVenda);
-        vendavelService.salvarVendavel(novoVendavel.getNome(), novoVendavel.getPrecoCusto(), novoVendavel.getPrecoVenda());
+        vendavelService.salvarVendavel(novoVendavel);
         limparCampos();
         carregarTabela();
     }
@@ -96,8 +119,23 @@ public class TelaCRUDVendaveis implements Initializable {
 
             vendavelService.atualizarVendavel(vendavelSelecionado.getId(), vendavelSelecionado);
             limparCampos();
-            carregarTabela();
+            tabelaVendaveis.refresh();
+
         }
+    }
+
+    public void configurarEventos(){
+        btnAtualizar.setOnMouseClicked(event -> {
+            atualizarVendavel();
+        });
+
+        btnCriar.setOnMouseClicked(event -> {
+            criarVendavel();
+        });
+
+        btnExcluir.setOnMouseClicked(event -> {
+            excluirVendavel();
+        });
     }
 
     @FXML
@@ -120,9 +158,11 @@ public class TelaCRUDVendaveis implements Initializable {
 
     private void limparCampos() {
         txtNome.clear();
-        txtFornecedor.clear();
         txtPrecoCusto.clear();
         txtPrecoVenda.clear();
         vendavelSelecionado = null;
     }
+
+
+
 }

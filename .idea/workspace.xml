@@ -7,15 +7,14 @@
     <list default="true" id="3d14bb90-2084-43c2-8f61-8472d412129f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaAdicionarEstoque.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaAdicionarEstoque.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaAdicionarProdutoCardapio.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaAdicionarProdutoCardapio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaExcluirProdutoCardapio.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaExcluirProdutoCardapio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/entity/Vendavel.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/entity/Vendavel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaCRUDVendaveis.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaCRUDVendaveis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaPrincipalAtendente.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaPrincipalAtendente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/repository/InsumoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/repository/InsumoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/main/SceneManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/main/SceneManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/repository/VendavelRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/repository/VendavelRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/service/InsumoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/service/InsumoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/service/VendavelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/service/VendavelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-crud-vendaveis.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-crud-vendaveis.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-principal-atendente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-principal-atendente.fxml" afterDir="false" />
     </list>
     <list id="fa1b2d6d-d512-4b38-9e0c-87ed7c5a799f" name="Changes by GUILHERME" comment="" />
     <list id="6d815c8d-e831-4bde-bf80-a47dfb46b934" name="Changes by jonat" comment="" />
@@ -47,7 +46,7 @@
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/DevSanttos/BoaVistaStorages.git",
-    "accountId": "405b6ab6-9975-4e55-b206-9cda04fe19ed"
+    "accountId": "65d91634-34ea-406a-a83c-d43a15174100"
   }
 }]]></component>
   <component name="ProjectColorInfo">{
@@ -79,7 +78,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Facets",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.JavaFX",
@@ -123,8 +122,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.25410.129" />
-        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-IU-251.25410.129" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
       </set>
     </attachedChunks>
   </component>
@@ -170,6 +169,7 @@
       <workItem from="1750654112374" duration="8848000" />
       <workItem from="1750694494101" duration="2615000" />
       <workItem from="1750704696793" duration="3011000" />
+      <workItem from="1750715816468" duration="7726000" />
     </task>
     <servers />
   </component>
@@ -197,7 +197,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaAdicionarProdutoCardapio.java</url>
-          <line>89</line>
+          <line>88</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">

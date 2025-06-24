@@ -1,9 +1,6 @@
 package com.ibdev.boavistastorage.main;
 
-import com.ibdev.boavistastorage.controller.TelaAdicionarProdutoCardapio;
-import com.ibdev.boavistastorage.controller.TelaCardapio;
-import com.ibdev.boavistastorage.controller.TelaLogin;
-import com.ibdev.boavistastorage.controller.TelaEstoqueGerente; // <<< IMPORTAR TELA ESTOQUE GERENTE
+import com.ibdev.boavistastorage.controller.*;
 
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -86,6 +83,10 @@ public class SceneManager {
             else if (controller instanceof TelaEstoqueGerente) {
                 ((TelaEstoqueGerente) controller).setEntityManager(em);
                 System.out.println("EntityManager setado na TelaEstoqueGerente (via SceneManager.mudarCenaMaximizada).");
+            }
+
+            else if(controller instanceof TelaCRUDVendaveis){
+                ((TelaCRUDVendaveis) controller).setEntityManager(em);
             }
             // Se você tiver outras telas que precisam de EM, adicione mais 'else if's aqui
             // else if (controller instanceof OutraTelaController) {
