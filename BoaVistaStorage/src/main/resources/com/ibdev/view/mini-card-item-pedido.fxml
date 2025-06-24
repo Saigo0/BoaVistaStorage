@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="300.0" spacing="10.0" style="-fx-background-color: #f8f8f8; -fx-border-color: #eee; -fx-border-width: 1; -fx-background-radius: 5; -fx-border-radius: 5;"
+      xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+    <padding>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+    </padding>
+    <VBox alignment="CENTER" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #e0e0e0; -fx-background-radius: 3;">
+        <Label text="Img" textFill="#999999" alignment="CENTER" />
+    </VBox>
+    <VBox HBox.hgrow="ALWAYS" alignment="CENTER_LEFT">
+        <Label fx:id="lblNomeItemPedido" text="Nome do Item" wrapText="true">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblPrecoUnitario" text="R$ 0.00/un" textFill="#666666">
+            <font>
+                <Font size="10.0" />
+            </font>
+        </Label>
+    </VBox>
+    <HBox alignment="CENTER_RIGHT" spacing="5.0">
+        <Button fx:id="btnDiminuirQuantidade" text="-" prefWidth="25.0" prefHeight="25.0" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-background-radius: 3;" />
+        <Label fx:id="lblQuantidadeItemPedido" text="1" alignment="CENTER" prefWidth="30.0">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Label>
+        <Button fx:id="btnAumentarQuantidade" text="+" prefWidth="25.0" prefHeight="25.0" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-background-radius: 3;" />
+    </HBox>
+</HBox>

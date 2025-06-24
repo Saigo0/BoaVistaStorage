@@ -16,7 +16,7 @@ public class Pedido {
     @Column(nullable = false)
     private LocalDateTime dataPedido;
 
-    @OneToMany
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<ItemPedido> itensList;
 
     @OneToOne

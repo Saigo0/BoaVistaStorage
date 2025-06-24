@@ -8,6 +8,10 @@ import java.time.LocalDateTime;
 public class PedidoService {
     private static PedidoRepository pedidoRepository;
 
+    public PedidoService(PedidoRepository pedidoRepository) {
+        PedidoService.pedidoRepository = pedidoRepository;
+    }
+
     public PedidoService(PedidoService pedidoService) {
         this.pedidoRepository = pedidoRepository;
     }
