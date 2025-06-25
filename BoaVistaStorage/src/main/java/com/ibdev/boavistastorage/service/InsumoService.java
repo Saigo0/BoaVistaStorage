@@ -17,7 +17,7 @@ public class InsumoService {
         
     }
 
-    public boolean salvarInsumo(Insumo insumo) {
+    public Insumo salvarInsumo(Insumo insumo) {
         if(insumo.getNome() == null || insumo.getNome().isEmpty()) {
             throw new IllegalArgumentException("Nome do insumo não pode ser vazio.");
         }
@@ -99,14 +99,15 @@ public class InsumoService {
         return insumo;
     }
 
-    public boolean atualizarInsumo(Long id, Insumo insumoAtualizado) {
+    public Insumo atualizarInsumo(Long id, Insumo insumoAtualizado) {
         if(id == null || id <= 0) {
             throw new IllegalArgumentException("ID do insumo inválido.");
         }
         if(insumoAtualizado == null) {
             throw new IllegalArgumentException("Insumo atualizado não pode ser nulo.");
         }
-        return insumoRepository.update(id, insumoAtualizado);
+        insumoRepository.update(id, insumoAtualizado);
+        return insumoRepository.findById(id);
     }
 
     public boolean deletarInsumo(Long id) {

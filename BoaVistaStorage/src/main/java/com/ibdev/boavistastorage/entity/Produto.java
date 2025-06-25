@@ -2,6 +2,8 @@ package com.ibdev.boavistastorage.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Produto {
@@ -19,8 +21,8 @@ public abstract class Produto {
     @JoinColumn(name = "cardapio_id")
     private Cardapio cardapio;
 
-    @OneToOne
-    private ItemPedido itemPedido;
+    @OneToMany
+    private List<ItemPedido> itemPedido;
 
     public Produto() {}
 
@@ -61,12 +63,15 @@ public abstract class Produto {
         this.cardapio = cardapio;
     }
 
-    public ItemPedido getItemPedido() {
+    public List<ItemPedido> getItemPedido() {
         return itemPedido;
     }
 
-    public void setItemPedido(ItemPedido itemPedido) {
-        this.itemPedido = itemPedido;
+    public void addItemPedido(ItemPedido item) {
+        if (this.itemPedido == null) {
+            this.itemPedido = new java.util.ArrayList<>();
+        }
+        this.itemPedido.add(item);
     }
 
     @Override

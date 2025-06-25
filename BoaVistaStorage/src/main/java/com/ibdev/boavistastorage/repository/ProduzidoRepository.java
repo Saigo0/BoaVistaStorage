@@ -89,7 +89,6 @@ public class ProduzidoRepository {
             Produzido produzidoDB = em.find(Produzido.class, idProduto);
 
             if (produzidoDB != null) {
-                produzidoDB.setItemPedido(produzido.getItemPedido());
                 produzidoDB.setPrecoCusto(produzido.getPrecoCusto());
                 produzidoDB.setDescricao(produzido.getDescricao());
                 produzidoDB.setTipo(produzido.getTipo());

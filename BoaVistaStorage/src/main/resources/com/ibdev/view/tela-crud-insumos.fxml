@@ -88,11 +88,12 @@
 
                     <!-- Nome / Preço de custo -->
                     <TextField fx:id="txtNome" prefHeight="50.0" prefWidth="550.0" promptText="Nome" GridPane.columnSpan="1" />
-                    <TextField fx:id="txtPreco" prefHeight="50.0" prefWidth="550.0" promptText="Preço de custo" GridPane.columnIndex="1" />
+                    <TextField fx:id="txtPrecoCusto" prefHeight="50.0" prefWidth="550.0" promptText="Preço de custo" GridPane.columnIndex="1" />
 
-                    <!-- Fornecedor / Unidade de medida -->
+
                     <TextField fx:id="txtFornecedor" prefHeight="50.0" prefWidth="550.0" promptText="Fornecedor" GridPane.rowIndex="1" />
-                    <TextField fx:id="txtUnidade" prefHeight="50.0" prefWidth="550.0" promptText="Unidade de medida" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <TextField fx:id="txtUnidadeDeMedida" prefHeight="50.0" prefWidth="550.0" promptText="Unidade de medida" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <TextField fx:id="txtQuantEstoque" prefHeight="50.0" prefWidth="550.0" promptText="Quantidade em estoque" GridPane.rowIndex="1" />
                <rowConstraints>
                   <RowConstraints />
                   <RowConstraints />
@@ -103,9 +104,9 @@
                 <TableView fx:id="tabelaInsumos" prefHeight="695.0" prefWidth="1120.0">
                     <columns>
                         <TableColumn fx:id="colNome" prefWidth="300" text="Nome" />
-                        <TableColumn fx:id="colPreco" prefWidth="120" text="Preço" />
+                        <TableColumn fx:id="colPrecoCusto" prefWidth="120" text="Preço" />
                         <TableColumn fx:id="colFornecedor" prefWidth="240" text="Fornecedor" />
-                        <TableColumn fx:id="colUnidade" prefWidth="120" text="Unidade" />
+                        <TableColumn fx:id="colUnidadeDeMedida" prefWidth="120" text="Unidade" />
                         <TableColumn fx:id="colAcoes" prefWidth="120" text="Ações" />
                     </columns>
                 </TableView>

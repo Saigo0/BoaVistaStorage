@@ -22,22 +22,20 @@ public class ItemPedido {
     @Column(nullable = false)
     private int quantidade;
 
-    @OneToOne // Assumindo que um ItemPedido se refere a um único Produto
-    @JoinColumn(name = "produto_id", nullable = false) // Garante que a coluna de associação não seja nula
+    @ManyToOne
+    @JoinColumn(name = "produto_id", nullable = false)
     private Produto produto;
 
-    @ManyToOne // Vários ItemPedido para um Pedido
-    @JoinColumn(name = "pedido_id") // Coluna no banco de dados para a FK de Pedido
+    @ManyToOne
+    @JoinColumn(name = "pedido_id")
     private Pedido pedido;
 
-    @Transient // Indica que este campo NÃO será persistido no banco de dados
-    private Object userData; // Campo para armazenar dados da UI (como o HBox do mini-card)
+    @Transient
+    private Object userData;
 
-    // Construtor padrão exigido pelo JPA
     public ItemPedido() {
     }
 
-    // Construtor com parâmetros para facilitar a criação
     public ItemPedido(int quantidade, Produto produto) {
         this.quantidade = quantidade;
         this.produto = produto;
@@ -77,7 +75,6 @@ public class ItemPedido {
         this.pedido = pedido;
     }
 
-    // Getter e Setter para o campo transient userData
     public Object getUserData() {
         return userData;
     }

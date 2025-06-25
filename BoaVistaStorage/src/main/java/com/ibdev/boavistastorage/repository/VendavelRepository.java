@@ -15,12 +15,10 @@ public class VendavelRepository {
         this.em = em;
     }
 
-    public boolean create(Vendavel vendavel) {
+    public Vendavel create(Vendavel vendavel) {
         try {
-            em.getTransaction().begin();
             em.persist(vendavel);
-            em.getTransaction().commit();
-            return true;
+            return vendavel;
         } catch (PersistenceException ex) {
             if (em.getTransaction().isActive()) {
                 em.getTransaction().rollback();
@@ -33,7 +31,6 @@ public class VendavelRepository {
             throw new RuntimeException("Erro ao salvar vendavel: " + ex.getMessage());
         }
     }
-
 
     public void readAll() {
         em.createQuery("select v from Vendavel v", Vendavel.class)
@@ -83,7 +80,7 @@ public class VendavelRepository {
                 .getSingleResult();
     }
 
-    public boolean update(Long idVendavel, Vendavel vendavel) {
+    public Vendavel update(Long idVendavel, Vendavel vendavel) {
         try {
             em.getTransaction().begin();
 
@@ -93,7 +90,6 @@ public class VendavelRepository {
                 vendavelDB.setNome(vendavel.getNome());
                 vendavelDB.setPrecoCusto(vendavel.getPrecoCusto());
                 vendavelDB.setCardapio(vendavel.getCardapio());
-                vendavelDB.setItemPedido(vendavel.getItemPedido());
                 vendavelDB.setQuantEstoque(vendavel.getQuantEstoque());
                 vendavelDB.setPrecoVenda(vendavel.getPrecoVenda());
                 vendavelDB.setStatusEstoque(vendavel.getStatusEstoque());
@@ -109,7 +105,7 @@ public class VendavelRepository {
             }
             throw new RuntimeException("Erro ao realizar a consulta por ID." + e.getMessage());
         }
-        return true;
+        return findById(idVendavel);
     }
 
     public void delete(Long id) {

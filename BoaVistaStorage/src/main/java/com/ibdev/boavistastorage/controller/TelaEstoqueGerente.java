@@ -203,8 +203,8 @@ public class TelaEstoqueGerente implements Initializable {
                 TelaAdicionarEstoque adicionarController = loader.getController();
                 adicionarController.setEntityManager(entityManager);
 
-                adicionarController.setOnProdutoAdded(novoProduto -> {
-                    listaItensEstoque.add(new EstoqueItem(novoProduto));
+                adicionarController.setOnProdutoActionCompleted(novoProduto -> {
+                    Platform.runLater(this::carregarDadosEstoque);
                 });
 
                 Stage stage = new Stage();
@@ -225,28 +225,68 @@ public class TelaEstoqueGerente implements Initializable {
     }
 
     private void handleUpdateItem(Produto produto) {
-        if (produto instanceof Vendavel) {
-            showAlert(Alert.AlertType.INFORMATION, "Atualizar Vendável", "Editar Vendável: " + produto.getNome() + " (ID: " + produto.getId() + ")");
-        } else if (produto instanceof Insumo) {
-            showAlert(Alert.AlertType.INFORMATION, "Atualizar Insumo", "Editar Insumo: " + produto.getNome() + " (ID: " + produto.getId() + ")");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ibdev/view/tela-estoque-gerente-adicionarProduto.fxml"));
+            Parent root = loader.load();
+
+            TelaAdicionarEstoque adicionarController = loader.getController();
+            adicionarController.setEntityManager(entityManager);
+            adicionarController.setProdutoParaEdicao(produto);
+
+            adicionarController.setOnProdutoActionCompleted(produtoAtualizado -> {
+
+                Platform.runLater(this::carregarDadosEstoque);
+            });
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Editar Item do Estoque");
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initOwner(btnAdicionar.getScene().getWindow());
+            stage.setResizable(false);
+            stage.showAndWait();
+
+        } catch (IOException e) {
+            showAlert(Alert.AlertType.ERROR, "Erro ao Abrir Tela", "Não foi possível carregar a tela de edição de estoque: " + e.getMessage());
+            e.printStackTrace();
+        } catch (Exception e) {
+            showAlert(Alert.AlertType.ERROR, "Erro Inesperado", "Ocorreu um erro ao preparar a tela de edição: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
     private void handleDeleteItem(Produto produto) {
-        if (produto instanceof Vendavel) {
-            showAlert(Alert.AlertType.INFORMATION, "Excluir Vendável", "Excluir Vendável: " + produto.getNome() + " (ID: " + produto.getId() + ")");
-        } else if (produto instanceof Insumo) {
-            showAlert(Alert.AlertType.INFORMATION, "Excluir Insumo", "Excluir Insumo: " + produto.getNome() + " (ID: " + produto.getId() + ")");
-        }
+        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmAlert.setTitle("Confirmar Exclusão");
+        confirmAlert.setHeaderText("Tem certeza que deseja excluir este item?");
+        confirmAlert.setContentText("Item: " + produto.getNome() + " (ID: " + produto.getId() + ")");
+
+        confirmAlert.showAndWait().ifPresent(response -> {
+            if (response == javafx.scene.control.ButtonType.OK) {
+                try {
+                    if (produto instanceof Vendavel) {
+                        vendavelService.deletarVendavel(produto.getId());
+                    } else if (produto instanceof Insumo) {
+                        insumoService.deletarInsumo(produto.getId());
+                    } else {
+                        showAlert(Alert.AlertType.ERROR, "Erro", "Tipo de produto desconhecido para exclusão.");
+                        return;
+                    }
+                    showAlert(Alert.AlertType.INFORMATION, "Sucesso", "Item excluído com sucesso!");
+                    carregarDadosEstoque();
+                } catch (Exception e) {
+                    showAlert(Alert.AlertType.ERROR, "Erro ao Excluir", "Não foi possível excluir o item: " + e.getMessage());
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     private void showAlert(Alert.AlertType type, String title, String message) {
-        Platform.runLater(() -> {
-            Alert alert = new Alert(type);
-            alert.setTitle(title);
-            alert.setHeaderText(null);
-            alert.setContentText(message);
-            alert.showAndWait();
-        });
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

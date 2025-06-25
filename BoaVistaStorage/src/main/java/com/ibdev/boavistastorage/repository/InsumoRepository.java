@@ -13,10 +13,10 @@ public class InsumoRepository {
         this.em = em;
     }
 
-    public boolean create(Insumo insumo) {
+    public Insumo create(Insumo insumo) {
         try {
             em.persist(insumo);
-            return true;
+            return insumo;
         } catch (Exception e) {
             if (em.getTransaction().isActive()) {
                 em.getTransaction().rollback();
@@ -64,7 +64,7 @@ public class InsumoRepository {
                 .getSingleResult();
     }
 
-    public boolean update(Long idInsumo, Insumo insumo) {
+    public Insumo update(Long idInsumo, Insumo insumo) {
         try {
             em.getTransaction().begin();
 
@@ -91,7 +91,7 @@ public class InsumoRepository {
             }
             throw new RuntimeException("Erro ao realizar a consulta por ID." + e.getMessage());
         }
-        return true;
+        return findById(idInsumo);
     }
 
     public boolean delete(Long id) {

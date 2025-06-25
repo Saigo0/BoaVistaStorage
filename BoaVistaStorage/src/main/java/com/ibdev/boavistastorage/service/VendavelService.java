@@ -1,5 +1,6 @@
 package com.ibdev.boavistastorage.service;
 
+import com.ibdev.boavistastorage.entity.Produto;
 import com.ibdev.boavistastorage.entity.Vendavel;
 import com.ibdev.boavistastorage.repository.VendavelRepository;
 
@@ -13,7 +14,7 @@ public class VendavelService {
     }
 
 
-    public void salvarVendavel(Vendavel vendavel) {
+    public Produto salvarVendavel(Vendavel vendavel) {
         if(vendavel == null) {
             throw new IllegalArgumentException("Objeto Vendavel não pode ser nulo.");
         }
@@ -26,23 +27,8 @@ public class VendavelService {
         if(vendavel.getPrecoVenda() < 0) {
             throw new IllegalArgumentException("Preço de venda não pode ser negativo.");
         }
-
-        vendavelRepository.create(vendavel);
+        return vendavelRepository.create(vendavel);
     }
-//    public boolean salvarVendavel(String nome, double precoCusto, double precoVenda) {
-//        if(nome == null || nome.isEmpty()) {
-//            throw new IllegalArgumentException("Nome do produto não pode ser vazio.");
-//        }
-//        if(precoCusto < 0) {
-//            throw new IllegalArgumentException("Preço de custo não pode ser negativo.");
-//        }
-//        if(precoVenda < 0) {
-//            throw new IllegalArgumentException("Preço de venda não pode ser negativo");
-//        }
-//
-//        Vendavel vendavel = new Vendavel(nome, precoCusto, precoVenda);
-//        return vendavelRepository.create(vendavel);
-//    }
 
     public Vendavel buscarVendavelPorId(Long id) {
         if(id == null || id <= 0) {
@@ -107,14 +93,15 @@ public class VendavelService {
         return vendavel;
     }
 
-    public boolean atualizarVendavel(Long idVendavel, Vendavel vendavel) {
+    public Vendavel atualizarVendavel(Long idVendavel, Vendavel vendavel) {
         if(idVendavel == null || idVendavel <= 0) {
             throw new IllegalArgumentException("ID do produto inválido.");
         }
         if(vendavel == null) {
             throw new IllegalArgumentException("Objeto Vendavel não pode ser nulo.");
         }
-        return vendavelRepository.update(idVendavel, vendavel);
+        vendavelRepository.update(idVendavel, vendavel);
+        return vendavelRepository.findById(idVendavel);
     }
 
     public void listarVendaveis() {

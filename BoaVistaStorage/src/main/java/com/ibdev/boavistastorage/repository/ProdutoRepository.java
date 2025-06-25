@@ -13,7 +13,14 @@ public class ProdutoRepository {
     }
 
     public List<Produto> findAll() {
-        return entityManager.createQuery("SELECT p FROM Produto p", Produto.class).getResultList();
+        try {
+            return entityManager.createQuery("SELECT p FROM Produto p", Produto.class).getResultList();
+        } catch (Exception e) {
+            if (entityManager.getTransaction().isActive()) {
+                entityManager.getTransaction().rollback();
+            }
+            throw new RuntimeException("Erro ao buscar todos os produtos: " + e.getMessage());
+        }
     }
 
     public Produto findById(Long id) {

@@ -25,8 +25,6 @@ import java.util.ResourceBundle;
 
 public class TelaCRUDVendaveis implements Initializable {
 
-    @FXML
-    private ImageView logoImageView;
 
     @FXML
     private Button btnAtualizar;
@@ -116,11 +114,9 @@ public class TelaCRUDVendaveis implements Initializable {
             vendavelSelecionado.setNome(txtNome.getText());
             vendavelSelecionado.setPrecoCusto(Double.parseDouble(txtPrecoCusto.getText()));
             vendavelSelecionado.setPrecoVenda(Double.parseDouble(txtPrecoVenda.getText()));
-
             vendavelService.atualizarVendavel(vendavelSelecionado.getId(), vendavelSelecionado);
             limparCampos();
             tabelaVendaveis.refresh();
-
         }
     }
 

@@ -14,7 +14,11 @@ public class ProdutoService {
     }
 
     public List<Produto> buscarTodosProdutosDisponiveis() {
-        return produtoRepository.findAvailableForMenu();
+        try {
+            return produtoRepository.findAvailableForMenu();
+        } catch (Exception e) {
+            throw new RuntimeException("Erro ao buscar produtos: " + e.getMessage());
+        }
     }
 
     public Produto findProdutoById(Long id) {
