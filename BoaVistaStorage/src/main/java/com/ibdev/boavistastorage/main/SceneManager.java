@@ -47,6 +47,11 @@ public class SceneManager {
                 ((TelaPedidoAtendente) controller).setEntityManager(em);
                 System.out.println("EntityManager setado na TelaPedidoAtendente (via SceneManager.mudarCena).");
             }
+            else if (controller instanceof TelaPrincipalAtendente) {
+                ((TelaPrincipalAtendente) controller).setEntityManager(em);
+                System.out.println("EntityManager setado na TelaPedidoAtendente (via SceneManager.mudarCena).");
+            }
+
             // ... (outros controladores existentes) ...
 
 
@@ -90,6 +95,9 @@ public class SceneManager {
             }
             else if(controller instanceof TelaCRUDVendaveis){
                 ((TelaCRUDVendaveis) controller).setEntityManager(em);
+            }
+            else if(controller instanceof TelaCRUDInsumo){
+                ((TelaCRUDInsumo) controller).setEntityManager(em);
             }
             // ... (outros controladores existentes) ...
 

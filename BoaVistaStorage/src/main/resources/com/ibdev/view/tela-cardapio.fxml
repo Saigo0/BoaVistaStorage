@@ -23,78 +23,19 @@
          </ImageView>
          <VBox spacing="20" styleClass="cima">
             <children>
-               <HBox fx:id="btnInicio" styleClass="incio">
-                  <children>
-                     <Label prefHeight="40.0" style="-fx-font-size: 20;" styleClass="incio1" text="🏠 Início">
-                        <HBox.margin>
-                           <Insets left="8" />
-                        </HBox.margin>
-                        <font>
-                           <Font size="24.0" />
-                        </font>
-                        <padding>
-                           <Insets left="20.0" />
-                        </padding>
-                     </Label>
-                  </children>
-               </HBox>
-               <HBox fx:id="btnPedidos" styleClass="pedidos">
-                  <children>
-                     <Label prefHeight="40.0" style="-fx-font-size: 20;" text="📋 Pedidos">
-                        <HBox.margin>
-                           <Insets left="8" />
-                        </HBox.margin>
-                        <padding>
-                           <Insets left="20.0" />
-                        </padding>
-                     </Label>
-                  </children>
-               </HBox>
-               <HBox fx:id="btnVenda" styleClass="venda">
-                  <children>
-                     <Label prefHeight="40.0" style="-fx-font-size: 20;" text="💰 Venda">
-                        <HBox.margin>
-                           <Insets left="8" />
-                        </HBox.margin>
-                        <font>
-                           <Font size="24.0" />
-                        </font>
-                        <padding>
-                           <Insets left="20.0" />
-                        </padding>
-                     </Label>
-                  </children>
-               </HBox>
-               <HBox fx:id="btnCardapio" styleClass="cardpio">
-                  <children>
-                     <Label prefHeight="40.0" style="-fx-font-size: 20;" text="📋 Cardápio" textFill="#c74921">
-                        <HBox.margin>
-                           <Insets left="8" />
-                        </HBox.margin>
-                        <font>
-                           <Font size="24.0" />
-                        </font>
-                        <padding>
-                           <Insets left="20.0" />
-                        </padding>
-                     </Label>
-                  </children>
-               </HBox>
-               <HBox fx:id="btnCliente" styleClass="cliente">
-                  <children>
-                     <Label prefHeight="40.0" style="-fx-font-size: 20;" text="👥 Cliente">
-                        <HBox.margin>
-                           <Insets left="8" />
-                        </HBox.margin>
-                        <font>
-                           <Font size="24.0" />
-                        </font>
-                        <padding>
-                           <Insets left="20.0" />
-                        </padding>
-                     </Label>
-                  </children>
-               </HBox>
+               <HBox fx:id="btnInicio" styleClass="incio" />
+               <Label prefHeight="40.0" style="-fx-font-size: 20;" text="📋 Cardápio" textFill="#c74921">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+                  <padding>
+                     <Insets left="20.0" />
+                  </padding>
+               </Label>
+               <HBox fx:id="btnPedidos" styleClass="pedidos" />
+               <HBox fx:id="btnVenda" styleClass="venda" />
+               <HBox fx:id="btnCardapio" styleClass="cardpio" />
+               <HBox fx:id="btnCliente" styleClass="cliente" />
             </children>
          </VBox>
          <Region VBox.vgrow="ALWAYS" />

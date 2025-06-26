@@ -12,13 +12,15 @@ public class LoginService {
     }
 
     public Funcionario atutenticar(String login, String senha) {
-        Funcionario funcionarioLogado = atendenteService.findByLoginAndSenha(login, senha);
-
-        if (funcionarioLogado != null) {
-            return funcionarioLogado;
+        Funcionario funcionarioLogado = null;
+        if(atendenteService.findByLoginAndSenha(login, senha) != null){
+            funcionarioLogado = atendenteService.findByLoginAndSenha(login, senha);
+        }
+        if(gerenteService.findByLoginAndSenha(login, senha) != null){
+            funcionarioLogado = gerenteService.findByLoginAndSenha(login, senha);
         }
 
-        return funcionarioLogado = gerenteService.findByLoginAndSenha(login, senha);
+        return funcionarioLogado;
     }
 
 }

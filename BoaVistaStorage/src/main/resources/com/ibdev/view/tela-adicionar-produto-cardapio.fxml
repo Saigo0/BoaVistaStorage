@@ -25,7 +25,7 @@
         </VBox.margin>
     </Label>
 
-    <Label text="Id do Produto a ser adicionado ou alterado" textFill="#555555">
+    <Label text="Nome do produto a ser adicionado ou alterado" textFill="#555555">
         <font>
             <Font name="Inter Regular" size="14.0" />
         </font>

@@ -86,12 +86,7 @@ public class AtendenteService {
 
     public Atendente findByLoginAndSenha(String login, String senha) {
         try {
-            Atendente atendente = atendenteRepository.findByLogin(login);
-            if (atendente != null && atendente.getSenha().equals(senha)) {
-                return atendente;
-            } else {
-                throw new RuntimeException("Login ou senha inválidos");
-            }
+            return atendenteRepository.findByLoginAndSenha(login,senha);
         } catch (NoResultException e) {
             return null;
         } catch (Exception e) {

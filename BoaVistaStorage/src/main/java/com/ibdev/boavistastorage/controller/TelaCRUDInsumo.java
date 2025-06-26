@@ -30,8 +30,7 @@ public class TelaCRUDInsumo implements Initializable {
     @FXML
     private Button btnExcluir;
 
-    @FXML
-    private TableColumn<Insumo, String> colFornecedor;
+
 
     @FXML
     private TableColumn<Insumo, String> colNome;
@@ -47,9 +46,6 @@ public class TelaCRUDInsumo implements Initializable {
 
     @FXML
     private TableView<Insumo> tabelaInsumos;
-
-    @FXML
-    private TextField txtFornecedor;
 
     @FXML
     private TextField txtNome;

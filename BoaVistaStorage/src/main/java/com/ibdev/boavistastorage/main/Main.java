@@ -33,7 +33,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         SceneManager.init(primaryStage, em);
         System.out.println("SceneManager inicializado.");
-        SceneManager.mudarCenaMaximizada("/com/ibdev/view/tela-crud-insumos.fxml", "Tela Login - Boa Vista Storage");
+        SceneManager.mudarCenaMaximizada("/com/ibdev/view/tela-login.fxml", "Tela Login - Boa Vista Storage");
     }
 
     @Override

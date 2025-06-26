@@ -89,12 +89,12 @@ public class TelaLogin implements Initializable {
             if (funcionario instanceof Gerente) {
                 Gerente gerente = (Gerente) funcionario;
                 System.out.println("Gerente logado: " + gerente.getNome());
-                SceneManager.mudarCenaMaximizada("/com/ibdev/view/tela-principal-gerente.fxml", "Tela Principal Gerente");
+                SceneManager.mudarCenaMaximizada("/com/ibdev/view/tela-estoque-gerente.fxml", "Tela Principal Gerente");
 
             } else if (funcionario instanceof Atendente) {
                 Atendente atendente = (Atendente) funcionario;
                 System.out.println("Login como ATENDENTE bem-sucedido. Usuário de nome: " + atendente.getNome());
-                SceneManager.mudarCenaMaximizada("/com/ibdev/view/tela-principal-atendente.fxml", "Tela Principal Atendente");
+                SceneManager.mudarCenaMaximizada("/com/ibdev/view/tela-cardapio.fxml", "Tela Principal Atendente");
             } else {
                 txtLoginInvalido.setText("Usuário ou senha inválidos");
                 txtLoginInvalido.setVisible(true);

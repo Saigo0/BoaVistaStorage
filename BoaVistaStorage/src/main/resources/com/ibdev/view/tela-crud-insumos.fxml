@@ -37,12 +37,12 @@
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label style="-fx-font-size: 18;" text="—  Cadastro insumo" textFill="#c74921">
+                  <Label style="-fx-font-size: 18;" text="—  CRUD Insumo" textFill="#c74921">
                      <VBox.margin>
                         <Insets left="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label style="-fx-font-size: 18;" text="—  Cadastro vendável">
+                  <Label style="-fx-font-size: 18;" text="—  CRUD Vendável">
                      <VBox.margin>
                         <Insets left="10.0" />
                      </VBox.margin>
@@ -91,7 +91,7 @@
                     <TextField fx:id="txtPrecoCusto" prefHeight="50.0" prefWidth="550.0" promptText="Preço de custo" GridPane.columnIndex="1" />
 
 
-                    <TextField fx:id="txtFornecedor" prefHeight="50.0" prefWidth="550.0" promptText="Fornecedor" GridPane.rowIndex="1" />
+
                     <TextField fx:id="txtUnidadeDeMedida" prefHeight="50.0" prefWidth="550.0" promptText="Unidade de medida" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                     <TextField fx:id="txtQuantEstoque" prefHeight="50.0" prefWidth="550.0" promptText="Quantidade em estoque" GridPane.rowIndex="1" />
                <rowConstraints>
@@ -105,9 +105,8 @@
                     <columns>
                         <TableColumn fx:id="colNome" prefWidth="300" text="Nome" />
                         <TableColumn fx:id="colPrecoCusto" prefWidth="120" text="Preço" />
-                        <TableColumn fx:id="colFornecedor" prefWidth="240" text="Fornecedor" />
                         <TableColumn fx:id="colUnidadeDeMedida" prefWidth="120" text="Unidade" />
-                        <TableColumn fx:id="colAcoes" prefWidth="120" text="Ações" />
+                         <TableColumn fx:id="colQuantEstoque" prefWidth="120" text="Quantidade" />
                     </columns>
                 </TableView>
 

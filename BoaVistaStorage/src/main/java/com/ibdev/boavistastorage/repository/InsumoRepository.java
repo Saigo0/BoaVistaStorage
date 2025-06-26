@@ -3,6 +3,7 @@ package com.ibdev.boavistastorage.repository;
 import com.ibdev.boavistastorage.entity.Insumo;
 import com.ibdev.boavistastorage.entity.StatusEstoque;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceException;
 
 import java.util.List;
 
@@ -15,15 +16,23 @@ public class InsumoRepository {
 
     public Insumo create(Insumo insumo) {
         try {
+            em.getTransaction().begin();
             em.persist(insumo);
+            em.getTransaction().commit();
             return insumo;
-        } catch (Exception e) {
+        } catch (PersistenceException ex) {
             if (em.getTransaction().isActive()) {
                 em.getTransaction().rollback();
             }
-            throw new RuntimeException("Erro ao salvar Insumo: " + e.getMessage());
+            throw new RuntimeException("Vendavel já cadastrado com os mesmos dados.");
+        } catch (Exception ex) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            throw new RuntimeException("Erro ao salvar vendavel: " + ex.getMessage());
         }
     }
+
 
     public void readAll() {
         em.createQuery("select i from Insumo i", Insumo.class)

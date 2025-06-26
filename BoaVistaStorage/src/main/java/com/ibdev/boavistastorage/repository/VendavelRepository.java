@@ -1,6 +1,7 @@
 package com.ibdev.boavistastorage.repository;
 
 import com.ibdev.boavistastorage.entity.Fornecedor;
+import com.ibdev.boavistastorage.entity.Produto;
 import com.ibdev.boavistastorage.entity.Venda;
 import com.ibdev.boavistastorage.entity.Vendavel;
 import jakarta.persistence.EntityManager;
@@ -15,9 +16,11 @@ public class VendavelRepository {
         this.em = em;
     }
 
-    public Vendavel create(Vendavel vendavel) {
+    public Produto create(Vendavel vendavel) {
         try {
+            em.getTransaction().begin();
             em.persist(vendavel);
+            em.getTransaction().commit();
             return vendavel;
         } catch (PersistenceException ex) {
             if (em.getTransaction().isActive()) {
@@ -31,6 +34,7 @@ public class VendavelRepository {
             throw new RuntimeException("Erro ao salvar vendavel: " + ex.getMessage());
         }
     }
+
 
     public void readAll() {
         em.createQuery("select v from Vendavel v", Vendavel.class)

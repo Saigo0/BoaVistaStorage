@@ -25,30 +25,24 @@
                     <children>
                         <Label style="-fx-font-size: 20;" text="🏠 Início" />
                         <Label style="-fx-font-size: 20;" text="📋 Produtos" />
-                        <Label style="-fx-font-size: 18;" text="—  Compra">
+                        <Label style="-fx-font-size: 18;" text="—  Insumos">
                             <VBox.margin>
                                 <Insets left="10.0" />
                             </VBox.margin>
                         </Label>
-                        <Label style="-fx-font-size: 18;" text="—  Cadastro insumo">
-                            <VBox.margin>
-                                <Insets left="10.0" />
-                            </VBox.margin>
-                        </Label>
-                        <Label style="-fx-font-size: 18;" text="—  Cadastro vendável">
+                        <Label style="-fx-font-size: 18;" text="—  Vendáveis">
                             <VBox.margin>
                                 <Insets left="10.0" />
                             </VBox.margin>
                         </Label>
                         <Label style="-fx-font-size: 20;" text="📦 Estoque" textFill="#c74921" />
-                        <Label style="-fx-font-size: 20;" text="💰 Pedidos e Vendas" />
                         <Label style="-fx-font-size: 20;" text="👥 Pessoas" />
                         <VBox spacing="6" style="-fx-padding:0 0 0 12;">
                             <children>
-                                <Label style="-fx-font-size: 18;" text="—  Fornecedor" />
+                                <Label style="-fx-font-size: 18;" text="—  Atendentes" />
+                        <Label style="-fx-font-size: 18;" text="—  Gerentes" />
                             </children>
                         </VBox>
-                        <Label style="-fx-font-size: 20;" text="📊 Financeiro" />
                     </children>
                 </VBox>
 
@@ -76,7 +70,7 @@
                     <children>
                         <VBox alignment="CENTER" prefHeight="94.0" prefWidth="340.0" spacing="10.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10;">
                             <children>
-                                <Label style="-fx-background-color: #00d344; -fx-text-fill: white; -fx-padding: 5 10; -fx-background-radius: 100;" text="3" />
+                                <Label fx:id="bons" style="-fx-background-color: #00d344; -fx-text-fill: white; -fx-padding: 5 10; -fx-background-radius: 100;" text="3" />
                                 <Label text="Produtos com estoque bom" wrapText="true" />
                             </children>
                      <padding>
@@ -88,7 +82,7 @@
                         </VBox>
                         <VBox alignment="CENTER" prefHeight="94.0" prefWidth="340.0" spacing="10.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10;">
                             <children>
-                                <Label style="-fx-background-color: #ffb133; -fx-text-fill: white; -fx-padding: 5 10; -fx-background-radius: 100;" text="3" />
+                                <Label fx:id="razoaveis" style="-fx-background-color: #ffb133; -fx-text-fill: white; -fx-padding: 5 10; -fx-background-radius: 100;" text="3" />
                                 <Label text="Produtos com estoque razoável" wrapText="true" />
                             </children>
                      <padding>
@@ -100,7 +94,7 @@
                         </VBox>
                         <VBox alignment="CENTER" prefHeight="94.0" prefWidth="340.0" spacing="10.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10;">
                             <children>
-                                <Label style="-fx-background-color: #a83227; -fx-text-fill: white; -fx-padding: 5 10; -fx-background-radius: 100;" text="3" />
+                                <Label fx:id="zerados" style="-fx-background-color: #a83227; -fx-text-fill: white; -fx-padding: 5 10; -fx-background-radius: 100;" text="3" />
                                 <Label text="Produtos com estoque zerado" wrapText="true" />
                             </children>
                      <HBox.margin>
@@ -110,32 +104,23 @@
                     </children>
                 </HBox>
 
-                <!-- Botões -->
+                            <!-- Botões -->
                 <HBox spacing="20">
                     <children>
-                        <Button prefHeight="35.0" prefWidth="330.0" style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-weight:bold; -fx-background-radius:8;" text="Nova Venda" />
-                        <Button prefHeight="33.0" prefWidth="337.0" style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-weight:bold; -fx-background-radius:8;" text="Nova Compra">
-                     <HBox.margin>
-                        <Insets left="40.0" />
-                     </HBox.margin></Button>
-                        <Button prefHeight="33.0" prefWidth="330.0" style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-weight:bold; -fx-background-radius:8;" text="Estoque">
+                        <Button contentDisplay="CENTER" prefHeight="31.0" prefWidth="388.0" style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-weight:bold; -fx-background-radius:8;" text="Estoque">
                      <HBox.margin>
                         <Insets left="42.0" />
-                     </HBox.margin></Button>
+                     </HBox.margin>
+                  </Button>
                     </children>
                 </HBox>
 
                 <!-- Painel de Resumo -->
                 <HBox spacing="20">
                     <children>
-                        <VBox prefHeight="739.0" prefWidth="689.0" spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10;">
+                        <VBox prefHeight="739.0" prefWidth="1139.0" spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10;">
                             <children>
-                                <Label style="-fx-font-weight: bold;" text="Resumo do Estoque" />
-                            </children>
-                        </VBox>
-                        <VBox prefHeight="737.0" prefWidth="413.0" spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10;">
-                            <children>
-                                <Label style="-fx-font-weight: bold;" text="Últimas Vendas" />
+                                <Label contentDisplay="CENTER" style="-fx-font-weight: bold;" text="Resumo do Estoque" />
                             </children>
                         </VBox>
                     </children>
