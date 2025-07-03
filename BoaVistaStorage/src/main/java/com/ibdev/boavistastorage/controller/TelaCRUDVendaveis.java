@@ -25,6 +25,26 @@ import java.util.ResourceBundle;
 
 public class TelaCRUDVendaveis implements Initializable {
 
+    @FXML
+    public Label btnAtendentes;
+
+    @FXML
+    public Label btnGerentes;
+
+    @FXML
+    public Label btnEstoque;
+
+    @FXML
+    public Label btnVendaveis;
+
+    @FXML
+    public Label btnInsumos;
+
+    @FXML
+    public Label btnInicio;
+
+    @FXML
+    public Label btnLogout;
 
     @FXML
     private Button btnAtualizar;
@@ -131,6 +151,36 @@ public class TelaCRUDVendaveis implements Initializable {
 
         btnExcluir.setOnMouseClicked(event -> {
             excluirVendavel();
+        });
+
+        btnEstoque.setOnMouseClicked(event -> {
+            SceneManager.mudarCenaMaximizada(
+                    "/com/ibdev/view/tela-estoque-gerente.fxml", "Estoque", entityManager
+            );
+        });
+
+        btnVendaveis.setOnMouseClicked(event -> {
+            SceneManager.mudarCenaMaximizada(
+                    "/com/ibdev/view/tela-vendaveis.fxml", "Vendaveis", entityManager
+            );
+        });
+
+        btnInsumos.setOnMouseClicked(event -> {
+            SceneManager.mudarCenaMaximizada(
+                    "/com/ibdev/view/tela-crud-insumos.fxml", "Insumos", entityManager
+            );
+        });
+
+        btnInicio.setOnMouseClicked(event -> {
+            SceneManager.mudarCenaMaximizada(
+                    "/com/ibdev/view/tela-principal-gerente.fxml", "Inicio", entityManager
+            );
+        });
+
+        btnLogout.setOnMouseClicked(event -> {
+            SceneManager.mudarCenaMaximizada(
+                    "/com/ibdev/view/tela-login.fxml", "Login", entityManager
+            );
         });
     }
 

@@ -15,16 +15,12 @@
 
 <BorderPane prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaCompraProduto">
 
-    <!-- ========== SIDEBAR ========== -->
     <left>
         <VBox prefWidth="260" spacing="26" style="-fx-background-color:#ffffff;">
             <children>
-                <!-- Logo -->
                 <ImageView fitHeight="100" fitWidth="260.0">
                     <image><Image url="@../../../images/Logo.png" /></image>
                 </ImageView>
-
-                <!-- Menu -->
                 <VBox prefHeight="237.0" prefWidth="260.0" spacing="12" style="-fx-padding:0 0 0 20;">
                     <children>
                         <Label style="-fx-font-size: 20;" text="🏠 Início" />
@@ -60,14 +56,11 @@
         </VBox>
     </left>
 
-    <!-- Conteúdo Principal -->
     <center>
         <VBox spacing="20" style="-fx-background-color: #eeeeee;">
             <padding><Insets bottom="30" left="30" right="30" top="30" /></padding>
 
             <Label style="-fx-font-size: 30; -fx-font-weight: bold;" text="Compra de produtos" />
-
-            <!-- Dados do fornecedor -->
             <HBox spacing="10">
                 <VBox prefWidth="971.0" spacing="5">
                     <Label text="Nome do fornecedor (Cadastrado no sistema)" />
@@ -80,7 +73,6 @@
             </Button>
             </HBox>
 
-            <!-- Dados do produto -->
             <HBox spacing="10">
                 <VBox prefHeight="21.0" prefWidth="584.0" spacing="5">
                     <Label text="Nome do produto" />
@@ -96,7 +88,6 @@
                </HBox.margin></Button>
             </HBox>
 
-            <!-- Tabela de produtos -->
             <TableView fx:id="tabelaProdutos" prefHeight="582.0" prefWidth="1120.0">
                 <columns>
                     <TableColumn prefWidth="300" text="Produto" />
@@ -107,7 +98,6 @@
                 </columns>
             </TableView>
 
-            <!-- Total e botão de registrar -->
             <HBox alignment="CENTER_RIGHT" spacing="20">
                 <Label style="-fx-font-size: 20; -fx-font-weight: bold;" text="Total da compra:">
                <HBox.margin>
@@ -116,9 +106,7 @@
             </Label>
                 <Label fx:id="totalLabel" prefHeight="32.0" prefWidth="188.0" style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: #c74921;" text="R$ 104,00" />
             </HBox>
-
                <Button prefHeight="56.0" prefWidth="1600.0" style="-fx-background-color: #c74921; -fx-font-size: 26; -fx-text-fill: white; -fx-font-weight: bold;" text="Registrar" />
-
         </VBox>
     </center>
 

@@ -14,10 +14,8 @@
 
 <HBox prefHeight="1024" prefWidth="1440" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaEstoqueGerente">
 
-    <!-- ========== SIDEBAR ========== -->
         <VBox prefWidth="260" spacing="26" style="-fx-background-color:#ffffff;">
             <children>
-                <!-- LOGO -->
                 <ImageView fitHeight="100" fitWidth="260" preserveRatio="true">
                     <image><Image url="@../../../images/Logo.png" /></image>
                 </ImageView>
@@ -42,7 +40,6 @@
 
                 <Region prefHeight="355.0" prefWidth="260.0" VBox.vgrow="ALWAYS" />
 
-                <!-- Rodapé -->
                 <VBox spacing="10" style="-fx-padding:0 0 20 20;">
                     <children>
                         <Label style="-fx-font-size: 20;" text="⚙ Configurações" />

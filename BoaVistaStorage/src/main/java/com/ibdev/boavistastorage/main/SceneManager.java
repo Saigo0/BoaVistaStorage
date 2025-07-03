@@ -49,7 +49,7 @@ public class SceneManager {
             }
             else if (controller instanceof TelaPrincipalAtendente) {
                 ((TelaPrincipalAtendente) controller).setEntityManager(em);
-                System.out.println("EntityManager setado na TelaPedidoAtendente (via SceneManager.mudarCena).");
+                System.out.println("EntityManager setado na TelaPrincipalAtendente (via SceneManager.mudarCena).");
             }
 
             else if (controller instanceof TelaPrincipalGerente) {
@@ -66,6 +66,7 @@ public class SceneManager {
 
         } catch (IOException ex) {
             System.err.println("Erro ao carregar a cena: " + fxmlPath);
+            ex.printStackTrace();
             throw new RuntimeException("Falha ao carregar FXML: " + fxmlPath, ex);
         }
     }
@@ -106,6 +107,7 @@ public class SceneManager {
             else if(controller instanceof TelaCRUDInsumo){
                 ((TelaCRUDInsumo) controller).setEntityManager(em);
             }
+
 
             Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
             Scene scene = new Scene(root, bounds.getWidth(), bounds.getHeight());

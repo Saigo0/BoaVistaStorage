@@ -14,43 +14,35 @@
 
 <BorderPane prefHeight="1024" prefWidth="1440" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaPrincipalGerente">
 
-    <!-- Sidebar -->
     <left>
-        <!-- ========== SIDEBAR ========== -->
         <VBox prefWidth="260" spacing="26" style="-fx-background-color:#ffffff;">
             <children>
-                <!-- LOGO -->
                 <ImageView fitHeight="100" fitWidth="260" preserveRatio="true">
-                    <image><Image url="@../../../images/Logo.png" /></image>
+                    <image>
+                        <Image url="@../../../images/Logo.png" />
+                    </image>
                 </ImageView>
                 <VBox spacing="12" style="-fx-padding:0 0 0 20;">
                     <children>
-                        <Label fx:id="btnMenuInicio" style="-fx-font-size: 20;" text="🏠 Início" />
+                        <Label fx:id="btnMenuInicio" style="-fx-font-size: 20;" text="🏠 Início" textFill="#da5b00" />
                         <Label style="-fx-font-size: 20;" text="📋 Produtos" />
-                        <Label style="-fx-font-size: 18;" text="—  Insumos">
+                        <Label fx:id="btnInsumos" style="-fx-font-size: 18;" text="—  Insumos">
                             <VBox.margin>
                                 <Insets left="10.0" />
                             </VBox.margin>
                         </Label>
-                        <Label style="-fx-font-size: 18;" text="—  Vendáveis">
+                        <Label fx:id="btnVendaveis" style="-fx-font-size: 18;" text="—  Vendáveis">
                             <VBox.margin>
                                 <Insets left="10.0" />
                             </VBox.margin>
                         </Label>
-                        <Label fx:id="btnMenuEstoque" style="-fx-font-size: 20;" text="📦 Estoque" textFill="#c74921" />
-                        <Label style="-fx-font-size: 20;" text="👥 Pessoas" />
-                        <VBox spacing="6" style="-fx-padding:0 0 0 12;">
-                            <children>
-                                <Label fx:id="btnMenuAtendentes" style="-fx-font-size: 18;" text="—  Atendentes" />
-                        <Label fx:id="btnMenuGerentes" style="-fx-font-size: 18;" text="—  Gerentes" />
-                            </children>
-                        </VBox>
+                        <Label fx:id="btnMenuEstoque" style="-fx-font-size: 20;" text="📦 Estoque" textFill="#433f3e" />
+                        <VBox spacing="6" style="-fx-padding:0 0 0 12;" />
                     </children>
                 </VBox>
 
                 <Region prefHeight="355.0" prefWidth="260.0" VBox.vgrow="ALWAYS" />
 
-                <!-- Rodapé -->
                 <VBox spacing="10" style="-fx-padding:0 0 20 20;">
                     <children>
                         <Label style="-fx-font-size: 20;" text="⚙ Configurações" />
@@ -61,13 +53,11 @@
         </VBox>
     </left>
 
-    <!-- Conteúdo Principal -->
     <center>
         <VBox spacing="20.0" style="-fx-background-color: #e7e7e7; -fx-padding: 30;">
             <children>
                 <Label style="-fx-font-size: 28px; -fx-font-weight: bold;" text="Página Inicial" />
 
-                <!-- Status Estoque + Ações -->
                 <HBox spacing="20">
                     <children>
                         <VBox alignment="CENTER" prefHeight="94.0" prefWidth="340.0" spacing="10.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10;">
@@ -106,10 +96,9 @@
                     </children>
                 </HBox>
 
-                            <!-- Botões -->
                 <HBox prefWidth="1043.0" spacing="20">
                     <children>
-                        <Button fx:id="btnIrParaEstoque" contentDisplay="CENTER" prefHeight="31.0" prefWidth="388.0" style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-weight:bold; -fx-background-radius:8;" text="Estoque">
+                        <Button fx:id="btnIrParaEstoque" contentDisplay="CENTER" prefHeight="31.0" prefWidth="1033.0" style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-weight:bold; -fx-background-radius:8;" text="Estoque">
                      <HBox.margin>
                         <Insets left="42.0" />
                      </HBox.margin>
@@ -117,7 +106,6 @@
                     </children>
                 </HBox>
 
-                <!-- Painel de Resumo -->
                 <HBox spacing="20">
                     <children>
                         <VBox prefHeight="739.0" prefWidth="1139.0" spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10;">

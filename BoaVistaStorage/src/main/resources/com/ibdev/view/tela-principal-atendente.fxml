@@ -14,7 +14,6 @@
 
 <HBox prefHeight="1024.0" prefWidth="1440.0" spacing="0" style="-fx-background-color:white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaPrincipalAtendente">
 
-    <!-- =====================  SIDEBAR  ===================== -->
     <VBox prefHeight="1024" prefWidth="260" spacing="20.0" style="-fx-background-color: ffff;" styleClass="sidebar">
         <children>
             <ImageView fx:id="logoView" fitHeight="100" fitWidth="260.0" styleClass="logo-icon">
@@ -86,7 +85,6 @@
         </children>
     </VBox>
 
-    <!-- =====================  CONTEÚDO PRINCIPAL  ===================== -->
     <VBox spacing="32" style="-fx-background-color:#e7e7e7; -fx-padding:40;" HBox.hgrow="ALWAYS">
         <children>
             <Label style="-fx-font-size:36px; -fx-font-family:'Poppins'; -fx-font-weight:700;" text="Página Inicial" />

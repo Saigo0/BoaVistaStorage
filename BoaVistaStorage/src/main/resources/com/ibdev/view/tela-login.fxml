@@ -11,8 +11,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<!-- Tela de Login – 1440 × 1024, baseada nos campos fornecidos -->
-
 <HBox fx:id="rootHBox" fillHeight="true" prefHeight="1024.0" prefWidth="1440.0" spacing="0" style="-fx-background-color:white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaLogin">
 
 
@@ -29,32 +27,27 @@
       </children>
    </VBox>
 
-   <!-- Coluna do formulário -->
    <VBox alignment="CENTER" style="-fx-background-color:#e7e7e7;" HBox.hgrow="ALWAYS">
       <padding><Insets bottom="120" left="120" right="120" top="120" /></padding>
 
       <children>
-         <!-- Título -->
          <Label prefHeight="40.0" prefWidth="482.0" style="-fx-font-size:28px; -fx-font-family:'Poppins'; -fx-font-weight:700;" text="Acesse seu cadastro">
             <VBox.margin>
                <Insets bottom="20.0" />
             </VBox.margin></Label>
 
-         <!-- Campo usuário -->
          <VBox maxWidth="480" spacing="10.0">
             <Label style="-fx-font-size:14px;" text="Usuário" />
             <TextField fx:id="campoUser" prefHeight="48" style="-fx-background-radius:8;" />
             <Label fx:id="txtLoginInvalido" style="-fx-text-fill:red; -fx-font-size:12px;" text=" " />
          </VBox>
 
-         <!-- Campo senha -->
          <VBox maxWidth="480" spacing="6">
             <Label style="-fx-font-size:14px;" text="Senha" />
             <PasswordField fx:id="campoSenha" prefHeight="48" style="-fx-background-radius:8;" />
             <Label fx:id="txtSenhaInvalida" style="-fx-text-fill:red; -fx-font-size:12px;" text=" " />
          </VBox>
 
-         <!-- Botão -->
          <Button fx:id="btnLogin" prefHeight="48" prefWidth="480" style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-size:18px; -fx-font-weight:600; -fx-background-radius:8;" text="Entrar">
             <VBox.margin>
                <Insets top="10.0" />

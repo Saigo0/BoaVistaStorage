@@ -1,8 +1,10 @@
 package com.ibdev.boavistastorage.main;
 
+import com.ibdev.boavistastorage.entity.Gerente;
 import com.ibdev.boavistastorage.entity.Insumo;
 import com.ibdev.boavistastorage.entity.Vendavel;
 import com.ibdev.boavistastorage.main.SceneManager;
+import com.ibdev.boavistastorage.repository.GerenteRepository;
 import com.ibdev.boavistastorage.repository.InsumoRepository;
 import com.ibdev.boavistastorage.repository.VendavelRepository;
 import javafx.application.Application;
@@ -26,7 +28,10 @@ public class Main extends Application {
             e.printStackTrace();
             System.exit(1);
         }
+
         launch(args);
+
+
     }
 
     @Override
@@ -49,4 +54,6 @@ public class Main extends Application {
         }
         System.out.println("Recursos liberados. Aplicação encerrada.");
     }
+
+
 }

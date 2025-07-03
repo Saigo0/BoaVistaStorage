@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -16,46 +15,28 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<!-- Tela CRUD Vendáveis – 1440 × 1024 -->
 
 <BorderPane prefHeight="1024" prefWidth="1440" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaCRUDVendaveis">
 
-
-
-
-
-
-
-    <!-- ========== SIDEBAR ========== -->
     <left>
         <VBox prefWidth="260" spacing="26" style="-fx-background-color:#ffffff;">
             <children>
-                <!-- Logo -->
+
                 <ImageView fitHeight="100" fitWidth="260.0">
                     <image><Image url="@../../../images/Logo.png" /></image>
                 </ImageView>
 
-                <!-- Menu -->
                 <VBox prefHeight="237.0" prefWidth="260.0" spacing="12" style="-fx-padding:0 0 0 20;">
                     <children>
-                        <Label style="-fx-font-size: 20;" text="🏠 Início" />
+                        <Label fx:id="btnInicio" style="-fx-font-size: 20;" text="🏠 Início" />
                         <Label style="-fx-font-size: 20;" text="📋 Produtos" textFill="#c74921" />
                         <VBox spacing="6" style="-fx-padding:0 0 0 12;">
                             <children>
-                                <Label style="-fx-font-size: 18;" text="—  Compra" />
-                                <Label style="-fx-font-size: 18;" text="—  Cadastro insumo" />
-                                <Label style="-fx-font-size: 18;" text="—  Cadastro vendável" textFill="#c74921" />
+                                <Label fx:id="btnInsumos" style="-fx-font-size: 18;" text="—  Insumos" />
+                                <Label fx:id="btnVendaveis" style="-fx-font-size: 18;" text="—  Vendáveis" textFill="#c74921" />
                             </children>
                         </VBox>
-                        <Label style="-fx-font-size: 20;" text="📦 Estoque" />
-                        <Label style="-fx-font-size: 20;" text="💰 Pedidos e Vendas" />
-                        <Label style="-fx-font-size: 20;" text="👥 Pessoas" />
-                        <Label style="-fx-font-size: 18;" text="—  Fornecedor">
-                            <VBox.margin>
-                                <Insets left="20.0" />
-                            </VBox.margin>
-                        </Label>
-                        <Label style="-fx-font-size: 20;" text="📊 Financeiro" />
+                        <Label fx:id="btnEstoque" style="-fx-font-size: 20;" text="📦 Estoque" />
                     </children>
                 </VBox>
 
@@ -64,7 +45,7 @@
                 <VBox prefHeight="109.0" prefWidth="260.0" spacing="10" style="-fx-padding:0 0 20 20;">
                     <children>
                         <Label style="-fx-font-size: 20;" text="⚙ Configurações" />
-                        <Label style="-fx-font-size: 20;" text="🚪  Sair" />
+                        <Label fx:id="btnLogout" style="-fx-font-size: 20;" text="🚪  Sair" />
                     </children>
                 </VBox>
             </children>
@@ -72,32 +53,27 @@
     </left>
 
 
-    <!-- ========== CONTEÚDO PRINCIPAL ========== -->
     <center>
         <VBox spacing="24" style="-fx-background-color:#e7e7e7; -fx-padding:30;">
             <children>
-                <!-- Título -->
                 <Label style="-fx-font-size:28px; -fx-font-weight:bold;" text="Cadastro de vendáveis" />
 
-                <!-- Formulário -->
                 <GridPane hgap="20" prefWidth="1100" vgap="16">
                     <columnConstraints>
                         <ColumnConstraints percentWidth="50" />
                         <ColumnConstraints percentWidth="50" />
                     </columnConstraints>
 
-                    <!-- Nome / Preço de custo -->
-                    <TextField fx:id="txtNome" promptText="Nome" GridPane.columnSpan="1" />
-                    <TextField fx:id="txtPrecoCusto" promptText="Preço de custo" GridPane.columnIndex="1" />
-                    <TextField fx:id="txtPrecoVenda" promptText="Preço de venda" GridPane.rowIndex="1" />
+                    <TextField fx:id="txtNome" prefHeight="50.0" prefWidth="550.0" promptText="Nome" GridPane.columnSpan="1" />
+                    <TextField fx:id="txtPrecoCusto" prefHeight="50.0" prefWidth="550.0" promptText="Preço de custo" GridPane.columnIndex="1" />
+                    <TextField fx:id="txtPrecoVenda" prefHeight="50.0" prefWidth="550.0" promptText="Preço de venda" GridPane.rowIndex="1" />
                <rowConstraints>
                   <RowConstraints />
                   <RowConstraints />
                </rowConstraints>
                 </GridPane>
 
-                <!-- Tabela Vendáveis -->
-                <TableView fx:id="tabelaVendaveis" prefHeight="400" prefWidth="1100">
+                <TableView fx:id="tabelaVendaveis" prefHeight="618.0" prefWidth="1120.0">
                     <columns>
                         <TableColumn fx:id="colNome" prefWidth="250" text="Nome" />
                         <TableColumn fx:id="colPrecoCusto" prefWidth="120" text="Preço Custo" />
@@ -106,7 +82,6 @@
                     </columns>
                 </TableView>
 
-                <!-- Botões -->
                 <HBox alignment="CENTER" spacing="30">
                     <Button fx:id="btnCriar" prefHeight="40" prefWidth="220" style="-fx-background-color:#c74921; -fx-text-fill:white; -fx-font-weight:bold; -fx-background-radius:8;" text="Criar vendável" />
                     <Button fx:id="btnAtualizar" prefHeight="40" prefWidth="220" style="-fx-background-color:#d85f2c; -fx-text-fill:white; -fx-font-weight:bold; -fx-background-radius:8;" text="Atualizar" />

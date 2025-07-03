@@ -1,6 +1,7 @@
 package com.ibdev.boavistastorage.controller;
 
 import com.ibdev.boavistastorage.entity.Insumo;
+import com.ibdev.boavistastorage.main.SceneManager;
 import com.ibdev.boavistastorage.repository.InsumoRepository;
 import com.ibdev.boavistastorage.service.InsumoService;
 import jakarta.persistence.EntityManager;
@@ -10,16 +11,34 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class TelaCRUDInsumo implements Initializable {
+
+    @FXML
+    public Label btnLogout;
+
+    @FXML
+    public Label btnGerentes;
+
+    @FXML
+    public Label btnAtendentes;
+
+    @FXML
+    public Label btnEstoque;
+
+    @FXML
+    public Label btnVendaveis;
+
+    @FXML
+    public Label btnInsumos;
+
+    @FXML
+    public Label btnInicio;
 
     @FXML
     private Button btnAtualizar;
@@ -130,6 +149,25 @@ public class TelaCRUDInsumo implements Initializable {
         btnExcluir.setOnMouseClicked(event -> {
             excluirInsumo();
         });
+
+        btnVendaveis.setOnMouseClicked(event -> {
+            SceneManager.mudarCenaMaximizada(
+                    "/com/ibdev/view/tela-crud-vendaveis.fxml", "Vendaveis", entityManager
+            );
+        });
+
+        btnEstoque.setOnMouseClicked(event -> {
+            SceneManager.mudarCenaMaximizada(
+                    "/com/ibdev/view/tela-estoque-gerente.fxml", "Estoque", entityManager
+            );
+        });
+
+        btnInicio.setOnMouseClicked(event -> {
+            SceneManager.mudarCenaMaximizada(
+                    "/com/ibdev/view/tela-principal-gerente.fxml", "Inicio", entityManager
+            );
+        });
+
     }
 
     @FXML
