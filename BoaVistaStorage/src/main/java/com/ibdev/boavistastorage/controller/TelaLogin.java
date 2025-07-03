@@ -89,7 +89,7 @@ public class TelaLogin implements Initializable {
             if (funcionario instanceof Gerente) {
                 Gerente gerente = (Gerente) funcionario;
                 System.out.println("Gerente logado: " + gerente.getNome());
-                SceneManager.mudarCenaMaximizada("/com/ibdev/view/tela-estoque-gerente.fxml", "Tela Principal Gerente");
+                SceneManager.mudarCenaMaximizada("/com/ibdev/view/tela-principal-gerente.fxml", "Tela Principal Gerente");
 
             } else if (funcionario instanceof Atendente) {
                 Atendente atendente = (Atendente) funcionario;

@@ -5,6 +5,7 @@ import com.ibdev.boavistastorage.entity.Insumo;
 import com.ibdev.boavistastorage.entity.Produto;
 import com.ibdev.boavistastorage.entity.StatusEstoque;
 import com.ibdev.boavistastorage.entity.Vendavel;
+import com.ibdev.boavistastorage.main.SceneManager;
 import com.ibdev.boavistastorage.repository.InsumoRepository;
 import com.ibdev.boavistastorage.repository.VendavelRepository;
 import com.ibdev.boavistastorage.service.InsumoService;
@@ -18,11 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
@@ -39,18 +36,31 @@ public class TelaEstoqueGerente implements Initializable {
 
     @FXML
     private Button btnAdicionar;
+
+    @FXML
+    private Label btnSair;
+
+    @FXML
+    private Label btnMenuInicio;
+
     @FXML
     private TableView<EstoqueItem> tabelaEstoque;
+
     @FXML
     private TableColumn<EstoqueItem, Long> colCodigo;
+
     @FXML
     private TableColumn<EstoqueItem, String> colProduto;
+
     @FXML
     private TableColumn<EstoqueItem, String> colQtde;
+
     @FXML
     private TableColumn<EstoqueItem, Double> colPreco;
+
     @FXML
     private TableColumn<EstoqueItem, StatusEstoque> colStatus;
+
     @FXML
     private TableColumn<EstoqueItem, Void> colAcoes;
 
@@ -195,6 +205,19 @@ public class TelaEstoqueGerente implements Initializable {
     }
 
     private void configurarEventos() {
+
+        btnSair.setOnMouseClicked(event -> {
+            SceneManager.mudarCenaMaximizada(
+                    "/com/ibdev/view/tela-login.fxml", "Login - Boa Vista Storage", entityManager
+            );
+        });
+
+        btnMenuInicio.setOnMouseClicked(event -> {
+            SceneManager.mudarCenaMaximizada(
+                    "/com/ibdev/view/tela-principal-gerente.fxml", "Tela Principal Gerente", entityManager
+            );
+        });
+
         btnAdicionar.setOnAction(event -> {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ibdev/view/tela-estoque-gerente-adicionarProduto.fxml"));

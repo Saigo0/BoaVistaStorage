@@ -21,7 +21,7 @@ public class SceneManager {
             throw new IllegalStateException("SceneManager já foi inicializado.");
         }
         primaryStage = stage;
-        entityManager = em; // Armazena o EntityManager aqui
+        entityManager = em;
     }
 
     public static void mudarCena(String fxmlPath, String titulo, EntityManager em) {
@@ -42,7 +42,7 @@ public class SceneManager {
                 ((TelaEstoqueGerente) controller).setEntityManager(em);
                 System.out.println("EntityManager setado na TelaEstoqueGerente (via SceneManager.mudarCena).");
             }
-            // ADICIONE AQUI PARA TelaPedidoAtendente
+
             else if (controller instanceof TelaPedidoAtendente) {
                 ((TelaPedidoAtendente) controller).setEntityManager(em);
                 System.out.println("EntityManager setado na TelaPedidoAtendente (via SceneManager.mudarCena).");
@@ -52,8 +52,10 @@ public class SceneManager {
                 System.out.println("EntityManager setado na TelaPedidoAtendente (via SceneManager.mudarCena).");
             }
 
-            // ... (outros controladores existentes) ...
-
+            else if (controller instanceof TelaPrincipalGerente) {
+                ((TelaPrincipalGerente) controller).setEntityManager(em);
+                System.out.println("EntityManager setado na TelaPrincipalGerente (via SceneManager.mudarCenaMaximizada).");
+            }
 
             Scene scene = new Scene(root);
 
@@ -88,7 +90,12 @@ public class SceneManager {
                 ((TelaEstoqueGerente) controller).setEntityManager(em);
                 System.out.println("EntityManager setado na TelaEstoqueGerente (via SceneManager.mudarCenaMaximizada).");
             }
-            // ADICIONE AQUI PARA TelaPedidoAtendente
+
+            else if (controller instanceof TelaPrincipalGerente) {
+                ((TelaPrincipalGerente) controller).setEntityManager(em);
+                System.out.println("EntityManager setado na TelaPrincipalGerente (via SceneManager.mudarCenaMaximizada).");
+            }
+
             else if (controller instanceof TelaPedidoAtendente) {
                 ((TelaPedidoAtendente) controller).setEntityManager(em);
                 System.out.println("EntityManager setado na TelaPedidoAtendente (via SceneManager.mudarCenaMaximizada).");
@@ -99,7 +106,6 @@ public class SceneManager {
             else if(controller instanceof TelaCRUDInsumo){
                 ((TelaCRUDInsumo) controller).setEntityManager(em);
             }
-            // ... (outros controladores existentes) ...
 
             Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
             Scene scene = new Scene(root, bounds.getWidth(), bounds.getHeight());
@@ -118,12 +124,10 @@ public class SceneManager {
     }
 
     public static void mudarCena(String fxmlPath, String titulo) {
-        // Esta sobrecarga usa o entityManager estático que foi setado no init()
         mudarCena(fxmlPath, titulo, entityManager);
     }
 
     public static void mudarCenaMaximizada(String fxmlPath, String titulo) {
-        // Esta sobrecarga usa o entityManager estático que foi setado no init()
         mudarCenaMaximizada(fxmlPath, titulo, entityManager);
     }
 }

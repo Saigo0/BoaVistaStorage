@@ -23,7 +23,7 @@
                 </ImageView>
                 <VBox spacing="12" style="-fx-padding:0 0 0 20;">
                     <children>
-                        <Label style="-fx-font-size: 20;" text="🏠 Início" />
+                        <Label fx:id="btnMenuInicio" style="-fx-font-size: 20;" text="🏠 Início" />
                         <Label style="-fx-font-size: 20;" text="📋 Produtos" />
                         <Label style="-fx-font-size: 18;" text="—  Insumos">
                             <VBox.margin>
@@ -46,7 +46,7 @@
                 <VBox spacing="10" style="-fx-padding:0 0 20 20;">
                     <children>
                         <Label style="-fx-font-size: 20;" text="⚙ Configurações" />
-                        <Label style="-fx-font-size: 20;" text="🚪  Sair" />
+                        <Label fx:id="btnSair" prefWidth="198.0" style="-fx-font-size: 20;" text="🚪  Sair" />
                     </children>
                 </VBox>
             </children>
