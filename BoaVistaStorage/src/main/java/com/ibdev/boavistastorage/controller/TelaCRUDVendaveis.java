@@ -26,6 +26,9 @@ import java.util.ResourceBundle;
 public class TelaCRUDVendaveis implements Initializable {
 
     @FXML
+    private Label btnMenuCardapio;
+
+    @FXML
     public Label btnAtendentes;
 
     @FXML
@@ -143,6 +146,12 @@ public class TelaCRUDVendaveis implements Initializable {
     public void configurarEventos(){
         btnAtualizar.setOnMouseClicked(event -> {
             atualizarVendavel();
+        });
+
+        btnMenuCardapio.setOnMouseClicked(event -> {
+            SceneManager.mudarCenaMaximizada(
+                    "/com/ibdev/view/tela-cardapio.fxml", "Cardapio", entityManager
+            );
         });
 
         btnCriar.setOnMouseClicked(event -> {

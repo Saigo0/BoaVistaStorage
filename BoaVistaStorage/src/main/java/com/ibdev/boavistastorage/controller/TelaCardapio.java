@@ -52,16 +52,31 @@ public class TelaCardapio implements Initializable {
     private HBox btnInicio;
 
     @FXML
+    private Label btnInsumos;
+
+    @FXML
     private HBox btnLogout;
 
     @FXML
-    private HBox btnPedidos;
+    private Label btnMenuCardapio;
+
+    @FXML
+    private Label btnMenuEstoque;
+
+    @FXML
+    private Label btnMenuInicio;
 
     @FXML
     private Button btnRemoverItemCardapio;
 
     @FXML
     private HBox btnVenda;
+
+    @FXML
+    private HBox btnVenda1;
+
+    @FXML
+    private Label btnVendaveis;
 
     @FXML
     private GridPane gridCardapio;
@@ -152,16 +167,37 @@ public class TelaCardapio implements Initializable {
     }
 
     public void configurarEventos() {
-        btnInicio.setOnMouseClicked(event -> {
-            SceneManager.mudarCenaMaximizada(
-                    "/com/ibdev/view/tela-principal-atendente.fxml", "Boa Vista Storage - Tela Principal", entityManager);
-        });
-
         btnLogout.setOnMouseClicked(event -> {
             SceneManager.mudarCenaMaximizada(
                     "/com/ibdev/view/tela-login.fxml", "Login - Boa Vista Storage", entityManager
             );
         });
+
+        btnMenuInicio.setOnMouseClicked(event -> {
+            SceneManager.mudarCenaMaximizada(
+                    "/com/ibdev/view/tela-principal-gerente.fxml", "Estoque - Boa Vista Storage", entityManager
+            );
+        });
+
+        btnMenuEstoque.setOnMouseClicked(event -> {
+            SceneManager.mudarCenaMaximizada(
+                    "/com/ibdev/view/tela-estoque-gerente.fxml", "Estoque - Boa Vista Storage", entityManager
+            );
+        });
+
+
+        btnInsumos.setOnMouseClicked(event -> {
+            SceneManager.mudarCenaMaximizada(
+                    "/com/ibdev/view/tela-crud-insumos.fxml", "Insumos - Boa Vista Storage", entityManager
+            );
+        });
+
+        btnVendaveis.setOnMouseClicked(event -> {
+            SceneManager.mudarCenaMaximizada(
+                    "/com/ibdev/view/tela-crud-vendaveis.fxml", "Vendaveis - Boa Vista Storage", entityManager
+            );
+        });
+
 
         btnCadastrarCardapio.setOnMouseClicked(event -> {
             if (cardapio == null || cardapio.getIdCardapio() == null) {

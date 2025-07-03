@@ -24,20 +24,17 @@
          <VBox spacing="20" styleClass="cima">
             <children>
                <HBox fx:id="btnInicio" styleClass="incio" />
-               <Label prefHeight="40.0" style="-fx-font-size: 20;" text="📋 Cardápio" textFill="#c74921">
-                  <font>
-                     <Font size="24.0" />
-                  </font>
-                  <padding>
-                     <Insets left="20.0" />
-                  </padding>
-               </Label>
-               <HBox fx:id="btnPedidos" styleClass="pedidos" />
                <HBox fx:id="btnVenda" styleClass="venda" />
-               <HBox fx:id="btnCardapio" styleClass="cardpio" />
                <HBox fx:id="btnCliente" styleClass="cliente" />
+               <HBox fx:id="btnVenda1" styleClass="venda" />
+               <Label fx:id="btnMenuInicio" style="-fx-font-size: 20;" text="🏠 Início" textFill="#da5b00" />
+               <Label style="-fx-font-size: 20;" text="📋 Produtos" />
+               <Label fx:id="btnInsumos" style="-fx-font-size: 18;" text="—  Insumos" />
+               <Label fx:id="btnVendaveis" style="-fx-font-size: 18;" text="—  Vendáveis" />
+               <Label fx:id="btnMenuEstoque" style="-fx-font-size: 20;" text="📦 Estoque" textFill="#433f3e" />
             </children>
          </VBox>
+         <HBox fx:id="btnCardapio" styleClass="cardpio" />
          <Region VBox.vgrow="ALWAYS" />
          <VBox spacing="12" styleClass="baixo">
             <children>

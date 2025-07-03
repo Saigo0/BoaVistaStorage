@@ -23,18 +23,26 @@
                     <children>
                         <Label fx:id="btnMenuInicio" style="-fx-font-size: 20;" text="🏠 Início" />
                         <Label style="-fx-font-size: 20;" text="📋 Produtos" />
-                        <Label style="-fx-font-size: 18;" text="—  Insumos">
+                        <Label fx:id="btnInsumos" style="-fx-font-size: 18;" text="—  Insumos">
                             <VBox.margin>
                                 <Insets left="10.0" />
                             </VBox.margin>
                         </Label>
-                        <Label style="-fx-font-size: 18;" text="—  Vendáveis">
+                        <Label fx:id="btnVendaveis" style="-fx-font-size: 18;" text="—  Vendáveis">
                             <VBox.margin>
                                 <Insets left="10.0" />
                             </VBox.margin>
                         </Label>
                         <Label style="-fx-font-size: 20;" text="📦 Estoque" textFill="#c74921" />
                         <VBox spacing="6" style="-fx-padding:0 0 0 12;" />
+               <Label fx:id="btnMenuCardapio" prefHeight="40.0" prefWidth="149.0" style="-fx-font-size: 20;" text="📋 Cardápio" textFill="#c74921">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+                  <padding>
+                     <Insets left="20.0" />
+                  </padding>
+               </Label>
                     </children>
                 </VBox>
 

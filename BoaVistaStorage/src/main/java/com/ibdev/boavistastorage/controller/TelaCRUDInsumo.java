@@ -20,6 +20,9 @@ import java.util.ResourceBundle;
 public class TelaCRUDInsumo implements Initializable {
 
     @FXML
+    private Label btnMenuCardapio;
+
+    @FXML
     public Label btnLogout;
 
     @FXML
@@ -138,6 +141,12 @@ public class TelaCRUDInsumo implements Initializable {
     }
 
     public void configurarEventos(){
+        btnMenuCardapio.setOnMouseClicked(event -> {
+            SceneManager.mudarCenaMaximizada(
+                    "/com/ibdev/view/tela-cardapio.fxml", "Cardápio", entityManager
+            );
+        });
+
         btnAtualizar.setOnMouseClicked(event -> {
             atualizarInsumo();
         });
