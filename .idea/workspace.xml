@@ -4,36 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d14bb90-2084-43c2-8f61-8472d412129f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaCRUDInsumo.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaCRUDInsumo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaCRUDVendaveis.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaCRUDVendaveis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaPrincipalGerente.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/controller/TelaPrincipalGerente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/main/SceneManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/java/com/ibdev/boavistastorage/main/SceneManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-compra-produto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-compra-produto.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-crud-fornecedor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-crud-fornecedor.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-crud-insumos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-crud-insumos.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-crud-vendaveis.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-crud-vendaveis.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-estoque-gerente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-estoque-gerente.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-principal-gerente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-principal-gerente.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="3d14bb90-2084-43c2-8f61-8472d412129f" name="Changes" comment="" />
     <list id="7b63a7c0-d048-4b1d-93d8-cfe224b0de14" name="Changes by GUILHERME" comment="" />
     <list id="6d815c8d-e831-4bde-bf80-a47dfb46b934" name="Changes by jonat" comment="" />
     <list id="5ecca402-2599-4134-9b57-ed42472d8d1d" name="Changes by joseo" comment="" />
-    <list id="1920aae3-5326-4354-ade7-09421335884f" name="Changes by onata" comment="">
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-compra-produto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-compra-produto.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-crud-fornecedor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-crud-fornecedor.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-crud-insumos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-crud-insumos.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-crud-vendaveis.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-crud-vendaveis.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-estoque-gerente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-estoque-gerente.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-pedido2-atendente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-pedido2-atendente.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-principal-atendente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-principal-atendente.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-principal-gerente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-principal-gerente.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-venda-atendente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-venda-atendente.fxml" afterDir="false" />
-    </list>
+    <list id="1920aae3-5326-4354-ade7-09421335884f" name="Changes by onata" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,107 +39,6 @@
     "accountId": "65d91634-34ea-406a-a83c-d43a15174100"
   }
 }]]></component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-crud-insumos.fxml">
-      <ranges>
-        <range start1="17" end1="19" start2="17" end2="17" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="22" end1="23" start2="20" end2="20" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="26" end1="27" start2="23" end2="23" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="32" end1="33" start2="28" end2="29" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="34" end1="40" start2="30" end2="31" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="44" end1="45" start2="35" end2="36" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="49" end1="58" start2="40" end2="42" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="62" end1="64" start2="46" end2="46" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="67" end1="68" start2="49" end2="50" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="74" end1="75" start2="56" end2="56" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="78" end1="79" start2="59" end2="59" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="81" end1="82" start2="61" end2="61" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="88" end1="89" start2="67" end2="67" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="91" end1="94" start2="69" end2="69" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="102" end1="104" start2="77" end2="78" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="112" end1="113" start2="86" end2="86" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-compra-produto.fxml">
-      <ranges>
-        <range start1="17" end1="18" start2="17" end2="17" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="21" end1="22" start2="20" end2="20" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="25" end1="27" start2="23" end2="23" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="62" end1="63" start2="58" end2="58" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="68" end1="70" start2="63" end2="63" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="82" end1="83" start2="75" end2="75" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="98" end1="99" start2="90" end2="90" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="109" end1="110" start2="100" end2="100" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="118" end1="119" start2="108" end2="108" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="120" end1="121" start2="109" end2="109" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-estoque-gerente.fxml">
-      <ranges>
-        <range start1="16" end1="17" start2="16" end2="16" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="19" end1="20" start2="18" end2="18" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="44" end1="45" start2="42" end2="42" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-crud-vendaveis.fxml">
-      <ranges>
-        <range start1="2" end1="3" start2="2" end2="2" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="18" end1="19" start2="17" end2="17" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="22" end1="29" start2="20" end2="20" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="32" end1="33" start2="23" end2="24" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="37" end1="38" start2="28" end2="28" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="40" end1="41" start2="30" end2="31" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="44" end1="47" start2="34" end2="36" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="49" end1="58" start2="38" end2="39" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="66" end1="67" start2="47" end2="48" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="74" end1="75" start2="55" end2="55" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="78" end1="79" start2="58" end2="58" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="81" end1="82" start2="60" end2="60" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="88" end1="92" start2="66" end2="69" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="98" end1="100" start2="75" end2="76" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="108" end1="109" start2="84" end2="84" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-crud-fornecedor.fxml">
-      <ranges>
-        <range start1="17" end1="19" start2="17" end2="17" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="21" end1="22" start2="19" end2="19" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="25" end1="26" start2="22" end2="22" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="30" end1="31" start2="26" end2="26" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="52" end1="54" start2="47" end2="47" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="60" end1="61" start2="53" end2="53" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="64" end1="65" start2="56" end2="56" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="66" end1="68" start2="57" end2="57" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="78" end1="79" start2="67" end2="67" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="82" end1="83" start2="70" end2="70" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="84" end1="86" start2="71" end2="71" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="92" end1="93" start2="77" end2="78" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="94" end1="96" start2="79" end2="79" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="98" end1="100" start2="81" end2="81" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="102" end1="104" start2="83" end2="83" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="105" end1="107" start2="84" end2="84" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="118" end1="119" start2="95" end2="95" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/BoaVistaStorage/src/main/resources/com/ibdev/view/tela-principal-gerente.fxml">
-      <ranges>
-        <range start1="16" end1="17" start2="16" end2="16" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="18" end1="19" start2="17" end2="17" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="21" end1="22" start2="19" end2="19" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="23" end1="24" start2="20" end2="23" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="27" end1="28" start2="26" end2="27" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="29" end1="30" start2="28" end2="29" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="34" end1="35" start2="33" end2="34" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="39" end1="47" start2="38" end2="40" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="52" end1="53" start2="45" end2="45" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="63" end1="64" start2="55" end2="55" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="69" end1="70" start2="60" end2="60" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="108" end1="109" start2="98" end2="98" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-        <range start1="111" end1="112" start2="100" end2="101" changelist="3d14bb90-2084-43c2-8f61-8472d412129f" />
-        <range start1="119" end1="120" start2="108" end2="108" changelist="1920aae3-5326-4354-ade7-09421335884f" />
-      </ranges>
-    </file>
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -290,7 +164,7 @@
       <workItem from="1750885196780" duration="9594000" />
       <workItem from="1750895177093" duration="5749000" />
       <workItem from="1751541683253" duration="6248000" />
-      <workItem from="1751566539215" duration="8932000" />
+      <workItem from="1751566539215" duration="9081000" />
     </task>
     <servers />
   </component>
