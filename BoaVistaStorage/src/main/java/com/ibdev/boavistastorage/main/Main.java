@@ -7,6 +7,7 @@ import com.ibdev.boavistastorage.main.SceneManager;
 import com.ibdev.boavistastorage.repository.GerenteRepository;
 import com.ibdev.boavistastorage.repository.InsumoRepository;
 import com.ibdev.boavistastorage.repository.VendavelRepository;
+import com.ibdev.boavistastorage.service.GerenteService;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import jakarta.persistence.EntityManager;
@@ -28,10 +29,7 @@ public class Main extends Application {
             e.printStackTrace();
             System.exit(1);
         }
-
         launch(args);
-
-
     }
 
     @Override

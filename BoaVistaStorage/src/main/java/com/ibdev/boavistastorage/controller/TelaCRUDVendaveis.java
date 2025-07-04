@@ -29,6 +29,9 @@ public class TelaCRUDVendaveis implements Initializable {
     private Label btnMenuCardapio;
 
     @FXML
+    private TextField txtQuantidade;
+
+    @FXML
     public Label btnAtendentes;
 
     @FXML
@@ -69,6 +72,9 @@ public class TelaCRUDVendaveis implements Initializable {
 
     @FXML
     private TableColumn<Vendavel, Double> colPrecoVenda;
+
+    @FXML
+    private TableColumn<Vendavel, Double> colQuantidade;
 
     @FXML
     private TableView<Vendavel> tabelaVendaveis;
@@ -112,6 +118,8 @@ public class TelaCRUDVendaveis implements Initializable {
         colNome.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNome()));
         colPrecoCusto.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getPrecoCusto()));
         colPrecoVenda.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getPrecoVenda()));
+        colQuantidade.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getQuantEstoque()));
+
     }
 
     private void carregarTabela() {
@@ -124,8 +132,10 @@ public class TelaCRUDVendaveis implements Initializable {
         String nome = txtNome.getText();
         double precoCusto = Double.parseDouble(txtPrecoCusto.getText());
         double precoVenda = Double.parseDouble(txtPrecoVenda.getText());
+        double quantEstoque = Double.parseDouble(txtQuantidade.getText());
 
-        Vendavel novoVendavel = new Vendavel(nome, precoCusto, precoVenda);
+
+        Vendavel novoVendavel = new Vendavel(nome, precoCusto, precoVenda, quantEstoque);
         vendavelService.salvarVendavel(novoVendavel);
         limparCampos();
         carregarTabela();
@@ -137,6 +147,7 @@ public class TelaCRUDVendaveis implements Initializable {
             vendavelSelecionado.setNome(txtNome.getText());
             vendavelSelecionado.setPrecoCusto(Double.parseDouble(txtPrecoCusto.getText()));
             vendavelSelecionado.setPrecoVenda(Double.parseDouble(txtPrecoVenda.getText()));
+            vendavelSelecionado.setQuantEstoque(Double.parseDouble(txtQuantidade.getText()));
             vendavelService.atualizarVendavel(vendavelSelecionado.getId(), vendavelSelecionado);
             limparCampos();
             tabelaVendaveis.refresh();
@@ -208,6 +219,7 @@ public class TelaCRUDVendaveis implements Initializable {
             txtNome.setText(vendavelSelecionado.getNome());
             txtPrecoCusto.setText(String.valueOf(vendavelSelecionado.getPrecoCusto()));
             txtPrecoVenda.setText(String.valueOf(vendavelSelecionado.getPrecoVenda()));
+            txtQuantidade.setText(String.valueOf(vendavelSelecionado.getQuantEstoque()));
         }
     }
 
