@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane prefHeight="1024" prefWidth="1440" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ibdev.boavistastorage.controller.TelaPrincipalGerente">
 
@@ -38,6 +39,14 @@
                         </Label>
                         <Label fx:id="btnMenuEstoque" style="-fx-font-size: 20;" text="📦 Estoque" textFill="#433f3e" />
                         <VBox spacing="6" style="-fx-padding:0 0 0 12;" />
+                  <Label fx:id="btnMenuCardapio" prefHeight="40.0" prefWidth="149.0" style="-fx-font-size: 20;" text="📋 Cardápio" textFill="#c74921">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
                     </children>
                 </VBox>
 

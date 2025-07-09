@@ -46,22 +46,25 @@ public class TelaCardapio implements Initializable {
     private HBox btnCardapio;
 
     @FXML
-    private HBox btnCliente;
-
-    @FXML
-    private HBox btnInicio;
+    private Label btnInsumos;
 
     @FXML
     private HBox btnLogout;
 
     @FXML
-    private HBox btnPedidos;
+    private Label btnMenuCardapio;
+
+    @FXML
+    private Label btnMenuEstoque;
+
+    @FXML
+    private Label btnMenuInicio;
 
     @FXML
     private Button btnRemoverItemCardapio;
 
     @FXML
-    private HBox btnVenda;
+    private Label btnVendaveis;
 
     @FXML
     private GridPane gridCardapio;
@@ -152,14 +155,34 @@ public class TelaCardapio implements Initializable {
     }
 
     public void configurarEventos() {
-        btnInicio.setOnMouseClicked(event -> {
-            SceneManager.mudarCenaMaximizada(
-                    "/com/ibdev/view/tela-principal-atendente.fxml", "Boa Vista Storage - Tela Principal", entityManager);
-        });
-
         btnLogout.setOnMouseClicked(event -> {
             SceneManager.mudarCenaMaximizada(
                     "/com/ibdev/view/tela-login.fxml", "Login - Boa Vista Storage", entityManager
+            );
+        });
+
+        btnMenuInicio.setOnMouseClicked(event -> {
+            SceneManager.mudarCenaMaximizada(
+                    "/com/ibdev/view/tela-principal-gerente.fxml", "Estoque - Boa Vista Storage", entityManager
+            );
+        });
+
+        btnMenuEstoque.setOnMouseClicked(event -> {
+            SceneManager.mudarCenaMaximizada(
+                    "/com/ibdev/view/tela-estoque-gerente.fxml", "Estoque - Boa Vista Storage", entityManager
+            );
+        });
+
+
+        btnInsumos.setOnMouseClicked(event -> {
+            SceneManager.mudarCenaMaximizada(
+                    "/com/ibdev/view/tela-crud-insumos.fxml", "Insumos - Boa Vista Storage", entityManager
+            );
+        });
+
+        btnVendaveis.setOnMouseClicked(event -> {
+            SceneManager.mudarCenaMaximizada(
+                    "/com/ibdev/view/tela-crud-vendaveis.fxml", "Vendaveis - Boa Vista Storage", entityManager
             );
         });
 
@@ -175,8 +198,8 @@ public class TelaCardapio implements Initializable {
 
                 TelaAdicionarProdutoCardapio controller = loader.getController();
                 controller.setEntityManager(entityManager);
-                controller.setCardapio(cardapio); // Passa a instância do Cardapio
-                controller.setTelaCardapioController(this); // Referência para este controller
+                controller.setCardapio(cardapio);
+                controller.setTelaCardapioController(this);
 
                 Stage stage = new Stage();
                 stage.initModality(Modality.APPLICATION_MODAL);
@@ -241,7 +264,7 @@ public class TelaCardapio implements Initializable {
             gridCardapio.getChildren().clear();
             Label noProductsLabel = new Label("Nenhum produto cadastrado no cardápio.");
             noProductsLabel.setStyle("-fx-font-size: 16px; -fx-text-fill: #666;");
-            gridCardapio.add(noProductsLabel, 0, 0, 4, 1); // Centraliza a mensagem
+            gridCardapio.add(noProductsLabel, 0, 0, 4, 1);
             return;
         }
 
@@ -271,12 +294,11 @@ public class TelaCardapio implements Initializable {
         vbox.setStyle("-fx-background-color:#ffffff; -fx-background-radius:8; -fx-padding:15;");
         vbox.setAlignment(javafx.geometry.Pos.TOP_LEFT);
 
-        // StackPane para a imagem (ou "Sem Imagem")
         StackPane stackPane = new StackPane();
         stackPane.setPrefSize(100, 100);
         stackPane.setStyle("-fx-background-color:#d9d9d9; -fx-background-radius:4;");
         Label imgLabel = new Label("Sem Imagem");
-        StackPane.setAlignment(imgLabel, Pos.CENTER); // Centraliza o texto "Sem Imagem"
+        StackPane.setAlignment(imgLabel, Pos.CENTER);
         stackPane.getChildren().add(imgLabel);
 
         Label nomeLabel = new Label(produto.getNome());
@@ -290,8 +312,8 @@ public class TelaCardapio implements Initializable {
             descricaoLabel = new Label("N/A");
         }
         descricaoLabel.setWrapText(true);
-        descricaoLabel.setMaxWidth(150); // Mantém uma largura máxima para quebra de texto
-        descricaoLabel.setStyle("-fx-font-size:11px; -fx-text-fill:#666;"); // Cor de texto mais suave
+        descricaoLabel.setMaxWidth(150);
+        descricaoLabel.setStyle("-fx-font-size:11px; -fx-text-fill:#666;");
 
         if (produto instanceof Produzido) {
             Label precoLabel = new Label(String.format("R$ %.2f", ((Produzido) produto).getPrecoVenda()));
@@ -308,7 +330,7 @@ public class TelaCardapio implements Initializable {
     }
 
     private void showAlert(Alert.AlertType type, String title, String message) {
-        Platform.runLater(() -> { // Garante que o alerta seja mostrado na thread JavaFX
+        Platform.runLater(() -> {
             Alert alert = new Alert(type);
             alert.setTitle(title);
             alert.setHeaderText(null);
@@ -317,7 +339,6 @@ public class TelaCardapio implements Initializable {
         });
     }
 
-    // Certifique-se de fechar o ExecutorService quando a aplicação parar
     public void closeExecutor() {
         if (executor != null && !executor.isShutdown()) {
             executor.shutdown();

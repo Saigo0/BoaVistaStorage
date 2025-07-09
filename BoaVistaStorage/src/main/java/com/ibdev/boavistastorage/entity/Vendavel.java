@@ -23,9 +23,10 @@ public class Vendavel extends Produto {
     public Vendavel() {
     }
 
-    public Vendavel(String nome, double precoCusto, double precoVenda) {
+    public Vendavel(String nome, double precoCusto, double precoVenda, double quantidade) {
         super(nome, precoCusto);
         this.setPrecoVenda(precoVenda);
+        this.quantEstoque = quantidade;
         this.fornecimentos = new ArrayList<Fornecimento>();
     }
 

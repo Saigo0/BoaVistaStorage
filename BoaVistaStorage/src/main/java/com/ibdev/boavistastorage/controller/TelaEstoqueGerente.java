@@ -35,6 +35,16 @@ import java.util.ResourceBundle;
 public class TelaEstoqueGerente implements Initializable {
 
     @FXML
+    private Label btnVendaveis;
+
+    @FXML
+    private Label btnInsumos;
+
+
+    @FXML
+    private Label btnMenuCardapio;
+
+    @FXML
     private Button btnAdicionar;
 
     @FXML
@@ -206,12 +216,30 @@ public class TelaEstoqueGerente implements Initializable {
 
     private void configurarEventos() {
 
+        btnMenuCardapio.setOnMouseClicked(event -> {
+            SceneManager.mudarCenaMaximizada(
+                    "/com/ibdev/view/tela-cardapio.fxml", "Cardápio - Boa Vista Storage", entityManager
+            );
+        });
+
         btnSair.setOnMouseClicked(event -> {
             SceneManager.mudarCenaMaximizada(
                     "/com/ibdev/view/tela-login.fxml", "Login - Boa Vista Storage", entityManager
             );
         });
 
+        btnInsumos.setOnMouseClicked(event -> {
+            SceneManager.mudarCenaMaximizada(
+                    "/com/ibdev/view/tela-crud-insumos.fxml", "Insumos - Boa Vista Storage", entityManager
+            );
+        });
+
+
+        btnVendaveis.setOnMouseClicked(event -> {
+            SceneManager.mudarCenaMaximizada(
+                    "/com/ibdev/view/tela-crud-vendaveis.fxml", "Vendaveis - Boa Vista Storage", entityManager
+            );
+        });
         btnMenuInicio.setOnMouseClicked(event -> {
             SceneManager.mudarCenaMaximizada(
                     "/com/ibdev/view/tela-principal-gerente.fxml", "Tela Principal Gerente", entityManager

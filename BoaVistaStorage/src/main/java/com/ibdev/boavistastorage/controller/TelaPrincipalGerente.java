@@ -31,6 +31,9 @@ public class TelaPrincipalGerente implements Initializable {
     public Label btnInsumos;
 
     @FXML
+    private Label btnMenuCardapio;
+
+    @FXML
     private Button btnIrParaEstoque;
 
     @FXML
@@ -185,6 +188,12 @@ public class TelaPrincipalGerente implements Initializable {
         btnSair.setOnMouseClicked(event -> {
             SceneManager.mudarCenaMaximizada(
                     "/com/ibdev/view/tela-login.fxml", "Login - Boa Vista Storage", entityManager
+            );
+        });
+
+        btnMenuCardapio.setOnMouseClicked(event -> {
+            SceneManager.mudarCenaMaximizada(
+                    "/com/ibdev/view/tela-cardapio.fxml", "Cardápio - Boa Vista Storage", entityManager
             );
         });
 
